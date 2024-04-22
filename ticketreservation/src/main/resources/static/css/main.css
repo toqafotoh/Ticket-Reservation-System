@@ -1,0 +1,20 @@
+:root {
+    --background-color: #fafafa;
+    --text-color: #484b6a;
+    --primary-color: #9394a5; 
+    --secondary-color: #d2d3db;
+    --third--color:#e4e5f1;
+
+    /* اسامي المتغيرات ممكن تتغير  */
+}
+
+
+:root.dark{
+
+    --background-color: #fafafa;
+    --text-color: #484b6a;
+    --primary-color: #9394a5; 
+    --secondary-color: #d2d3db;
+    --third--color:#e4e5f1;
+}
+
