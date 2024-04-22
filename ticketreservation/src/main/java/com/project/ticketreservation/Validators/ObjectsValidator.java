@@ -3,11 +3,7 @@ package com.project.ticketreservation.Validators;
 import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
-
-import com.project.ticketreservation.Models.TestValidation;
-
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.ValidatorFactory;
