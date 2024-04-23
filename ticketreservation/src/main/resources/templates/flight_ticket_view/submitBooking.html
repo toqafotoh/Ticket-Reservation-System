@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Submit flight booking</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<button onclick="changeColor()">Dark mode</button>
+				<!-- <div style="background-color: rgb(255, 255, 255); width: 900px; height: 120px; margin-left: 140px; border-radius: 7px;">
+					<div style=" display: flex;">
+                     <div style="background-color: rgb(116, 170, 221);  width: 160px; height: 50px;margin-left: 90px; margin-top: 30px; border-radius: 7px; ">
+                       <span class="label">Source</span>
+					 </div>
+                     <div style="background-color: rgb(116, 170, 221);  width: 160px; height: 50px;margin-left: 30px; margin-top: 30px; border-radius: 7px;">
+					    <span class="label">Destination</span> 
+					 </div> 
+                     <div style="background-color: rgb(116, 170, 221);  width: 160px; height: 50px; margin-left: 30px; margin-top: 30px; border-radius: 7px;">
+						<span class="label">Depart</span>
+					 </div> 
+                     <div style="background-color: rgb(116, 170, 221);  width: 160px; height: 50px; margin-left: 30px; margin-top: 30px; border-radius: 7px;">
+					    <span class="label">Check out</span>
+					 </div> 
+					</div> 
+				</div> -->
+              <div style="display: flex;">
+				<div class="transform-color" style=" width: 650px; height: 390px; margin-left: -60px; margin-top: 100px; border-radius: 7px;">
+					<div style="margin-left: 45px;">
+						<h1 style="font-family:'Times New Roman', Times, serif; color: rgb(53, 114, 199); font-size: 40px;">Flight details</h1>
+					  <div style="margin-top: 13px;">
+						<span class="from">Flight Type:</span>
+						<span class="from">Round trip</span>
+					  </div>			
+					  <div style="margin-top: 13px;">
+						<span class="from-b">Cairo</span>
+						<img src="img/airplane2.png" style="width: 50px; height: 30px;">
+						<span class="from-b" >Dubai</span>
+					  </div>
+					  <div style="margin-top: 13px;">
+						<span class="from">Departing:</span>
+						<span class="from-c" style="color: #5088b4">14/5/2024</span>
+					  </div>
+					  <div style="margin-top: 13px;">
+						<span class="from">Returning:</span>
+						<span class="from-c" style="color:  #5088b4">24/5/2024</span>
+					  </div>
+					  <div style="margin-top: 13px;">
+						<span class="from">Tickets:</span>
+						<span class="from-c" style="color:  #5088b4">3</span>
+					  </div>
+					  <div style="margin-top: 13px;">
+						<span class="from">Travel class:</span>
+						<span class="from">Economy</span>
+					  </div>	
+					</div>
+				</div>
+				<div class="row">
+					<!-- <div class="col-md-4">
+						<div class="booking-cta">
+							<h1>Book your flight today</h1>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p>
+						</div>
+					</div> -->
+					<div class="col-md-7 col-md-offset-1" style="width: 360px; margin-top: 100px; margin-left: 100px;">
+						<div class="booking-form transform-color">
+							<form>
+								<div class="row">
+									<div class="col-md-6 transform-color" width="300">
+										<div class="form-group transform-color">
+											<span class="form-label transform-color">National Id</span>
+											<input class="form-control input-tranform transform-color inputt" type="text" placeholder="national id" required>
+										</div>
+									</div>
+								</div>		
+								<div class="row">
+									<div class="col-md-6 transform-color">
+										<div class="form-group transform-color">
+											<span class="form-label transform-color">First Name</span>
+											<input class="form-control transform-color inputt" type="text" placeholder="first name" required>
+										</div>
+									</div>
+									<div class="col-md-6 transform-color">
+										<div class="form-group transform-color">
+											<span class="form-label transform-color">Last Name</span>
+											<input class="form-control transform-color inputt" placeholder="last name " required>
+										</div>		
+									</div>
+								</div>
+								<div class="form-btn">
+									<button class="submit-btn">Submit Booking</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			 </div>
+			</div>	
+		</div>
+	</div>
+
+
+	<script>
+
+		function changeColor(){
+			var elements1 = document.getElementsByClassName('from');
+			var elements2 = document.getElementsByClassName('from-b');
+			var elements3 = document.getElementsByClassName('inputt');
+
+            changeBackgroundColor(elements1);
+			changeBackgroundColor(elements2);
+			changeBackgroundColor(elements3);
+
+
+			var elements4 = document.getElementsByClassName('transform-color');
+
+			// Loop through each element and change its background color
+			for (var i = 0; i < elements4.length; i++) {
+                // Check current background color
+                if (elements4[i].style.backgroundColor === 'white') {
+                    // If background color is black, change it to white
+                    elements4[i].style.backgroundColor = 'black';
+                } else {
+                    // If background color is white, change it to black
+                    elements4[i].style.backgroundColor = 'white';
+                }
+            }
+		}
+		// Function to change background color of elements with class 'change-bg'
+		function changeBackgroundColor(element) {
+	
+			// Loop through each element and change its text color to white
+			// Loop through each element and change its background color
+			for (var i = 0; i < element.length; i++) {
+                // Check current background color
+                if (element[i].style.color === 'black') {
+                    // If background color is black, change it to white
+                    element[i].style.color = 'white';
+                } else {
+                    // If background color is white, change it to black
+                    element[i].style.color = 'black';
+                }
+            }
+		}
+	</script>
+	
+</body>
+
+</html>
+
+<style>
+
+.label{
+	font-size: large;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 25px !important;
+	margin-left: 20px;
+}
+.from-b
+{
+	font-size: 40px;
+	font-family:'Times New Roman', Times, serif;
+	margin-top: 20px;
+}
+.from-c {
+	font-size: 20px;
+	font-family:'Times New Roman', Times, serif;
+	margin-top: 20px;
+}
+.from{
+	font-size: 17px;
+}
+.from , .from-b , .inputt{
+	color: rgb(0, 0, 0);
+}
+
+.transform-color{
+	background-color: rgb(255, 255, 255);
+}
+
+
+</style>
