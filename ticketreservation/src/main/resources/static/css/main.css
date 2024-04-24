@@ -1,20 +1,17 @@
 :root {
-    --background-color: #fafafa;
-    --text-color: #484b6a;
-    --primary-color: #9394a5; 
-    --secondary-color: #d2d3db;
-    --third--color:#e4e5f1;
-
-    /* اسامي المتغيرات ممكن تتغير  */
+    --background-color: #ffffff;
+    --background-secondary--color:#e0e0de;
+    --text-color: #0b0b0b;
+    --text-secondary-color: #eff0f1;
+    --primary-color: #139dba; 
 }
 
 
 :root.dark{
-
-    --background-color: #fafafa;
-    --text-color: #484b6a;
-    --primary-color: #9394a5; 
-    --secondary-color: #d2d3db;
-    --third--color:#e4e5f1;
+    --background-color: #1e1e1e;
+    --background-secondary--color:#000000;
+    --text-color: #ffffff;
+    --text-secondary-color: #eecf00;
+    --primary-color: #495056; 
 }
 
