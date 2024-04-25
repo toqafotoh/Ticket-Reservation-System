@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Submit flight booking</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="../../static/css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="../../static/css/style.css" />
 </head>
 
 <body>
@@ -34,17 +34,16 @@
 					</div> 
 				</div> -->
               <div style="display: flex;">
-				fetch
-				<div class="transform-color" style=" width: 650px; height: 390px; margin-left: -60px; margin-top: 100px; border-radius: 7px;">
-					<div style="margin-left: 45px;">
+				<div class="transform-color" style=" width: 650px; margin-left: 60px; margin-top: 100px; border-radius: 7px;">
+					<div style="margin-left: 45px; margin-top: 25px;">
 						<h1 style="font-family:'Times New Roman', Times, serif; color: rgb(53, 114, 199); font-size: 40px;">Flight details</h1>
-					  <div style="margin-top: 13px;">
+					  <div>
 						<span class="from">Flight Type:</span>
 						<span class="from">Round trip</span>
 					  </div>			
 					  <div style="margin-top: 13px;">
 						<span class="from-b">Cairo</span>
-						<img src="img/airplane2.png" style="width: 50px; height: 30px;">
+						<img src="../../static/images/flights/airplane2.png" style="width: 50px; height: 40px;">
 						<span class="from-b" >Dubai</span>
 					  </div>
 					  <div style="margin-top: 13px;">
@@ -73,10 +72,10 @@
 						</div>
 					</div> -->
 					<div class="col-md-7 col-md-offset-1" style="width: 360px; margin-top: 100px; margin-left: 100px;">
-						<div class="booking-form transform-color">
+						<div class="booking-form transform-color" style="height: 390px;" >
 							<form>
 								<div class="row">
-									<div class="col-md-6 transform-color" width="300">
+									<div style="flex: 0 0 auto; width: 100%" class="transform-color">
 										<div class="form-group transform-color">
 											<span class="form-label transform-color">National Id</span>
 											<input class="form-control input-tranform transform-color inputt" type="text" placeholder="national id" required>
@@ -84,13 +83,13 @@
 									</div>
 								</div>		
 								<div class="row">
-									<div class="col-md-6 transform-color">
+									<div style="flex: 0 0 auto; width: 100%" class="transform-color">
 										<div class="form-group transform-color">
 											<span class="form-label transform-color">First Name</span>
 											<input class="form-control transform-color inputt" type="text" placeholder="first name" required>
 										</div>
 									</div>
-									<div class="col-md-6 transform-color">
+									<div style="flex: 0 0 auto; width: 100%" class="transform-color">
 										<div class="form-group transform-color">
 											<span class="form-label transform-color">Last Name</span>
 											<input class="form-control transform-color inputt" placeholder="last name " required>
@@ -187,6 +186,5 @@
 .transform-color{
 	background-color: rgb(255, 255, 255);
 }
-
 
 </style>
