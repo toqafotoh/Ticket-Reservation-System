@@ -1,6 +1,8 @@
 CREATE DATABASE TicketReservation;
 USE TicketReservation;
 drop database TicketReservation;
+
+show tables
 CREATE TABLE `Account` (
     `name` VARCHAR(50),
     nationality VARCHAR(50),
@@ -9,7 +11,8 @@ CREATE TABLE `Account` (
     Gender ENUM('male', 'female') NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     hashed_password CHAR(64),
-    `Role` ENUM('admin', 'passenger', 'flatOwner')
+    `Role` ENUM('admin', 'passenger', 'flatOwner'),
+    account_image varchar(50)
 );
 
 CREATE TABLE Passenger (
@@ -32,20 +35,30 @@ create table Flats(
     capacity int,
     price double,
     flatOwnerId char(25),
-    foreign key (flatOwnerId) REFERENCES flatOwner (flatOwnerId)
+    foreign key (flatOwnerId) REFERENCES flatOwner (flatOwnerId),
+	flat_image varchar(50)
 );
 
 create table Flight(
-	flight_code varchar(10) primary key,
+	flight_number varchar(10) primary key,
     class ENUM ('A','B','C','D'),
     origin varchar (20),
 	destination varchar (50),
-	flight_time date,
+	flight_start_time datetime,
     available_seats int,
-    duration int,
+    flight_end_time datetime,
     airline varchar(50),
-    price double
+    price double,
+	flight_image varchar(50),
+	flight_type enum('rt','ow')
 );
+
+create table round_trip_flight(
+	flight_number varchar(10),
+    foreign key (flight_number) references Flight(flight_number),
+    return_date datetime
+)
+
 
 create table Entertainment(
 		entertainment_tour_id int primary key auto_increment,
@@ -55,13 +68,13 @@ create table Entertainment(
         `destination` varchar (50)
 );
 
-create table `Logs`(
-	setDate Date,
-    adminId char(25),
-    flight_code varchar(10),
-    foreign key (adminId) references Account(national_id),
-    foreign key (flight_code) references flight(flight_code)
-);
+-- create table `Logs`(
+-- 	setDate Date,
+--     adminId char(25),
+--     flight_code varchar(10),
+--     foreign key (adminId) references Account(national_id),
+--     foreign key (flight_code) references flight(flight_code)
+-- );
 
 create table Ticket(
     paymentId int ,
@@ -81,8 +94,8 @@ create table FlightTicket(
     foreign key (flight_ticket_id) references Ticket(ticket_id),
 	QRCode varchar(50),
     Seat varchar(50),
-	flight_code varchar(10),
-    foreign key (flight_code) references Flight(flight_code)
+	flight_number varchar(10),
+    foreign key (flight_number) references Flight(flight_number)
 );
 
 create table TicketOwner(
