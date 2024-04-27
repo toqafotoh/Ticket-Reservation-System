@@ -19,7 +19,7 @@ public class FlatService {
         return flatRepository.findAll();
     }
 
-    public Flat getFlatById(String id){
+    public Flat getFlatById(Long id){
         return flatRepository.findById(id).orElse(null);
     }
 
@@ -30,14 +30,12 @@ public class FlatService {
         flat.setCountry_name(flatDto.getCountry_name());
         flat.setDescription(flatDto.getDescription());
         flat.setPrice(flatDto.getPrice());
-        if(flatDto.getImage() != null){
-            flat.setImage(flatDto.getImage().getBytes());
-        }
+
         return flatRepository.save(flat);
 
     }
 
-    public Flat updateFlat(String id, FlatsDto flatDto) {
+    public Flat updateFlat(Long id, FlatsDto flatDto) {
         Flat flat = flatRepository.findById(id).orElse(null);
         if (flat != null) {
             flat.setAddress(flatDto.getAddress());
@@ -45,19 +43,19 @@ public class FlatService {
             flat.setCountry_name(flatDto.getCountry_name());
             flat.setDescription(flatDto.getDescription());
             flat.setPrice(flatDto.getPrice());
-            if(flatDto.getImage() != null){
-                try {
-                    flat.setImage(flatDto.getImage().getBytes());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            // if(flatDto.getImage() != null){
+            //     try {
+            //         flat.setImage(flatDto.getImage().getBytes());
+            //     } catch (Exception e) {
+            //         e.printStackTrace();
+            //     }
+            // }
             return flatRepository.save(flat);
         }
         return null;
     }
 
-    public boolean deleteFlat(String id) {
+    public boolean deleteFlat(Long id) {
         if (flatRepository.existsById(id)) {
             flatRepository.deleteById(id);
             return true;

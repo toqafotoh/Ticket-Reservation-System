@@ -35,7 +35,7 @@ public class FlatsController {
     }
 
     @GetMapping("flats/{id}")
-    public Flat getFlat(@PathVariable String id) {
+    public Flat getFlat(@PathVariable Long id) {
         return flatService.getFlatById(id);
     }
 
@@ -46,7 +46,7 @@ public class FlatsController {
     }
 
     @PutMapping("flats/{id}")
-    public ResponseEntity<Flat> updateFlat(@PathVariable String id, @RequestBody FlatsDto flatDto) {
+    public ResponseEntity<Flat> updateFlat(@PathVariable Long id, @RequestBody FlatsDto flatDto) throws IOException {
         Flat updatedFlat = flatService.updateFlat(id, flatDto);
         if (updatedFlat != null) {
             return new ResponseEntity<>(updatedFlat, HttpStatus.OK);
@@ -55,8 +55,8 @@ public class FlatsController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteFlat(@PathVariable String id) {
+    @DeleteMapping("flats/{id}")
+    public ResponseEntity<Void> deleteFlat(@PathVariable Long id) {
         boolean deleted = flatService.deleteFlat(id);
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

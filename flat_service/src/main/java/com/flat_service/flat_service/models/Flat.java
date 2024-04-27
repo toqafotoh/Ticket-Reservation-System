@@ -1,6 +1,5 @@
 package com.flat_service.flat_service.models;
 
-import org.attoparser.dom.Text;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,12 +15,12 @@ import lombok.Data;
 public class Flat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String flat_id;
+    private Long flat_id;
     private String address;
-    private Text description;
+    private String description;
     private String country_name;
     private String capacity;
     private double price;
-    @Lob
-    private byte[] image;
+    // @Lob
+    // private byte[] image;
 }
