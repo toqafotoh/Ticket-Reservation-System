@@ -14,14 +14,11 @@ import com.flat_service.flat_service.services.FlatService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
-
-
 
 @RestController
 public class FlatsController {
@@ -30,7 +27,7 @@ public class FlatsController {
     private FlatService flatService;
 
     @GetMapping("flats")
-    public List<Flat> getAllFlats(){
+    public List<Flat> getAllFlats() {
         return flatService.getAllFlats();
     }
 
@@ -40,7 +37,7 @@ public class FlatsController {
     }
 
     @PostMapping("flats")
-    public ResponseEntity<Flat> addFlat(@RequestBody FlatsDto flat) throws IOException {
+    public ResponseEntity<Flat> addFlat(@ModelAttribute FlatsDto flat) throws IOException {
         Flat savedFlat = flatService.addFlat(flat);
         return new ResponseEntity<>(savedFlat, HttpStatus.CREATED);
     }
@@ -64,10 +61,5 @@ public class FlatsController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    
-    
 
-    
-    
-    
 }
