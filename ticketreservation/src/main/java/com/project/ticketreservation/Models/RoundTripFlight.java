@@ -12,16 +12,9 @@ import lombok.AllArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoundTripFlight {
-    @Id
-    @Column(name = "returning_flight_number", length = 10)
-    private String flightNumber;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "oneway_flight_number",referencedColumnName = "flight_number")
-    private Flight flight;
-    @Column(name = "flight_start_time")
-    private LocalDateTime flightStartTime;
-    @Column(name = "flight_end_time")
-    private LocalDateTime flightEndTime;
+public class RoundTripFlight extends Flight {
+    @Column(name = "return_flight_start_time")
+    private LocalDateTime returnFlightStartTime;
+    @Column(name = "return_flight_end_time")
+    private LocalDateTime returnFlightEndTime;
 }

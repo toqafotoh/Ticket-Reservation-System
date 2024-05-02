@@ -21,6 +21,4 @@ public class Entertainment {
     private LocalDateTime time;
     private Double price;
     private String destination;
-    @OneToMany(mappedBy = "entertainment")
-    private Set<EntertainmentTicket> tickets;
 }

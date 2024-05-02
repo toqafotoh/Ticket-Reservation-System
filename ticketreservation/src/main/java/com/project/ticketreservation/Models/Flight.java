@@ -14,6 +14,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Flight {
     public enum FlightClass {
         A, B, C, D
@@ -48,7 +49,5 @@ public class Flight {
     private String airline;
     private Double price;
     private String flightImage;
-    @OneToMany(mappedBy = "flight")
-    private Set<FlightTicket> tickets;
 }
 
