@@ -4,14 +4,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Add Entertainment</title>
+        <title>View FeedBack</title>
         <link rel="stylesheet" href="../../static/css/BootStrapStyle.css" />
         <script src="https://kit.fontawesome.com/408f1a0133.js" crossorigin="anonymous"></script>
-        <!-- Bootstrap CSS Time and Date-->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <!-- End Date -->
-        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
         <link rel="stylesheet" href="../../static/css/styleAdmin.css" />
+        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     </head>
 
     <body class="light-theme">
@@ -27,13 +24,15 @@
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
-                        <a href="./Profile.html" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./Profile.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <i class="lni lni-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="./index.html" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./index.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <i class="lni lni-users"></i>
                             <span>Users</span>
                         </a>
@@ -49,16 +48,19 @@
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
                                 <a href="./AddFlight.html"
-                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Add Flight</a>
+                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Add
+                                    Flight</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="./Flights.html"
-                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">View Flights</a>
+                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">View
+                                    Flights</a>
                             </li>
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                        <a href="./Entertainments.html" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./Entertainments.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <!-- <i class="lni lni-users"></i> -->
                             <i class="lni lni-friendly"></i>
                             <span>Entertainment</span>
@@ -66,13 +68,15 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a href="./Feedback.html" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./Feedback.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <i class="lni lni-popup"></i>
                             <span>FeedBack</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="./payment.html" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./payment.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <!-- <i class="lni lni-cog"></i> -->
                             <i class="lni lni-postcard"></i>
                             <span>Payment</span>
@@ -116,74 +120,47 @@
                 <!-- start Content -->
                 <main class="content px-3 py-2">
                     <div class="container-fluid">
-                        <div class="mb-5">
+                        <div class="mb-3">
                             <h4>Admin Dashboard</h4>
                         </div>
-                        <div class="row mt-5">
-
-                            <div class="card col-12">
+                        <a href="./Feedback.html" class="btn btn-primary mb-3">Back</a>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    Feedback
+                                </div>
                                 <div class="card-body">
-                                    <form class="row g-3 needs-validation" id="InfAdmin">
-                                        <div class="col-md-6">
-                                            <label for="validationCustom01" class="form-label">Entertainment
-                                                ID</label>
-                                            <input type="text" class="form-control" id="validationCustom01" required>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name"
+                                                placeholder="Enter your name" readonly>
                                         </div>
-
-                                        <div class="col-md-6">
-                                            <label for="validationCustom02" class="form-label">Description</label>
-                                            <input type="text" class="form-control" id="validationCustom02" required>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" id="email"
+                                                placeholder="Enter your email" readonly>
                                         </div>
-
-                                        <div class="col-md-3">
-                                            <label for="dateInput" class="form-label">Date</label>
-                                            <input type="date" class="form-control" id="dateInput" name="dateInput">
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <label for="time" class="form-label">Time</label>
-                                            <div class="input-group date">
-                                                <input type="time" id="time" class="form-control"
-                                                    placeholder="Select time" aria-label="Time"
-                                                    aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <label for="validationAge" class="form-label">Price</label>
-                                            <input type="text" class="form-control" id="validationAge" required>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <label for="validationAge" class="form-label">Destination</label>
-                                            <input type="text" class="form-control" id="validationAge" required>
-                                        </div>
-
-                                        <!-- start handle with code -->
-                                        <div class="col-md-6 mt-5 d-grid gap-2">
-                                            <button class="btn btn-primary" type="submit" value="Submit"
-                                                form="InfAdmin">Publish Entertainment</button>
-                                        </div>
-                                        <!-- end handle with code -->
-                                        <div class="col-md-6 mt-5 d-grid gap-2">
-                                            <a href="./Entertainments.html" class="btn btn-secondary">Back</a>
+                                        <div class="form-group">
+                                            <label for="message">Message</label>
+                                            <textarea class="form-control" id="message" rows="3"
+                                                placeholder="Enter your message" readonly
+                                                style="height: 350px;"></textarea>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </main>
 
-                <!-- end Content -->
             </div>
+            </main>
+
+            <!-- start Content -->
+        </div>
         </div>
         <script src="../../static/js/script.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
-        <!-- Bootstrap JS and jQuery (optional, for dropdown functionality) for Date and Time-->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 
 </html>

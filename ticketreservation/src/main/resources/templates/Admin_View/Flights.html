@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BootStrap for Dashboard</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+        <title>Flights</title>
+        <link rel="stylesheet" href="../../static/css/BootStrapStyle.css" />
         <script src="https://kit.fontawesome.com/408f1a0133.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../../static/css/styleAdmin.css" />
         <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     </head>
 
-    <body>
+    <body class="light-theme">
         <div class="wrapper">
             <aside id="sidebar">
                 <div class="d-flex">
@@ -19,81 +19,67 @@
                         <i class="lni lni-grid-alt"></i>
                     </button>
                     <div class="sidebar-logo">
-                        <a href="#" class="link-underline link-underline-opacity-0">Ticket</a>
+                        <a href="./index.html" class="link-underline link-underline-opacity-0">Ticket</a>
                     </div>
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./Profile.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <i class="lni lni-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
-                            <i class="lni lni-agenda"></i>
-                            <span>Task</span>
+                        <a href="./index.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                            <i class="lni lni-users"></i>
+                            <span>Users</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#"
+                        <a href="./Flights.html"
                             class="sidebar-link collapsed has-dropdown link-offset-2 link-underline link-underline-opacity-0"
                             data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="lni lni-protection"></i>
-                            <span>Auth</span>
+                            <!-- <i class="lni lni-protection"></i> -->
+                            <i class="lni lni-plane"></i>
+                            <span>Flights</span>
                         </a>
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#"
-                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Login</a>
+                                <a href="./AddFlight.html"
+                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Add
+                                    Flight</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#"
-                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Register</a>
+                                <a href="./Flights.html"
+                                    class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">View
+                                    Flights</a>
                             </li>
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#"
-                            class="sidebar-link collapsed has-dropdown link-offset-2 link-underline link-underline-opacity-0"
-                            data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false"
-                            aria-controls="multi">
-                            <i class="lni lni-layout"></i>
-                            <span>Multi Level</span>
+                        <a href="./Entertainments.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                            <!-- <i class="lni lni-users"></i> -->
+                            <i class="lni lni-friendly"></i>
+                            <span>Entertainment</span>
                         </a>
-                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#"
-                                    class="sidebar-link collapsed link-offset-2 link-underline link-underline-opacity-0"
-                                    data-bs-toggle="collapse" data-bs-target="#multi-two" aria-expanded="false"
-                                    aria-controls="multi-two">
-                                    Two Links
-                                </a>
-                                <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a href="#"
-                                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Link
-                                            1</a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="#"
-                                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">Link
-                                            2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
+
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="./Feedback.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <i class="lni lni-popup"></i>
-                            <span>Notification</span>
+                            <span>FeedBack</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
-                            <i class="lni lni-cog"></i>
-                            <span>Setting</span>
+                        <a href="./payment.html"
+                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                            <!-- <i class="lni lni-cog"></i> -->
+                            <i class="lni lni-postcard"></i>
+                            <span>Payment</span>
                         </a>
                     </li>
                 </ul>
@@ -121,11 +107,10 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                    <img src="image/profile.jpg" class="avatar img-fluid rounded" alt="">
+                                    <img src="../../static/images/admin/profile.jpg" class="avatar img-fluid rounded" alt="">
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Setting</a></li>
                                     <li><a class="dropdown-item" href="#">Logout</a></li>
                                 </ul>
                             </li>
@@ -146,7 +131,7 @@
                                 <div class="card-body">
                                     <form class="row g-3 needs-validation" id="InfAdmin">
                                         <div class="col-md-6">
-                                            <label for="validationCustom01" class="form-label">Flight Code</label>
+                                            <label for="validationCustom01" class="form-label">Flight Number</label>
                                             <input type="text" class="form-control" id="validationCustom01" required>
                                         </div>
 
@@ -165,6 +150,11 @@
                                             <input type="date" class="form-control" id="dateInput" name="dateInput">
                                         </div>
 
+                                        <div class="col-md-3" id="return-date-container" style="display: none;">
+                                            <label for="return-date" class="form-label">Return Date</label>
+                                            <input type="date" id="return-date" class="form-control" name="dateInput">
+                                        </div>
+
                                         <div class="col-md-3">
                                             <label for="time" class="form-label">Time</label>
                                             <div class="input-group date">
@@ -175,8 +165,8 @@
                                         </div>
 
                                         <div class="col-md-3">
-                                            <label for="validationAge" class="form-label">Duration</label>
-                                            <input type="text" class="form-control" id="validationAge" required>
+                                            <label for="Price" class="form-label">Price</label>
+                                            <input type="text" class="form-control" id="Price" required>
                                         </div>
 
                                         <div class="col-md-3">
@@ -184,13 +174,43 @@
                                             <input type="text" class="form-control" id="validationNationalId" required>
                                         </div>
 
-                                        <div class="col-md-3 d-grid gap-2" style="margin-top: 45px;">
-                                            <button class="btn btn-primary" type="submit" value="Submit"
-                                                form="InfAdmin">Confirm</button>
+                                        <!-- Example single danger button -->
+                                        <div class="col-md-3">
+                                            <label for="trip-type" class="form-label">Flight Type</label>
+                                            <select class="form-control custom-select" id="trip-type">
+                                                <option value="one-way">One Way</option>
+                                                <option value="round-trip">Round Trip</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-3 d-grid gap-2" style="margin-top: 45px;">
-                                            <button class="btn btn-danger" type="submit" value="Submit"
-                                                form="InfAdmin">Cancel</button>
+
+                                        <div class="col-md-3">
+                                            <label for="Flight Class" class="form-label">Flight Class</label>
+                                            <select class="form-control custom-select" id="Flight Class">
+                                                <option value="Business">Business</option>
+                                                <option value="Economy">Economy</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="airline" class="form-label">Airline</label>
+                                            <select class="form-control custom-select" id="airline">
+                                                <option value="Airline 1">Airline 1</option>
+                                                <option value="Airline 2">Airline 2</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-mb-3">
+                                            <input type="file" class="form-control" aria-label="file example" required>
+                                        </div>
+
+                                        <!-- start handle with code -->
+                                        <div class="col-md-3 mt-5 d-grid gap-2">
+                                            <button class="btn btn-primary" type="submit" value="Submit"
+                                                form="InfAdmin">Publish Flight</button>
+                                        </div>
+                                        <!-- end handle with code -->
+                                        <div class="col-md-3 mt-5 d-grid gap-2">
+                                            <a href="./Flights.html" class="btn btn-secondary">Back</a>
                                         </div>
                                     </form>
                                 </div>
@@ -205,13 +225,18 @@
                                         <table class="table">
                                             <thead class="table-dark">
                                                 <tr style="text-align: center;">
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Flight Code</th>
+                                                    <!-- <th scope="col">#</th> -->
+                                                    <th scope="col">Flight Number</th>
                                                     <th scope="col">Origin</th>
                                                     <th scope="col">Destination</th>
+                                                    <th scope="col">Flight Type</th>
                                                     <th scope="col">Date</th>
+                                                    <th scope="col">Return Date</th>
                                                     <th scope="col">Time</th>
-                                                    <th scope="col">Duration</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">Flight Class</th>
+                                                    <th scope="col">Airline</th>
+                                                    <th scope="col">Image</th>
                                                     <th scope="col">Available Seats</th>
                                                     <th scope="col">Handle</th>
                                                     <th scope="col">Handle</th>
@@ -223,6 +248,10 @@
                                                     <th scope="row">1</th>
                                                     <td>Mark</td>
                                                     <td>Otto</td>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
@@ -241,6 +270,10 @@
                                                     <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
                                                     <td>Owner</td>
                                                     <td><button type="button" class="btn btn-outline-info">Edit</button>
                                                     </td>
@@ -251,6 +284,10 @@
                                                     <th scope="row">3</th>
                                                     <td>Larry the Bird</td>
                                                     <td>Larry the Bird</td>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
+                                                    <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
                                                     <th scope="col">bedo@gmail.com</th>
@@ -274,14 +311,10 @@
             </main>
 
             <!-- start Content -->
-            <a href="#" class="theme-toggle">
-                <i class="fa-regular fa-moon"></i>
-                <i class="fa-regular fa-sun"></i>
-            </a>
         </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="../../static/js/script.js"></script>
+        <script src="../../static/js/BootStarpScript.js"></script>
     </body>
 
 </html>
