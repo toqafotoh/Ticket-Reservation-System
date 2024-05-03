@@ -17,7 +17,7 @@ import java.util.Set;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Flight {
     public enum FlightClass {
-        A, B, C, D
+        Business,Economy
     }
 
     public enum FlightType {
@@ -30,7 +30,7 @@ public class Flight {
     @Column(name = "flight_type")
     @Enumerated(EnumType.STRING)
     private FlightType flightType;
-    @Column(name = "class", length = 1)
+    @Column(name = "class", length =20)
     @Enumerated(EnumType.STRING)
     private FlightClass flightClass;
     @Column(name = "origin", length = 20)

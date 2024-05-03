@@ -1,7 +1,9 @@
 package com.project.ticketreservation.Services;
 
+import com.project.ticketreservation.Models.Flat;
 import com.project.ticketreservation.Models.FlatOwner;
 import com.project.ticketreservation.Repositories.FlatOwnerRepository;
+import com.project.ticketreservation.Repositories.FlatRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ public class FlatOwnerService {
 
     @Autowired
     private FlatOwnerRepository flatOwnerRepository;
+    @Autowired
+    private FlatRepository flatRepository;
 
     public List<FlatOwner> getAllOwners() {
         return flatOwnerRepository.findAll();
@@ -37,5 +41,13 @@ public class FlatOwnerService {
         } else {
             return false;
         }
+    }
+    public FlatOwner getFlatOwnerByFlatId(Integer flatId){
+        Flat flat = flatRepository.findById(flatId)
+                .orElseThrow(() -> new EntityNotFoundException("Flat not found with ID: " + flatId));
+
+        String ownerId = flat.getFlatOwnerId();
+        return flatOwnerRepository.findById(ownerId)
+                .orElseThrow(() -> new EntityNotFoundException("Owner not found with ID: " + ownerId));
     }
 }
