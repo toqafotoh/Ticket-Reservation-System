@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="stylesheet" href="../static/css/BootStrapStyle.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../static/js/BootStarpScript.js"></script>
+</head>
+
+<body>
+    <div class="container-xl px-4 mt-4">
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center">
+                        <img class="img-account-profile rounded-circle mb-2"
+                            src="http://bootdey.com/img/Content/avatar/avatar1.png" alt>
+                        <div class="small font-italic text-muted mb-4"></div>
+                        <button class="btn btn-primary" type="button" id="editProfileBtn">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+                        <table id="accountDetailsTable" class="table table-striped">
+                            <tr>
+                                <th>Name</th>
+                                <td id="name"></td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td id="email"></td>
+                            </tr>
+                            <tr>
+                                <th>National ID</th>
+                                <td id="nid"></td>
+                            </tr>
+                            <tr>
+                                <th>Nationality</th>
+                                <td id="nationality"></td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td id="gender"></td>
+                            </tr>
+                            <tr>
+                                <th>Birth of Date</th>
+                                <td id="birthdate"></td>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <td id="role"></td>
+                            </tr>
+                            <tr>
+                                <th>Loyality Points</th>
+                                <td id="loyal"></td>
+                            </tr>
+                        </table>
+
+                        <form id="accountDetailsForm" style="display: none;">
+
+
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputname">Name</label>
+                                <input class="form-control" id="inputname" type="text" placeholder="Enter your name">
+                            </div>
+
+                            <div class="row gx-3 mb-3">
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputemail">Email</label>
+                                    <input class="form-control" id="inputemail" type="email"
+                                        placeholder="Enter your E-mail">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputNID">National Id</label>
+                                    <input class="form-control" id="inputNID" type="text"
+                                        placeholder="Enter your National ID">
+                                </div>
+                            </div>
+
+                            <div class="row gx-3 mb-3">
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputNationality">Nationality</label>
+                                    <input class="form-control" id="inputNationality" type="text"
+                                        placeholder=" Enter Nationality">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputgender">Gender</label>
+                                    <input class="form-control" id="inputgender" readonly>
+                                </div>
+                            </div>
+
+                            <div class="row gx-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="dateInput" class="small mb-1">BirthOfDate</label>
+                                    <input type="date" class="form-control" id="dateInput" name="dateInput">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputrole">Role</label>
+                                    <input class="form-control" id="inputrole" readonly>
+                                </div>
+                            </div>
+
+                            <div class="row gx-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="dateInput" class="small mb-1">Old Password</label>
+                                    <input type="password" class="form-control" id="passInput" name="passInput"
+                                        placeholder="Enter your Old password">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputnewpass">New password</label>
+                                    <input class="form-control" id="inputnewpass" type="password"
+                                        placeholder="Enter your New Password">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="small mb-1" for="upimage">Upload image</label>
+                                <input type="file" class="form-control" aria-label="file example" required>
+                            </div>
+
+                            <button class="btn btn-primary" type="button">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE FOR PASSENGER -->
+            <div class="col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-header" style="text-align: center;">Ticket History</div>
+                    <div class="card-body">
+                        <table id="TicketDetailsTable" class="table table-striped">
+                            <tr>
+                                <th>Flight Code</th>
+                                <th>Payment ID</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Seat</th>
+                                <th>QR Code</th>
+                                <th>Ticket Status</th>
+                            </tr>
+                            <tr>
+                                <td id="name">John Doe</td>
+                                <td id="email">john.doe@example.com</td>
+                                <td id="nid">123456789</td>
+                                <td id="nationality">American</td>
+                                <td id="gender">Male</td>
+                                <td id="birthdate">1985-05-15</td>
+                                <td id="role">Manager</td>
+                            </tr>
+                            <tr>
+                                <td id="name">Jane Smith</td>
+                                <td id="email">jane.smith@example.com</td>
+                                <td id="nid">987654321</td>
+                                <td id="nationality">British</td>
+                                <td id="gender">Female</td>
+                                <td id="birthdate">1990-09-20</td>
+                                <td id="role">Sales Representative</td>
+                            </tr>
+                            <tr>
+                                <td id="name">Michael Johnson</td>
+                                <td id="email">michael.johnson@example.com</td>
+                                <td id="nid">456789123</td>
+                                <td id="nationality">Canadian</td>
+                                <td id="gender">Male</td>
+                                <td id="birthdate">1978-03-12</td>
+                                <td id="role">IT Specialist</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Populate the table with sample data
+            $('#name').text('John Doe');
+            $('#email').text('johndoe@example.com');
+            $('#nid').text('1234567890');
+            $('#nationality').text('USA');
+            $('#gender').text('Male');
+            $('#birthdate').text('1990-01-01');
+            $('#role').text('Owner');
+            $('#loyal').text('1000');
+
+            // Show/hide the table and form on button click
+            let isFormVisible = false;
+            $('#editProfileBtn').click(function () {
+                $('#accountDetailsTable').toggle(!isFormVisible);
+                $('#accountDetailsForm').toggle(isFormVisible);
+                isFormVisible = !isFormVisible;
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../static/js/BootStarpScript.js"></script>
+</body>
+
+</html>
