@@ -17,7 +17,10 @@ public class Ticket {
     @Column(name = "ticket_id")
     private Integer ticketId;
     private Double price;
-
+    @Column(name = "payment_id")
+    private Integer paymentId;
+    @Column(name = "passenger_id")
+    private String passengerId;
     @ManyToOne
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;

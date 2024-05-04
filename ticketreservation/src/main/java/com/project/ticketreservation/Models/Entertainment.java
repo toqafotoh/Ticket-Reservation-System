@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -24,5 +25,5 @@ public class Entertainment {
     private String destination;
     @JsonIgnoreProperties("entertainment")
     @OneToMany(mappedBy = "entertainment",cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.REMOVE}, orphanRemoval = true)
-    private Set<EntertainmentTicket> tickets;
+    private Collection<EntertainmentTicket> tickets;
 }
