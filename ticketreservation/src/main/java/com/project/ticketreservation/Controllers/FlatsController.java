@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ticketreservation.Models.Flat;
 import com.project.ticketreservation.Services.FlatService;
+import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatsDto;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,12 +30,12 @@ public class FlatsController {
     private FlatService flatService;
 
     @GetMapping("/flats")
-    public List<Flat> getAllFlats() {
+    public List<FlatDtoRespone> getAllFlats() {
         return flatService.getAllFlats();
     }
 
     @GetMapping("/flats/{id}")
-    public Flat getFlat(@PathVariable Integer id) {
+    public FlatDtoRespone getFlat(@PathVariable Integer id) {
         return flatService.getFlatById(id);
     }
 
@@ -45,9 +47,9 @@ public class FlatsController {
 
     @PutMapping("/flats/{id}")
     public ResponseEntity<Flat> updateFlat(@PathVariable Integer id, @RequestBody FlatsDto flatDto) throws IOException {
-        Flat updatedFlat = flatService.updateFlat(id, flatDto);
+        FlatDtoRespone updatedFlat = flatService.updateFlat(id, flatDto);
         if (updatedFlat != null) {
-            return new ResponseEntity<>(updatedFlat, HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
