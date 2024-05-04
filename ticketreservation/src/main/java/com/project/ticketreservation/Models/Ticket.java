@@ -22,9 +22,9 @@ public class Ticket {
     @Column(name = "passenger_id")
     private String passengerId;
     @ManyToOne
-    @JoinColumn(name = "passenger_id")
+    @JoinColumn(name = "passenger_id",insertable=false, updatable=false)
     private Passenger passenger;
     @ManyToOne
-    @JoinColumn(name = "payment_id")
+    @JoinColumn(name = "payment_id",insertable=false, updatable=false)
     private Payment payment;
 }
