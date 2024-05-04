@@ -4,6 +4,7 @@ import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.*;
 import com.project.ticketreservation.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class AdminController {
     @Autowired
     private AccountService accountService;
     @Autowired
-    FeedbackService feedbackService;
+    private FeedbackService feedbackService;
     @Autowired
     private PaymentService paymentService;
     @Autowired
@@ -142,6 +143,36 @@ public class AdminController {
     @PutMapping("/profile/{id}")
     public Account updateProfile(@PathVariable String id, @RequestBody Account account) {
         return accountService.updateAccount(id, account);
+    }
+    @GetMapping("/flights/count")
+    public long countFlights() {
+        return flightService.countFlights();
+    }
+    @GetMapping("/payments/total")
+    public double sumTotalPayments() {
+        return paymentService.sumTotalPayments();
+    }
+    @GetMapping("/feedback/count")
+    public long countFeedback() {
+        return feedbackService.countFeedbacks();
+    }
+    @GetMapping("/users")
+    public List<Account> getAllUsers(){
+        return accountService.getAllUsers();
+    }
+    @PutMapping("/accounts/{id}")
+    public ResponseEntity<Account> updateAccount(@PathVariable("id") String oldAccountId, @RequestBody Account newAccountData) {
+        Account updatedAccount = accountService.updateAccount(oldAccountId, newAccountData);
+        return ResponseEntity.ok().body(updatedAccount);
+    }
+    @GetMapping("/accounts/{id}")
+    public ResponseEntity<Account> getAccountById(@PathVariable("id") String accountId) {
+        Account account = accountService.getAccountById(accountId);
+        return ResponseEntity.ok().body(account);
+    }
+    @DeleteMapping("/users/delete/{id}")
+    public boolean deleteAccount(@PathVariable String id){
+        return accountService.deleteAccount(id);
     }
 
 }

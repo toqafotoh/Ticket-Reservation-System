@@ -129,47 +129,41 @@
 
                             <div class="card col-12">
                                 <div class="card-body">
-                                    <form class="row g-3 needs-validation" id="InfAdmin">
+                                    <form class="row g-3 needs-validation" id="InfAdmin" onsubmit="updateAccount(event)">
                                         <div class="col-md-6">
-                                            <label for="validationCustom01" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="validationCustom01" required>
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="name" required>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="validationCustom02" class="form-label">National ID</label>
-                                            <input type="text" class="form-control" id="validationCustom02" required>
+                                            <label for="nationalId" class="form-label">National ID</label>
+                                            <input type="text" class="form-control" id="nationalId" required>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="validationState" class="form-label">Nationality</label>
-                                            <input type="text" class="form-control" id="validationState" required>
+                                            <label for="nationality" class="form-label">Nationality</label>
+                                            <input type="text" class="form-control" id="nationality" required>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="validationCity" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="validationCity" required>
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required>
                                         </div>
 
                                         <div class="col-md-3">
-                                            <label for="validationAge" class="form-label">Age</label>
-                                            <input type="text" class="form-control" id="validationAge" required>
+                                            <label for="age" class="form-label">Age</label>
+                                            <input type="text" class="form-control" id="age" required>
                                         </div>
 
                                         <div class="col-md-3 position-relative">
-                                            <label for="validationTooltip04" class="form-label">Gender</label>
-                                            <select class="form-select" id="validationTooltip04" required>
-                                                <option>Male</option>
-                                                <option>Female</option>
+                                            <label for="gender" class="form-label">Gender</label>
+                                            <select class="form-select" id="gender" required>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
                                             </select>
                                         </div>
-
-                                        <div class="col-mb-3">
-                                            <input type="file" class="form-control" aria-label="file example" required>
-
-                                        </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit" value="Submit"
-                                                form="InfAdmin">Update Profile</button>
+                                            <button class="btn btn-primary" type="submit" form="InfAdmin">Update Profile</button>
                                         </div>
                                     </form>
                                 </div>
@@ -182,8 +176,9 @@
             </div>
         </div>
         <script src="../../static/js/script.js"></script>
+        <script src="../../static/js/adminProfile.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
-        <!-- Bootstrap JS and jQuery (optional, for dropdown functionality) for Date and Time-->
+        <!-- Bootstrap JS and jQuery (optional, for dropdown functionality) for Date and Time--
     </body>
 
 </html>

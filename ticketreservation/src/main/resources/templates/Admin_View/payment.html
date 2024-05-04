@@ -155,29 +155,7 @@
         </div>
         <script src="../../static/js/script.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
-        <script>
-         document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost:8081/payments")
-        .then(response => response.json())
-        .then(data => {
-            const tableBody = document.getElementById("payment-table-body");
-            tableBody.innerHTML = "";
-
-            data.forEach(payment => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${payment.paymentId}</td>
-                    <td>${payment.passengerId}</td>
-                    <td>${payment.totalAmount}</td>
-                    <td>${new Date(payment.transactionDate).toLocaleString()}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        })
-        .catch(error => console.error("Error fetching payments:", error));
-});
-
-        </script>
+        <script src="../../static/js/viewPayments.js"></script>
     </body>
 
 </html>

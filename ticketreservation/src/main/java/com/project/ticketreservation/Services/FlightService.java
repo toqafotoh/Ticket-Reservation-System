@@ -92,5 +92,9 @@ public class FlightService {
         }
         return validFlights;
     }
+    public long countFlights() {
+        return flightRepository.count();
+    }
+
 
 }
