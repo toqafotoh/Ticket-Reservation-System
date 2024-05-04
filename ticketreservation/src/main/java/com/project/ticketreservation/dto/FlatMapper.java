@@ -1,17 +1,10 @@
-// package com.project.ticketreservation.dto;
-
-// import org.mapstruct.Mapper;
-
-// import com.project.ticketreservation.Models.Flat;
+package com.project.ticketreservation.dto;
+import com.project.ticketreservation.Models.Flat;
 
 
-// @Mapper(componentModel = "spring")
-// public interface FlatMapper {
+public interface FlatMapper {
+    FlatDtoRespone toFlatDTORespone(Flat flat);
+    Flat ToEntity(FlatsDto dto);
+    Flat ChangeFlat(Flat flat, FlatsDto dto);
 
-//     Flat toEntity(FlatsDto flatDto);
-
-// }
-
-
-
-// to be used to less code of inserting 
+}

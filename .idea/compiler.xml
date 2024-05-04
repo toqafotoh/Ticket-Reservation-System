@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ticketreservation" />
       </profile>
-      <profile name="Annotation profile for flat_service" enabled="true">
+      <profile name="Annotation profile for ticketreservation" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
