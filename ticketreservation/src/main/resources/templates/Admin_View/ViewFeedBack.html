@@ -161,6 +161,21 @@
         </div>
         <script src="../../static/js/script.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const feedbackId = urlParams.get("id");
+
+            fetch(`http://localhost:8081/admin/feedbacks/${feedbackId}`)
+                .then(response => response.json())
+                .then(feedback => {
+                    document.getElementById("name").value = feedback.passenger.name;
+                    document.getElementById("email").value = feedback.passenger.email;
+                    document.getElementById("message").value = feedback.content;
+                })
+                .catch(error => console.error("Error fetching feedback:", error));
+        });
+    </script>
     </body>
 
 </html>

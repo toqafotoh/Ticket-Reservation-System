@@ -27,4 +27,7 @@ public class FeedbackService {
         }
         return feedbackRepository.save(feedback);
     }
+    public long countFeedbacks() {
+        return feedbackRepository.count();
+    }
 }

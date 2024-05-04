@@ -1,5 +1,6 @@
 package com.project.ticketreservation.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -49,5 +51,8 @@ public class Flight {
     private String airline;
     private Double price;
     private String flightImage;
+    @JsonIgnoreProperties("flight")
+    @OneToMany(mappedBy = "flight",cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.REMOVE}, orphanRemoval = true)
+    private Collection<FlightTicket> tickets;
 }
 

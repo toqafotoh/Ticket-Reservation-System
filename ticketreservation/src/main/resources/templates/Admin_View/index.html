@@ -30,12 +30,23 @@
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
-                        <a href="./Profile.html"
-                            class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
+                        <a href="#" id="profileLink"
+                           class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
                             <i class="lni lni-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
+
+                    <script>
+    document.getElementById('profileLink').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const nationalId = prompt('Please enter your national ID:');
+        if (nationalId) {
+            window.location.href = `./Profile.html?nationalId=${nationalId}`;
+        }
+    });
+</script>
                     <li class="sidebar-item">
                         <a href="./index.html"
                             class="sidebar-link link-offset-2 link-underline link-underline-opacity-0">
@@ -146,7 +157,7 @@
 
                             <div class="card">
                                 <div>
-                                    <div class="numbers">80</div>
+                                    <div class="numbers"  id="flights"></div>
                                     <div class="cardName">Flights</div>
                                 </div>
 
@@ -157,7 +168,7 @@
 
                             <div class="card">
                                 <div>
-                                    <div class="numbers">284</div>
+                                    <div class="numbers" id="feedback"></div>
                                     <div class="cardName">FeedBack</div>
                                 </div>
 
@@ -168,7 +179,7 @@
 
                             <div class="card">
                                 <div>
-                                    <div class="numbers">$7,842</div>
+                                    <div class="numbers" id="earning"></div>
                                     <div class="cardName">Earning</div>
                                 </div>
 
@@ -189,50 +200,10 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Role</th>
                                     <th scope="col" style="padding-left: 27px;">Handle</th>
-                                    <th scope="col" style="padding-left: 27px;">Handle</th>
 
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td>Passenger</td>
-                                    <td><button type="button" class="btn btn-outline-success"
-                                            style="border-radius: 25px" style=" margin: 0 auto;">Accept</button></td>
-                                    <td><button type="button" class="btn btn-outline-danger"
-                                            style="border-radius: 25px">Delete</button></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td>Owner</td>
-                                    <td><button type="button" class="btn btn-outline-success"
-                                            style="border-radius: 25px">Accept</button></td>
-                                    <td><button type="button" class="btn btn-outline-danger"
-                                            style="border-radius: 25px">Delete</button></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">3</td>
-                                    <td>Larry the Bird</td>
-                                    <td>Larry the Bird</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td scope="col">bedo@gmail.com</td>
-                                    <td>Owner</td>
-                                    <td><button type="button" class="btn btn-outline-success"
-                                            style="border-radius: 25px">Accept</button></td>
-                                    <td><button type="button" class="btn btn-outline-danger"
-                                            style="border-radius: 25px">Delete</button></td>
-                                </tr>
+                            <tbody id="users">
                             </tbody>
                         </table>
 
@@ -244,6 +215,7 @@
         </div>
         <script src="../../static/js/script.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
+        <script src="../../static/js/adminDashboard.js"></script>
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
