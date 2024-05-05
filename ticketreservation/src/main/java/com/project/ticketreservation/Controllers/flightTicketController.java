@@ -6,8 +6,8 @@ import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Services.FlightService;
-import com.project.ticketreservation.Services.TicketService;
 import com.project.ticketreservation.Services.FlightTicketService;
+import com.project.ticketreservation.Services.TicketService;
 import com.project.ticketreservation.paypal.PaypalController;
 
 import lombok.RequiredArgsConstructor;
@@ -16,16 +16,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/ticket")
-public class flightTicketController {
+public class FlightTicketController {
     @Autowired
     private  FlightTicketService fservice ;
 
