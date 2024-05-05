@@ -18,7 +18,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 
-public class flightTicketService {
+public class FlightTicketService {
 
     @Autowired
     private  FlightTicketRepository Repo ;

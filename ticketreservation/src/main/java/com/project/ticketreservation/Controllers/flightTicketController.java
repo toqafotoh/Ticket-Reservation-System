@@ -6,11 +6,11 @@ import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Services.FlightService;
+import com.project.ticketreservation.Services.FlightTicketService;
 import com.project.ticketreservation.Services.TicketService;
 import com.project.ticketreservation.paypal.PaypalController;
 
 
-import com.project.ticketreservation.Services.flightTicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +23,9 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/ticket")
-public class flightTicketController {
+public class FlightTicketController {
     @Autowired
-    private  flightTicketService fservice ;
+    private  FlightTicketService fservice ;
 
     @Autowired
     private FlightService fs;
