@@ -3,7 +3,7 @@ $(document).ready(function() {
     // Function to fetch all flight details from the backend API
     function fetchAllFlights() {
         $.ajax({                       //TO TEST
-            url: "http://localhost:8080/admin/flights", // Endpoint to fetch all flights
+            url: "http://localhost:8080/flights", // Endpoint to fetch all flights
             type: "GET",
             dataType: "json",
             success: function(data) {

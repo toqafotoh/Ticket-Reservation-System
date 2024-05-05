@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
@@ -12,6 +13,7 @@ import com.project.ticketreservation.Repositories.FlightRepository;
 import com.project.ticketreservation.Repositories.FlightTicketRepository;
 import com.project.ticketreservation.Repositories.TicketReopsitory;
 
+@Service
 public class FlightTicketServ {
     @Autowired
     private  FlightTicketRepository Repo ;

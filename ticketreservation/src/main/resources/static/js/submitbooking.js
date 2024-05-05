@@ -57,7 +57,7 @@ var dest1;
         // Check if the flight number is present in the URL
         if (flightNumber) {
             $.ajax({
-                url: "http://localhost:8080/admin/flights/" + flightNumber,
+                url: "http://localhost:8080/flights/" + flightNumber,
                 type: "GET",
                 dataType: "json",
                 success: function(data) {

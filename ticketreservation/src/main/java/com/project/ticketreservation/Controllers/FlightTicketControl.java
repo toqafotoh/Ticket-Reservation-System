@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.google.zxing.WriterException;
 import com.project.ticketreservation.Models.Flight;
@@ -23,6 +24,11 @@ import com.project.ticketreservation.Services.TicketService;
 import com.project.ticketreservation.paypal.PaypalController;
 import com.project.ticketreservation.utils.TicketQRcodeGenerator;
 
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/ticket")
 public class FlightTicketControl {
         @Autowired
         private  FlightTicketServ fservice ;
