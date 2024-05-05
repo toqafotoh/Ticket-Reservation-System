@@ -1,6 +1,5 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Repositories.FlightRepository;
@@ -18,13 +17,12 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 
-public class FlightTicketService {
+public class flightTicketService {
 
     @Autowired
     private  FlightTicketRepository Repo ;
+
     @Autowired
-
-
     private FlightTicketRepository flightTicketRepository;
 
     private FlightRepository fr;
@@ -36,6 +34,7 @@ public class FlightTicketService {
         return Repo.findAll();
     }
 
+'
     public boolean addFlightTicket(FlightTicket t){
         Repo.save(t);
         return true;
@@ -46,12 +45,11 @@ public class FlightTicketService {
         fr.save(f);
     }
 
-
     public List<FlightTicket> getPassengerFlightTickets(String passengerId){
         List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
         return tickets;
     }
- 
+
 
 
     public FlightTicket getTicket(String nid){
