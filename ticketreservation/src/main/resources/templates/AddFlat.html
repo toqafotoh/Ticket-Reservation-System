@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AddFlat</title>
+    <link rel="stylesheet" href="../static/css/BootStrapStyle.css" />
+    <script src="https://kit.fontawesome.com/408f1a0133.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/styleAdmin.css" />
+    <!-- Bootstrap CSS Time and Date-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <!-- End Date -->
+</head>
+
+<body>
+    <main class="content px-3 py-2">
+        <div class="container-fluid">
+            <div class="mb-5">
+                <h4>Manage Flats</h4>
+            </div>
+            <div class="row mt-5">
+
+                <div class="card col-12">
+                    <div class="card-body">
+                        <form class="row g-3 needs-validation" id="InfAdmin">
+                            <div class="col-md-6">
+                                <label for="validationCustom01" class="form-label">flat Id</label>
+                                <input type="text" class="form-control" id="validationCustom01" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="validationCustom02" class="form-label">address</label>
+                                <input type="text" class="form-control" id="validationCustom02" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="validationState" class="form-label">flat Description</label>
+                                <input type="text" class="form-control" id="validationState" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="dateInput" class="form-label">country Name</label>
+                                <input type="text" class="form-control" id="textInput" name="Input">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="dateInput" class="form-label">capacity</label>
+                                <input type="text" class="form-control" id="textInput" name="Input">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="dateInput" class="form-label">price</label>
+                                <input type="text" class="form-control" id="textInput" name="Input">
+                            </div>
+
+
+
+                            <div class="col-mb-3">
+                                <label>Upload Image</label>
+                                <input type="file" class="form-control" aria-label="file example" required>
+                            </div>
+
+                            <!-- start handle with code -->
+                            <div class="col-md-3 mt-5 d-grid gap-2">
+                                <button class="btn btn-primary" type="submit" value="Submit" form="InfAdmin">Publish
+                                    Flat</button>
+                            </div>
+                            <!-- end handle with code -->
+                            <div class="col-md-3 mt-5 d-grid gap-2">
+                                <a href="./profile_user.html" class="btn btn-secondary">Back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
