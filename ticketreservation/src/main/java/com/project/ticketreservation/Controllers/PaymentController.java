@@ -1,6 +1,6 @@
 package com.project.ticketreservation.Controllers;
 
-import com.project.ticketreservation.Models.Payment;
+import com.project.ticketreservation.Models.PaymentModel;
 import com.project.ticketreservation.Services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
     @PostMapping("/pay")
-    public Payment createPayment(Payment payment){
+    public PaymentModel createPayment(PaymentModel payment){
         return paymentService.createPayment(payment);
     }
     @GetMapping("/payments/total")
@@ -24,7 +24,7 @@ public class PaymentController {
         return paymentService.sumTotalPayments();
     }
     @GetMapping("/payments")
-    public List<Payment> getAllPayments() {
+    public List<PaymentModel> getAllPayments() {
         return paymentService.getAllPayments();
     }
 

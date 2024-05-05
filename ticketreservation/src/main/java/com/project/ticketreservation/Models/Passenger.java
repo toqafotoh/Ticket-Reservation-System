@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Collection;
-import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -21,7 +21,7 @@ public class Passenger extends Account {
     private Collection<Ticket> tickets;
     @JsonIgnoreProperties("passenger")
     @OneToMany(mappedBy = "passenger",cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.REMOVE}, orphanRemoval = true)
-    private Collection<Payment> payments;
+    private Collection<PaymentModel> payments;
     @JsonIgnoreProperties("passenger")
     @OneToMany(fetch=FetchType.EAGER, mappedBy="passenger", orphanRemoval = true, cascade = { CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.REMOVE})
     private Collection<Feedback> feedbacks;

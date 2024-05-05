@@ -1,6 +1,5 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Payment;
 import com.project.ticketreservation.Models.PaymentModel;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Repositories.FlightTicketRepository;
@@ -23,13 +22,13 @@ public class PaymentService {
     @Autowired
     public TicketReopsitory tr ;
 
-    public List<Payment> getAllPayments() {
+    public List<PaymentModel> getAllPayments() {
         return paymentRepository.findAll();
     }
 
 
     public String createPaymmentDB(PaymentModel model){
-        payrepo.save(model);
+        paymentRepository.save(model);
         return"done";
     }
 
@@ -48,23 +47,16 @@ public class PaymentService {
         return "Tickets updated with payment ID successfully";
     }
 
-    public List<PaymentModel> getAllPayments() {
-        return payrepo.findAll();
-    }
-
-    public List<Payment> getAllPayments() {
-        return paymentRepository.findAll();
-    }
     public double sumTotalPayments() {
-        List<Payment> payments = paymentRepository.findAll();
+        List<PaymentModel> payments = paymentRepository.findAll();
         double sum = 0.0;
-        for (Payment payment : payments) {
+        for (PaymentModel payment : payments) {
             sum += payment.getTotalAmount();
         }
         return sum;
     }
-    public Payment createPayment(Payment payment) {
-        String passengerId = payment.getPassengerId();
+    public PaymentModel createPayment(PaymentModel payment) {
+        String passengerId = payment.getPassenger().getNationalId();
         if (!passengerRepository.existsById(passengerId)) {
             throw new EntityNotFoundException("Passenger with ID " + passengerId + " not found");
         }
@@ -72,6 +64,3 @@ public class PaymentService {
     }
 }
 
-
-
-}

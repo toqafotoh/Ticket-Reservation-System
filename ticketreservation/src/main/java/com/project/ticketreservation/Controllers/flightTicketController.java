@@ -7,7 +7,7 @@ import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Services.FlightService;
 import com.project.ticketreservation.Services.TicketService;
-import com.project.ticketreservation.Services.flightTicketService;
+import com.project.ticketreservation.Services.FlightTicketService;
 import com.project.ticketreservation.paypal.PaypalController;
 
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,7 @@ import java.util.Map;
 @RequestMapping("/ticket")
 public class flightTicketController {
     @Autowired
-    private  flightTicketService fservice ;
+    private  FlightTicketService fservice ;
 
     @Autowired
     private FlightService fs;

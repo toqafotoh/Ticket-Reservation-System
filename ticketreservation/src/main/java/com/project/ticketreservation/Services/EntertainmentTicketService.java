@@ -27,7 +27,7 @@ public class EntertainmentTicketService {
                 .orElseThrow(() -> new RuntimeException("Entertainment not found"));
         Passenger passenger = passengerRepository.findById(entertainmentTicket.getPassengerId())
                 .orElseThrow(() -> new RuntimeException("Passenger not found"));
-        Payment payment = paymentRepository.findById(entertainmentTicket.getPaymentId())
+        PaymentModel payment = paymentRepository.findById(entertainmentTicket.getPaymentId())
                 .orElseThrow(() -> new RuntimeException("Payment not found"));
     }
     public EntertainmentTicket createEntertainmentTicket(EntertainmentTicket entertainmentTicket) {
