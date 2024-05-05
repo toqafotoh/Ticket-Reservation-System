@@ -19,13 +19,39 @@ import java.util.Optional;
 @RequiredArgsConstructor
 
 public class flightTicketService {
+
     @Autowired
     private  FlightTicketRepository Repo ;
     @Autowired
+
+    @Autowired
+    private  FlightTicketRepository Repo ;
+    private FlightTicketRepository flightTicketRepository;
+
     private FlightRepository fr;
     @Autowired
     private TicketReopsitory tr ;
 
+
+    public List<FlightTicket> getTickets(){
+        return Repo.findAll();
+    }
+
+    public boolean addFlightTicket(FlightTicket t){
+        Repo.save(t);
+        return true;
+    }
+
+    public void addFlight(Flight f)
+    {
+        fr.save(f);
+    }
+
+
+    public List<FlightTicket> getPassengerFlightTickets(String passengerId){
+        List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
+        return tickets;
+    }
     public List<FlightTicket> getTickets(){
         return Repo.findAll();
     }
