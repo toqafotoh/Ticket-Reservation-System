@@ -1,5 +1,6 @@
 package com.project.ticketreservation.services;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -73,5 +74,11 @@ public class AccountService implements UserDetailsService {
     public UserDetails loadUserByUsername(String nationalId) throws UsernameNotFoundException {
         return accountRepository.findByNationalId(nationalId)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+
+    public Account save(Account newAccount) {
+        newAccount.setCreatedAt(LocalDateTime.now());
+        newAccount.setUpdatedAt(LocalDateTime.now());
+        return accountRepository.save(newAccount);
     }
 }
