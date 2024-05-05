@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Models;
+package com.project.ticketreservation.Models.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -27,8 +27,7 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "payment_id",insertable=false, updatable=false)
     private Payment payment;
-
-
+    private PaymentModel payment;
 public Ticket(Double price)
     {
         this.price = null ;

@@ -21,11 +21,15 @@ import java.util.Optional;
 public class flightTicketService {
     @Autowired
     private  FlightTicketRepository Repo ;
-    @Autowired
+    private FlightTicketRepository flightTicketRepository;
     private FlightRepository fr;
     @Autowired
     private TicketReopsitory tr ;
 
+    public List<FlightTicket> getPassengerFlightTickets(String passengerId){
+        List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
+        return tickets;
+    }
     public List<FlightTicket> getTickets(){
         return Repo.findAll();
     }
@@ -39,7 +43,6 @@ public class flightTicketService {
     {
         fr.save(f);
     }
-
 
     public FlightTicket getTicket(String nid){
         Optional<FlightTicket> result =  Repo.findByNationalID(nid);
