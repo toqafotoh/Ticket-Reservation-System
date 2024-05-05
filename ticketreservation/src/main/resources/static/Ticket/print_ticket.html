@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Ticket</title>
+</head>
+<body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+  
+
+  <div class="result" id="result">
+    <!-- Image will appear here -->
+  </div>
+  <!-- the image converted to jpg will save here--> 
+  <a id="downloadLink" style="display: none;"></a> 
+   <div id="all">
+    <div class="ticket" id="removedticket" style="background-color: #0088ff">
+        <!-- <span class="airline">Lufthansa</span> -->
+        <!-- <span class="airline airlineslip">Lufthansa</span> -->
+        <div class="content">
+        <span class="jfk origint"></span>
+        <span class="plane"><?xml version="1.0" ?><svg style="margin-left: 35PX;" clip-rule="evenodd" fill-rule="evenodd" height="60" width="60" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390"/><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10"/></g></svg></span>
+        <span class="sfo destt"></span>
+        
+        <span class="jfk jfkslip origin2"></span>
+        <span class="plane planeslip"><?xml version="1.0" ?>
+        <svg clip-rule="evenodd" fill-rule="evenodd" height="50" width="50" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390"/><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10"/></g></svg></span>
+        <span class="sfo sfoslip dest2"></span>
+        <div class="sub-content">
+            <span class="watermark">Lufthansa</span>
+            <span class="name">PASSENGER NAME<br><span class="firstName"></span></span>
+            <span class="flight">FLIGHT N&deg;<br><span  class="flightCode"></span></span>
+            <span class="gate">GATE<br><span>11B</span></span>
+            <span class="seat">SEAT<br><span  class="seatNO"></span></span>
+            <span class="boardingtime">BOARDING TIME<br><span>8:25PM ON AUGUST 2013</span></span>
+                
+            <span class="flight flightslip">FLIGHT N&deg;<br><span class="flightCode_2"></span></span>
+            <span class="seat seatslip">SEAT<br><span  class="seatNo_2"></span></span>
+            <div class="qrcode" style="height: 150px; width: 150px; margin-left: 660px; margin-top: -60px;">
+              <!--<img   alt="QR ticket code" style="height: 150px; width: 150px; margin-left: 660px; margin-top: -60px;">-->
+            </div>
+              <span class="name nameslip">PASSENGER NAME<br><span  class="firstName_2"></span></span>
+        </div>
+        </div>
+    </div>
+   </div> 
+
+    <!--<button id="printB" class="buttoon" onclick="areaPrint()">Print Ticket</button>-->
+
+    
+</body>
+</html>
+
+ <script>
+
+
+  $(document).ready(function() {
+    function getTicket() {
+        $.ajax({
+            url: "http://localhost:8080/ticket/paymentTickets",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                var $template = $('.ticket'); // Cache the template element
+                
+                $.each(data, function(index, ticket) {
+                    var $clonedTicket = $template.clone(); // Clone the template
+                    // Update the content of the cloned ticket with data from the 'ticket' object
+                    $clonedTicket.find('.firstName').text(ticket.firstName);
+                    $clonedTicket.find('.origint').text(ticket.origin);
+                    $clonedTicket.find('.destt').text(ticket.dest);
+                    $clonedTicket.find('.seatNO').text(ticket.seat);
+                    $clonedTicket.find('.flightCode').text(ticket.flightNumber);
+                    $clonedTicket.find('.seatNo_2').text(ticket.seat);
+                    $clonedTicket.find('.firstName_2').text(ticket.firstName);
+                    $clonedTicket.find('.flightCode_2').text(ticket.flightNumber);
+                    $clonedTicket.find('.origin2').text(ticket.origin);
+                    $clonedTicket.find('.dest2').text(ticket.dest);
+                    
+                    // Create a new image element and set the src attribute using AJAX data
+                    var img = $('<img>').attr('src', 'http://localhost:8080/images/TicketsQRcode/'+ticket.firstName+ticket.nationalID+'-TicketQRCODE.png'); // Assuming 'data.imageUrl' contains the URL retrieved via AJAX
+                    $clonedTicket.find('.qrcode').append(img);
+                    console.log(data);
+
+                    // Append the cloned ticket to the DOM
+                    $('#all').append($clonedTicket);
+                });
+                $('#removedticket').remove();
+            },
+            error: function() {
+                console.log('Error fetching flight details');
+            }
+        });
+    }
+    getTicket();
+});
+
+
+</script>
+    
+
+<style>
+  @media print {
+    button {
+    visibility: hidden;
+    }
+  
+  /* Adjust the background color for the print area */
+   .ticket {
+    background-color: #0088ff !important; /* Use !important to ensure it overrides any other styles */
+  }
+}
+
+    img
+    {
+      width:150px ;
+      height:150px;
+    }
+    .download{
+    width: 150px;
+    height: auto;
+    margin-left: 30px;
+    margin-top: 200px;
+    }  
+    
+    .ticket{
+    width: 840px;
+    height: 250px;
+    background: #0088ff;
+    border-radius: 3px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    
+    }
+
+    /* .ticket:after{
+    content: '';
+    position: absolute;
+    right:1090px;
+    top: 10px;
+    width: 2px;
+    height: 250px;
+    box-shadow: inset 0 0 0 #0088ff,
+      inset 0 -10px 0 #0088ff,
+      inset 0 -20px 0 #0088ff,
+      inset 0 -30px 0 #0088ff,
+      inset 0 -40px 0 #0088ff,
+      inset 0 -50px 0 #999999,
+      inset 0 -60px 0 #E5E5E5,
+      inset 0 -70px 0 #999999,
+      inset 0 -80px 0 #E5E5E5,
+      inset 0 -90px 0 #999999,
+      inset 0 -100px 0 #E5E5E5,
+      inset 0 -110px 0 #999999,
+      inset 0 -120px 0 #E5E5E5,
+      inset 0 -130px 0 #999999,
+      inset 0 -140px 0 #E5E5E5,
+      inset 0 -150px 0 #B0B0B0,
+      inset 0 -160px 0 #EEEEEE,
+      inset 0 -170px 0 #B0B0B0,
+      inset 0 -180px 0 #EEEEEE,
+      inset 0 -190px 0 #B0B0B0,
+      inset 0 -200px 0 #EEEEEE,
+      inset 0 -210px 0 #B0B0B0,
+      inset 0 -220px 0 #0088ff,
+      inset 0 -230px 0 #0088ff,
+      inset 0 -240px 0 #0088ff,
+      inset 0 -250px 0 #0088ff;
+    }
+    
+    .ticket:before{
+    content: '';
+    position: absolute;
+    z-index: 5;
+    right: 1090px;
+    top: 10px;
+    width: 1px;
+    height: 250px;
+    box-shadow: inset 0 0 0 #0088ff,
+      inset 0 -10px 0 #0088ff,
+      inset 0 -20px 0 #0088ff,
+      inset 0 -30px 0 #0088ff,
+      inset 0 -40px 0 #0088ff,
+      inset 0 -50px 0 #FFFFFF,
+      inset 0 -60px 0 #E5E5E5,
+      inset 0 -70px 0 #FFFFFF,
+      inset 0 -80px 0 #E5E5E5,
+      inset 0 -90px 0 #FFFFFF,
+      inset 0 -100px 0 #E5E5E5,
+      inset 0 -110px 0 #FFFFFF,
+      inset 0 -120px 0 #E5E5E5,
+      inset 0 -130px 0 #FFFFFF,
+      inset 0 -140px 0 #E5E5E5,
+      inset 0 -150px 0 #FFFFFF,
+      inset 0 -160px 0 #EEEEEE,
+      inset 0 -170px 0 #FFFFFF,
+      inset 0 -180px 0 #EEEEEE,
+      inset 0 -190px 0 #FFFFFF,
+      inset 0 -200px 0 #EEEEEE,
+      inset 0 -210px 0 #FFFFFF,
+      inset 0 -220px 0 #0088ff,
+      inset 0 -230px 0 #0088ff,
+      inset 0 -240px 0 #0088ff,
+      inset 0 -250px 0 #0088ff;
+    } */
+    
+    .content{
+    position: relative;
+    top: 40px;
+    width: 840px;
+    height: 170px;
+    background: #eee;
+    }
+
+    .airline{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(0,0,102,1);
+    }
+    
+    .boarding{
+    position: absolute;
+    top: 10px;
+    right: 456px;
+    font-family: Arial;
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    }
+    
+    .jfk{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-family: Arial;
+    font-size: 30px;
+    color: #222;
+    }
+    
+    .sfo{
+    position: absolute;
+    top: 10px;
+    left: 220px;
+    font-family: Arial;
+    font-size: 30px;
+    color: #222;
+    }
+    
+    .plane{
+    position: absolute;
+    left: 105px;
+    top: 0px;
+    }
+    
+    .sub-content{
+    background: #e5e5e5;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 70px;
+    }
+    
+    .watermark{
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    font-family: Arial;
+    font-size: 110px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.2);
+    }
+    
+    .name{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: Arial Narrow, Arial;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    }
+    
+    .name span{
+    color: #555;
+    font-size: 17px;
+    }
+    
+    .flight{
+    position: absolute;
+    top: 10px;
+    left: 180px;
+    font-family: Arial Narrow, Arial;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    }
+    
+    .flight span{
+    color: #555;
+    font-size: 17px;
+    }
+    
+    .gate{
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    font-family: Arial Narrow, Arial;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    }
+    
+    .gate span{
+    color: #555;
+    font-size: 17px;
+    }
+    
+    
+    .seat{
+    position: absolute;
+    top: 10px;
+    left: 350px;
+    font-family: Arial Narrow, Arial;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    }
+    
+    .seat span{
+    color: #555;
+    font-size: 17px;
+    }
+    
+    .boardingtime{
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    font-family: Arial Narrow, Arial;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    }
+    
+    .boardingtime span{
+    color: #555;
+    font-size: 17px;
+    }
+
+
+    .slip{
+    left: 455px;
+    }
+    
+    .nameslip{
+    top: 60px;
+    left: 410px;
+    }
+    
+    .flightslip{
+    left: 410px;
+    }
+    
+    .seatslip{
+    left: 500px;
+    }
+    
+    .jfkslip{
+    font-size: 22px;
+    top: 20px;
+    left: 400px;
+    }
+    
+    .sfoslip{
+    font-size: 22px;
+    top: 20px;
+    left: 560px;
+    }
+    
+    .planeslip{
+    top: 10px;
+    left: 490px;
+    }
+    
+    .airlineslip{
+    left: 494px;
+    }
+    
+</style>
+    

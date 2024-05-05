@@ -6,7 +6,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -56,7 +55,7 @@ public class FlightService {
     public Flight getFlightById(String flightId) {
         return flightRepository.findById(flightId).orElseThrow(() -> new EntityNotFoundException("Flight not found with ID: " + flightId));
     }
-    public List<Flight> getSmallerFlights(Flight flight) {
+    public List<Flight> getSimilarFlights(Flight flight) {
         List<Flight> similarFlights = flightRepository.findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
                 flight.getFlightStartTime(),
                 flight.getFlightEndTime(),

@@ -18,7 +18,7 @@ public class Ticket {
     private Integer ticketId;
     private Double price;
     @Column(name = "payment_id")
-    private Integer paymentId;
+    private String paymentId;
     @Column(name = "passenger_id")
     private String passengerId;
     @ManyToOne
@@ -26,13 +26,11 @@ public class Ticket {
     private Passenger passenger;
     @ManyToOne
     @JoinColumn(name = "payment_id",insertable=false, updatable=false)
+    private Payment payment;
     private PaymentModel payment;
-
-
 public Ticket(Double price)
     {
         this.price = null ;
 
     }
-
 }
