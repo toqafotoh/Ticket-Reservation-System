@@ -2,6 +2,7 @@ package com.project.ticketreservation.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Entertainment {
     private Integer entertainmentTourId;
     private String description;
     private LocalDateTime time;
+    //@Min(value = 0, message = "Price must be greater than or equal to 0")
     private Double price;
     private String destination;
     @JsonIgnoreProperties("entertainment")

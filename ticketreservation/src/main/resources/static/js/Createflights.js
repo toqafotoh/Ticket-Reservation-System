@@ -21,7 +21,6 @@ tripTypeSelect.addEventListener('change', function () {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById('InfAdmin');
 
@@ -41,6 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const returnDate = document.getElementById('return-date').value;
         const returnStartTime = document.getElementById('return-start-time').value;
         const returnEndTime = document.getElementById('return-end-time').value;
+
+        // Check if any date field includes a past date
+        const currentDate = new Date();
+        if (new Date(date) < currentDate || new Date(returnDate) < currentDate) {
+            alert('Date must be in the future');
+            return;
+        }
+
+        // Check if price is not a number or is negative
+        if (isNaN(price) || parseFloat(price) < 0) {
+            alert('Price must be a positive number');
+            return;
+        }
 
         if (flightType === 'ow') {
             const flightData = {
