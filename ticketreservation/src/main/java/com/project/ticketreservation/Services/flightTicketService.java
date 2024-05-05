@@ -34,19 +34,21 @@ public class flightTicketService {
         return Repo.findAll();
     }
 
-
-
-
-    public List<FlightTicket> getPassengerFlightTickets(String passengerId){
-        List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
-        return tickets;
-    }
-
+'
     public boolean addFlightTicket(FlightTicket t){
         Repo.save(t);
         return true;
     }
 
+    public void addFlight(Flight f)
+    {
+        fr.save(f);
+    }
+
+    public List<FlightTicket> getPassengerFlightTickets(String passengerId){
+        List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
+        return tickets;
+    }
 
 
 

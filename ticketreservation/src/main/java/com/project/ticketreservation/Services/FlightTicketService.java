@@ -17,10 +17,11 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 
-public class flightTicketService {
+public class FlightTicketService {
 
     @Autowired
     private  FlightTicketRepository Repo ;
+
 
     @Autowired
     private FlightTicketRepository flightTicketRepository;
@@ -46,7 +47,6 @@ public class flightTicketService {
         Repo.save(t);
         return true;
     }
-
 
 
 
