@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost:8081/admin/payments")
+    fetch("http://localhost:8081/payments")
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById("payment-table-body");

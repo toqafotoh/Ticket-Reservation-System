@@ -1,7 +1,9 @@
 package com.project.ticketreservation.Services;
 
 import com.project.ticketreservation.Models.Account;
+import com.project.ticketreservation.Validators.ObjectsValidator;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.project.ticketreservation.Repositories.AccountRepository;
@@ -10,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;

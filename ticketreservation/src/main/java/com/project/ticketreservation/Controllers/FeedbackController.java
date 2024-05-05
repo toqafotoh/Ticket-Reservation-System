@@ -28,5 +28,4 @@ public class FeedbackController {
     public Feedback getFeedbackById(@PathVariable Integer id) {
         return feedbackService.getFeedbackById(id);
     }
-
 }

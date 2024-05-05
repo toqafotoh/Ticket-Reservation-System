@@ -2,6 +2,7 @@ package com.project.ticketreservation.Controllers;
 
 import com.project.ticketreservation.Models.RoundTripFlight;
 import com.project.ticketreservation.Services.RoundTripFlightService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class RoundTripFlightController {
     }
 
     @PostMapping("/round-trip-flights")
-    public boolean addRoundTripFlight(@RequestBody RoundTripFlight roundTripFlight) {
+    public boolean addRoundTripFlight(@RequestBody @Valid RoundTripFlight roundTripFlight) {
         return roundTripFlightService.addRoundTripFlight(roundTripFlight);
     }
 
@@ -28,7 +29,7 @@ public class RoundTripFlightController {
     }
 
     @PutMapping("/round-trip-flights/{id}")
-    public RoundTripFlight updateRoundTripFlight(@PathVariable String id, @RequestBody RoundTripFlight roundTripFlightDetails) {
+    public RoundTripFlight updateRoundTripFlight(@PathVariable String id, @RequestBody @Valid RoundTripFlight roundTripFlightDetails) {
         return roundTripFlightService.editRoundTripFlight(id, roundTripFlightDetails);
     }
 

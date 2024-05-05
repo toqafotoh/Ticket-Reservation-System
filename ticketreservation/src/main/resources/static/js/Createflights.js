@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "flightImage": "jj"
             };
 
-            fetch("http://localhost:8081/admin/flights", {
+            fetch("http://localhost:8081/flights", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "flightImage": "jj"
             };
 
-            fetch("http://localhost:8081/admin/round-trip-flights", {
+            fetch("http://localhost:8081/round-trip-flights", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

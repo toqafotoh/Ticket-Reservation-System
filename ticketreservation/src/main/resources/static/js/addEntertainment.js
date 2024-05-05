@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             destination: form.querySelector('#destination').value
         };
 
-        fetch('http://localhost:8081/admin/entertainment', {
+        fetch('http://localhost:8081/entertainment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

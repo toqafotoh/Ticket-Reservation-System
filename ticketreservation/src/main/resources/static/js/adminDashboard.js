@@ -4,19 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchDashboardData() {
-    fetch('http://localhost:8081/admin/flights/count')
+    fetch('http://localhost:8081/flights/count')
     .then(response => response.json())
     .then(data => {
         document.getElementById('flights').textContent = data;
     });
 
-    fetch('http://localhost:8081/admin/payments/total')
+    fetch('http://localhost:8081/payments/total')
     .then(response => response.json())
     .then(data => {
         document.getElementById('earning').textContent = '$' + data.toFixed(2);
     });
 
-    fetch('http://localhost:8081/admin/feedback/count')
+    fetch('http://localhost:8081/feedback/count')
     .then(response => response.json())
     .then(data => {
         document.getElementById('feedback').textContent = data;
@@ -24,7 +24,7 @@ function fetchDashboardData() {
 }
 
 function fetchUsersData() {
-    fetch('http://localhost:8081/admin/users')
+    fetch('http://localhost:8081/users')
     .then(response => response.json())
     .then(data => {
         const tableBody = document.getElementById('users');
@@ -48,7 +48,7 @@ function fetchUsersData() {
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const userId = this.closest('tr').getAttribute('data-user-id');
-                fetch(`http://localhost:8081/admin/users/delete/${userId}`, {
+                fetch(`http://localhost:8081/users/delete/${userId}`, {
                     method: 'DELETE'
                 })
                 .then(response => {

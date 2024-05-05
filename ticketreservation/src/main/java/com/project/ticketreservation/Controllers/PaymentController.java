@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("payments")
+@RequestMapping
 public class PaymentController {
     @Autowired
     private PaymentService paymentService;
@@ -19,11 +19,11 @@ public class PaymentController {
     public Payment createPayment(Payment payment){
         return paymentService.createPayment(payment);
     }
-    @GetMapping("/total")
+    @GetMapping("/payments/total")
     public double sumTotalPayments() {
         return paymentService.sumTotalPayments();
     }
-    @GetMapping
+    @GetMapping("/payments")
     public List<Payment> getAllPayments() {
         return paymentService.getAllPayments();
     }

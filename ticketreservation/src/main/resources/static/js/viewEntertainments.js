@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchEntertainmentData() {
-    fetch('http://localhost:8081/admin/entertainment')
+    fetch('http://localhost:8081/entertainment')
     .then(response => response.json())
     .then(data => {
         const tableBody = document.getElementById('entertainmentTableBody');

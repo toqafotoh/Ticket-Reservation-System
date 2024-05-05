@@ -40,7 +40,6 @@ public class Account {
     @Email(message = "Email must be a valid email address")
     private String email;
     @Column(length = 64)
-    @NotBlank(message = "Password is required")
 //  this pattern validation must be added on the password field
 //    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
 //            message = "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character")

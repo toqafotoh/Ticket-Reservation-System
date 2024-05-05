@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost:8081/admin/flights")
+    fetch("http://localhost:8081/flights")
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById("flight-table-body");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelectorAll('.delete-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const flightId = this.closest('tr').getAttribute('data-flight-id');
-                    fetch(`http://localhost:8081/admin/flights/${flightId}`, {
+                    fetch(`http://localhost:8081/flights/${flightId}`, {
                         method: 'DELETE'
                     })
                     .then(response => {

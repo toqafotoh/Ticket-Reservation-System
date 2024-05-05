@@ -3,6 +3,8 @@ package com.project.ticketreservation.Validators;
 import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import jakarta.validation.Validator;
 import org.springframework.stereotype.Component;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -12,8 +14,7 @@ import jakarta.validation.ValidatorFactory;
 public class ObjectsValidator<T> {
 
     private final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-
-    private final jakarta.validation.Validator validator = factory.getValidator();
+    private final Validator validator = factory.getValidator();
 
     public Set<String> validate(T objectToValidate) {
         Set<ConstraintViolation<T>> violations = validator.validate(objectToValidate);
