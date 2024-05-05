@@ -6,7 +6,7 @@ import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Services.FlightService;
-import com.project.ticketreservation.Services.FlightTicketService;
+import com.project.ticketreservation.Services.FlightTicketServ;
 import com.project.ticketreservation.Services.TicketService;
 import com.project.ticketreservation.paypal.PaypalController;
 
@@ -25,7 +25,7 @@ import java.util.Map;
 @RequestMapping("/ticket")
 public class FlightTicketController {
     @Autowired
-    private  FlightTicketService fservice ;
+    private  FlightTicketServ fservice ;
 
     @Autowired
     private FlightService fs;
