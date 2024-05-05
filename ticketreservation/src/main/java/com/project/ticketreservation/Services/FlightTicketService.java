@@ -1,6 +1,5 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Repositories.FlightRepository;
@@ -22,10 +21,8 @@ public class flightTicketService {
 
     @Autowired
     private  FlightTicketRepository Repo ;
-    @Autowired
 
     @Autowired
-    private  FlightTicketRepository Repo ;
     private FlightTicketRepository flightTicketRepository;
 
     private FlightRepository fr;
@@ -37,34 +34,20 @@ public class flightTicketService {
         return Repo.findAll();
     }
 
-    public boolean addFlightTicket(FlightTicket t){
-        Repo.save(t);
-        return true;
-    }
 
-    public void addFlight(Flight f)
-    {
-        fr.save(f);
-    }
 
 
     public List<FlightTicket> getPassengerFlightTickets(String passengerId){
         List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
         return tickets;
     }
-    public List<FlightTicket> getTickets(){
-        return Repo.findAll();
-    }
 
     public boolean addFlightTicket(FlightTicket t){
         Repo.save(t);
         return true;
     }
 
-    public void addFlight(Flight f)
-    {
-        fr.save(f);
-    }
+
 
 
     public FlightTicket getTicket(String nid){
