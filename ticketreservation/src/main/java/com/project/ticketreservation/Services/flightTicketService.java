@@ -1,5 +1,6 @@
 package com.project.ticketreservation.Services;
 
+import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Repositories.FlightRepository;
@@ -34,7 +35,6 @@ public class flightTicketService {
         return Repo.findAll();
     }
 
-'
     public boolean addFlightTicket(FlightTicket t){
         Repo.save(t);
         return true;
