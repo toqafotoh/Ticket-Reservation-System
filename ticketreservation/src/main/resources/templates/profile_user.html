@@ -185,33 +185,127 @@
                     </div>
                 </div>
             </div>
+            <div class="card col-12">
+                <div class="card-body">
+                    <a href="AddFlat.html" class="btn btn-primary mb-3">Add Flat</a>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr style="text-align: center;">
+                                    <!-- <th scope="col">#</th> -->
+                                    <th scope="col">address</th>
+                                    <th scope="col">flat Description</th>
+                                    <th scope="col">country Name</th>
+                                    <th scope="col">capacity</th>
+                                    <th scope="col">price</th>
+                                    <th scope="col">flat Image URL</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="flat-table-body">
+                                <tr style="text-align: center;">
+                                    <td id="name">Michael Johnson</td>
+                                    <td id="email">michael.johnson@example.com</td>
+                                    <td id="nid">456789123</td>
+                                    <td id="nationality">Canadian</td>
+                                    <td id="gender">Male</td>
+                                    <td id="birthdate">1978-03-12</td>
+                                    <td><button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">Edit</button>
+                                    </td>
+                                    <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update Flat</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card col-12">
+                                <div class="card-body">
+                                    <form class="row g-3 needs-validation" id="InfAdmin">
+                                        <div class="col-md-6">
+                                            <label for="validationCustom01" class="form-label">flat Id</label>
+                                            <input type="text" class="form-control" id="validationCustom01" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="validationCustom02" class="form-label">address</label>
+                                            <input type="text" class="form-control" id="validationCustom02" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="validationState" class="form-label">flat Description</label>
+                                            <input type="text" class="form-control" id="validationState" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="dateInput" class="form-label">country Name</label>
+                                            <input type="text" class="form-control" id="textInput" name="Input">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="dateInput" class="form-label">capacity</label>
+                                            <input type="text" class="form-control" id="textInput" name="Input">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="dateInput" class="form-label">price</label>
+                                            <input type="text" class="form-control" id="textInput" name="Input">
+                                        </div>
+
+                                        <div class="col-mb-3">
+                                            <label>Upload Image</label>
+                                            <input type="file" class="form-control" aria-label="file example" required>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
 
-    <script>
-        $(document).ready(function () {
-            // Populate the table with sample data
-            $('#name').text('John Doe');
-            $('#email').text('johndoe@example.com');
-            $('#nid').text('1234567890');
-            $('#nationality').text('USA');
-            $('#gender').text('Male');
-            $('#birthdate').text('1990-01-01');
-            $('#role').text('Owner');
-            $('#loyal').text('1000');
+        <script>
+            $(document).ready(function () {
+                // Populate the table with sample data
+                $('#name').text('John Doe');
+                $('#email').text('johndoe@example.com');
+                $('#nid').text('1234567890');
+                $('#nationality').text('USA');
+                $('#gender').text('Male');
+                $('#birthdate').text('1990-01-01');
+                $('#role').text('Owner');
+                $('#loyal').text('1000');
 
-            // Show/hide the table and form on button click
-            let isFormVisible = false;
-            $('#editProfileBtn').click(function () {
-                $('#accountDetailsTable').toggle(!isFormVisible);
-                $('#accountDetailsForm').toggle(isFormVisible);
-                isFormVisible = !isFormVisible;
+                // Show/hide the table and form on button click
+                let isFormVisible = false;
+                $('#editProfileBtn').click(function () {
+                    $('#accountDetailsTable').toggle(!isFormVisible);
+                    $('#accountDetailsForm').toggle(isFormVisible);
+                    isFormVisible = !isFormVisible;
+                });
             });
-        });
-    </script>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../static/js/BootStarpScript.js"></script>
+        </script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../static/js/BootStarpScript.js"></script>
 </body>
 
 </html>
