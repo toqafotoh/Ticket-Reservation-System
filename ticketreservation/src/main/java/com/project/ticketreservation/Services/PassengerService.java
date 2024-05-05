@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.List;
 
@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.ticketreservation.Models.Passenger;
-import com.project.ticketreservation.Repositories.FeedbackRepository;
-import com.project.ticketreservation.Repositories.PassengerRepository;
-import com.project.ticketreservation.Repositories.PaymentRepository;
+import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.models.Passenger;
+import com.project.ticketreservation.repositories.PassengerRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -19,10 +18,6 @@ public class PassengerService {
 
     @Autowired
     private PassengerRepository passengerRepository;
-    @Autowired
-    private PaymentRepository paymentRepository;
-    @Autowired
-    private FeedbackRepository feedbackRepository;
 
     public List<Passenger> getAllPassengers() {
         return passengerRepository.findAll();
@@ -40,5 +35,11 @@ public class PassengerService {
         } else {
             return false;
         }
+    }
+
+    public Passenger save(Account account) {
+        Passenger passenger = (Passenger) account;
+        passenger.setLoyaltyPoints(0);
+        return passengerRepository.save(passenger);
     }
 }

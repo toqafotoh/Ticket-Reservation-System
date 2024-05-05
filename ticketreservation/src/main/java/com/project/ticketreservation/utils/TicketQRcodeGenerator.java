@@ -9,7 +9,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
-import com.project.ticketreservation.Models.FlightTicket;
+import com.project.ticketreservation.models.FlightTicket;
 
 public class TicketQRcodeGenerator {
     public static String generateQRcode(FlightTicket t) throws WriterException, IOException {

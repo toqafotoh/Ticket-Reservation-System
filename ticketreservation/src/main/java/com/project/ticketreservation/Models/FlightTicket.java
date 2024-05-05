@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Models;
+package com.project.ticketreservation.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
