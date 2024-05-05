@@ -16,40 +16,36 @@ import com.project.ticketreservation.Repositories.TicketReopsitory;
 @Service
 public class FlightTicketServ {
     @Autowired
-    private  FlightTicketRepository Repo ;
+    private FlightTicketRepository Repo;
     @Autowired
     private FlightRepository fr;
     @Autowired
-    private TicketReopsitory tr ;
+    private TicketReopsitory tr;
 
-
-    public List<FlightTicket> getTickets(){
+    public List<FlightTicket> getTickets() {
         return Repo.findAll();
     }
-    
-    public boolean addFlightTicket(FlightTicket t){
+
+    public boolean addFlightTicket(FlightTicket t) {
         Repo.save(t);
         return true;
     }
 
-
-
-    public FlightTicket getTicket(String nid){
-        Optional<FlightTicket> result =  Repo.findByNationalID(nid);
+    public FlightTicket getTicket(String nid) {
+        Optional<FlightTicket> result = Repo.findByNationalID(nid);
         return result.orElse(null);
     }
 
- 
     public List<FlightTicket> getPayTickets(String paymentId) {
-        List<Ticket> ticketsWithPaymentId = tr.findBypaymentId(paymentId); //contain rows in ticket with the payment id
+        List<Ticket> ticketsWithPaymentId = tr.findBypaymentId(paymentId); // contain rows in ticket with the payment id
         List<Integer> ticketIds = new ArrayList<>();
-    
+
         // Extract the ticket IDs from the Ticket entities
         for (Ticket ticket : ticketsWithPaymentId) {
             ticketIds.add(ticket.getTicketId());
             System.out.println("Ticket ID: " + ticket.getTicketId());
         }
-    
+
         // Retrieve the FlightTicket entities based on the ticket IDs
         List<FlightTicket> flightTickets = new ArrayList<>();
         for (Integer ticketId : ticketIds) {
@@ -62,7 +58,7 @@ public class FlightTicketServ {
                 System.out.println("No FlightTicket found for ticket ID: " + ticketId);
             }
         }
-    
+
         System.out.println("Number of FlightTickets found: " + flightTickets.size());
         return flightTickets;
     }

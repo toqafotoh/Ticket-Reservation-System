@@ -1,16 +1,18 @@
 package com.project.ticketreservation.Services;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.project.ticketreservation.Models.PaymentModel;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Repositories.FlightTicketRepository;
 import com.project.ticketreservation.Repositories.PassengerRepository;
 import com.project.ticketreservation.Repositories.PaymentRepository;
 import com.project.ticketreservation.Repositories.TicketReopsitory;
-import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PaymentService {
@@ -18,23 +20,22 @@ public class PaymentService {
     @Autowired
     private PassengerRepository passengerRepository;
     @Autowired
-    public FlightTicketRepository fp ;
+    public FlightTicketRepository fp;
     @Autowired
-    public TicketReopsitory tr ;
+    public TicketReopsitory tr;
 
     public List<PaymentModel> getAllPayments() {
         return paymentRepository.findAll();
     }
 
-
-    public String createPaymmentDB(PaymentModel model){
+    public String createPaymmentDB(PaymentModel model) {
         paymentRepository.save(model);
-        return"done";
+        return "done";
     }
 
-    public String setTicketPaymentIDAndprice(String paymentID , Double price) {
+    public String setTicketPaymentIDAndprice(String paymentID, Double price) {
         // Get all the tickets with a payment_id of null
-        List<Ticket> ticketsWithNullPayment = tr.findBypaymentIdAndPrice(null , null);
+        List<Ticket> ticketsWithNullPayment = tr.findBypaymentIdAndPrice(null, null);
 
         // Update the payment_id for each of the tickets
         for (Ticket ticket : ticketsWithNullPayment) {
@@ -55,6 +56,7 @@ public class PaymentService {
         }
         return sum;
     }
+
     public PaymentModel createPayment(PaymentModel payment) {
         String passengerId = payment.getPassenger().getNationalId();
         if (!passengerRepository.existsById(passengerId)) {
@@ -63,4 +65,3 @@ public class PaymentService {
         return paymentRepository.save(payment);
     }
 }
-

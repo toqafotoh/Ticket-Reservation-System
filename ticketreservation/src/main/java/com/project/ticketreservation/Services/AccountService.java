@@ -1,21 +1,21 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Account;
-import com.project.ticketreservation.Validators.ObjectsValidator;
-import jakarta.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.project.ticketreservation.Repositories.AccountRepository;
-
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.project.ticketreservation.Models.Account;
+import com.project.ticketreservation.Repositories.AccountRepository;
+
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
-@RequiredArgsConstructor
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
+
     public Account updateAccount(String oldAccountId, Account newAccountData) {
         Account existingAccount = accountRepository.findById(oldAccountId)
                 .orElseThrow(() -> new EntityNotFoundException("Account not found with ID: " + oldAccountId));
@@ -26,6 +26,7 @@ public class AccountService {
 
         return accountRepository.save(existingAccount);
     }
+
     private void setAccountProperties(Account existingAccount, Account newAccountData) {
         existingAccount.setAge(newAccountData.getAge());
         existingAccount.setName(newAccountData.getName());
@@ -34,6 +35,7 @@ public class AccountService {
         existingAccount.setNationality(newAccountData.getNationality());
         existingAccount.setNationalId(newAccountData.getNationalId());
     }
+
     private void validateUpdateAccount(String oldAccountId, Account newAccountData) {
         if (!oldAccountId.equals(newAccountData.getNationalId())) {
             throw new IllegalArgumentException("Cannot change the account ID");
@@ -52,12 +54,13 @@ public class AccountService {
             return false;
         }
     }
+
     public List<Account> getAllUsers() {
-            return accountRepository.findByRoleIn(Arrays.asList("passenger", "owner"));
+        return accountRepository.findByRoleIn(Arrays.asList("passenger", "owner"));
     }
+
     public Account getAccountById(String accountId) {
         return accountRepository.findById(accountId)
                 .orElseThrow(() -> new EntityNotFoundException("Account not found with ID: " + accountId));
     }
-
 }

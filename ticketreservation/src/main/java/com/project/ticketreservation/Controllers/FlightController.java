@@ -1,22 +1,31 @@
 package com.project.ticketreservation.Controllers;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Services.FlightService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping
 public class FlightController {
     @Autowired
     private FlightService flightService;
+
     @PostMapping("/flights")
     public boolean addFlight(@RequestBody Flight flight) {
         return flightService.addFlight(flight);
     }
+
     @GetMapping("/flights")
     public List<Flight> getAllFlights() {
         return flightService.getAllFlights();
@@ -36,6 +45,7 @@ public class FlightController {
     public boolean deleteFlight(@PathVariable String id) {
         return flightService.deleteFlight(id);
     }
+
     @GetMapping("/flights/count")
     public long countFlights() {
         return flightService.countFlights();

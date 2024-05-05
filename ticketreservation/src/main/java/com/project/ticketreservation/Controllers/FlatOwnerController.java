@@ -1,12 +1,16 @@
 package com.project.ticketreservation.Controllers;
 
-import com.project.ticketreservation.Models.FlatOwner;
-import com.project.ticketreservation.Repositories.FlatOwnerRepository;
-import com.project.ticketreservation.Services.FlatOwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.ticketreservation.Models.FlatOwner;
+import com.project.ticketreservation.Services.FlatOwnerService;
 
 @RestController
 @RequestMapping
@@ -18,10 +22,12 @@ public class FlatOwnerController {
     public boolean deleteOwner(@PathVariable String id) {
         return flatOwnerService.deleteOwner(id);
     }
+
     @GetMapping("/owners/{id}")
     public FlatOwner getOwnerById(@PathVariable String id) {
         return flatOwnerService.getOwnerById(id);
     }
+
     @GetMapping("/owners")
     public List<FlatOwner> getAllOwners() {
         return flatOwnerService.getAllOwners();

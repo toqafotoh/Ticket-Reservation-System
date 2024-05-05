@@ -1,21 +1,26 @@
 package com.project.ticketreservation.paypal;
 
-import com.paypal.api.payments.*;
-import com.paypal.base.rest.APIContext;
-import com.paypal.base.rest.PayPalRESTException;
-import lombok.RequiredArgsConstructor;
-
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.paypal.api.payments.Amount;
+import com.paypal.api.payments.Payer;
+import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.PaymentExecution;
+import com.paypal.api.payments.RedirectUrls;
+import com.paypal.api.payments.Transaction;
+import com.paypal.base.rest.APIContext;
+import com.paypal.base.rest.PayPalRESTException;
+
 @Service
-@RequiredArgsConstructor
 public class PaypalService {
 
-    private final APIContext apiContext;
+    @Autowired
+    private APIContext apiContext;
 
     public Payment createPayment(
             Double total,
@@ -24,8 +29,7 @@ public class PaypalService {
             String intent,
             String description,
             String cancelUrl,
-            String successUrl
-    ) throws PayPalRESTException {
+            String successUrl) throws PayPalRESTException {
         Amount amount = new Amount();
         amount.setCurrency(currency);
         amount.setTotal(String.format(Locale.forLanguageTag(currency), "%.2f", total)); // 9.99$ - 9,99€
@@ -56,8 +60,7 @@ public class PaypalService {
 
     public Payment executePayment(
             String paymentId,
-            String payerId
-    ) throws PayPalRESTException {
+            String payerId) throws PayPalRESTException {
         Payment payment = new Payment();
         payment.setId(paymentId);
 
@@ -66,6 +69,4 @@ public class PaypalService {
 
         return payment.execute(apiContext, paymentExecution);
     }
-
-    
 }

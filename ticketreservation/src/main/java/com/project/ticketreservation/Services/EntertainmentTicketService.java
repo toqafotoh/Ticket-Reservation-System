@@ -1,12 +1,15 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Entertainment;
-import com.project.ticketreservation.Models.*;
-import com.project.ticketreservation.Repositories.*;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.project.ticketreservation.Models.EntertainmentTicket;
+import com.project.ticketreservation.Repositories.EntertainmentRepository;
+import com.project.ticketreservation.Repositories.EntertainmentTicketRepository;
+import com.project.ticketreservation.Repositories.PassengerRepository;
+import com.project.ticketreservation.Repositories.PaymentRepository;
 
 @Service
 public class EntertainmentTicketService {
@@ -18,18 +21,21 @@ public class EntertainmentTicketService {
     private PaymentRepository paymentRepository;
     @Autowired
     private EntertainmentRepository entertainmentRepository;
-    public List<EntertainmentTicket> getPassengerEntertainmentTickets(String passengerId){
+
+    public List<EntertainmentTicket> getPassengerEntertainmentTickets(String passengerId) {
         List<EntertainmentTicket> tickets = entertainmentTicketRepository.findByPassengerNationalId(passengerId);
         return tickets;
     }
+
     private void validateEntities(EntertainmentTicket entertainmentTicket) {
-        Entertainment entertainment = entertainmentRepository.findById(entertainmentTicket.getEntertainmentTourId())
+        entertainmentRepository.findById(entertainmentTicket.getEntertainmentTourId())
                 .orElseThrow(() -> new RuntimeException("Entertainment not found"));
-        Passenger passenger = passengerRepository.findById(entertainmentTicket.getPassengerId())
+        passengerRepository.findById(entertainmentTicket.getPassengerId())
                 .orElseThrow(() -> new RuntimeException("Passenger not found"));
-        PaymentModel payment = paymentRepository.findById(entertainmentTicket.getPaymentId())
+        paymentRepository.findById(entertainmentTicket.getPaymentId())
                 .orElseThrow(() -> new RuntimeException("Payment not found"));
     }
+
     public EntertainmentTicket createEntertainmentTicket(EntertainmentTicket entertainmentTicket) {
         validateEntities(entertainmentTicket);
         return entertainmentTicketRepository.save(entertainmentTicket);

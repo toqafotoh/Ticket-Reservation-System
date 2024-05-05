@@ -7,7 +7,6 @@ import com.project.ticketreservation.Models.Flat;
 @Service
 public class FlatMapperImpl implements FlatMapper {
 
-
     @Override
     public FlatDtoRespone toFlatDTORespone(Flat flat) {
         FlatDtoRespone DtoResponse = new FlatDtoRespone();
@@ -36,7 +35,6 @@ public class FlatMapperImpl implements FlatMapper {
         flat.setFlatImage(dto.getFlat_image());
         return flat;
     }
-
 
     private void SetNewFlat(Flat flat, FlatsDto dto) {
         flat.setAddress(dto.getAddress());

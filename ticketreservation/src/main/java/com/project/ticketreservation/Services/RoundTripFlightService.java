@@ -1,14 +1,16 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Flight;
-import com.project.ticketreservation.Models.RoundTripFlight;
-import com.project.ticketreservation.Repositories.*;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.ticketreservation.Models.RoundTripFlight;
+import com.project.ticketreservation.Repositories.FlightRepository;
+import com.project.ticketreservation.Repositories.RoundTripRepository;
+
 import jakarta.persistence.EntityNotFoundException;
-import java.util.Collections;
-import java.util.List;
 
 @Service
 public class RoundTripFlightService {
@@ -50,7 +52,6 @@ public class RoundTripFlightService {
         return roundTripRepository.save(existingRoundTrip);
     }
 
-
     public List<RoundTripFlight> getAllRoundTripFlights() {
         return roundTripRepository.findAll();
     }
@@ -67,15 +68,16 @@ public class RoundTripFlightService {
         }
         return false;
     }
+
     public List<RoundTripFlight> getSimilarRoundTripFlights(RoundTripFlight roundTripFlight) {
-        List<RoundTripFlight> similarFlights = roundTripRepository.findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
-                roundTripFlight.getFlightStartTime(),
-                roundTripFlight.getFlightEndTime(),
-                roundTripFlight.getFlightType(),
-                roundTripFlight.getFlightClass(),
-                roundTripFlight.getOrigin(),
-                roundTripFlight.getDestination()
-        );
+        List<RoundTripFlight> similarFlights = roundTripRepository
+                .findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
+                        roundTripFlight.getFlightStartTime(),
+                        roundTripFlight.getFlightEndTime(),
+                        roundTripFlight.getFlightType(),
+                        roundTripFlight.getFlightClass(),
+                        roundTripFlight.getOrigin(),
+                        roundTripFlight.getDestination());
         return similarFlights != null ? similarFlights : Collections.emptyList();
     }
 

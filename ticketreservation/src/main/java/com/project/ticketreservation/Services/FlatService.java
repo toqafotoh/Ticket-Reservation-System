@@ -28,13 +28,12 @@ public class FlatService {
                 .collect(Collectors.toList());
     }
 
-
     public FlatDtoRespone getFlatById(Integer id) {
         Flat flat = flatRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Flat not found"));
+                .orElseThrow(() -> new RuntimeException("Flat not found"));
         FlatDtoRespone response = flatMapper.toFlatDTORespone(flat);
-        return response;     
-            
+        return response;
+
     }
 
     public Flat addFlat(FlatsDto flatDto) throws IOException {

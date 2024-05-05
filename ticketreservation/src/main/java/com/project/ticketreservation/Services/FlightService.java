@@ -1,19 +1,22 @@
 package com.project.ticketreservation.Services;
 
-import com.project.ticketreservation.Models.Flight;
-import com.project.ticketreservation.Repositories.FlightRepository;
-import jakarta.persistence.EntityNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
+import com.project.ticketreservation.Models.Flight;
+import com.project.ticketreservation.Repositories.FlightRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class FlightService {
     @Autowired
     private FlightRepository flightRepository;
+
     public boolean addFlight(Flight flight) {
         if (flightRepository.existsById(flight.getFlightNumber())) {
             return false;
@@ -21,6 +24,7 @@ public class FlightService {
         flightRepository.save(flight);
         return true;
     }
+
     public boolean deleteFlight(String flightId) {
         if (flightRepository.existsById(flightId)) {
             flightRepository.deleteById(flightId);
@@ -29,6 +33,7 @@ public class FlightService {
             return false;
         }
     }
+
     public Flight editFlight(String flightNumber, Flight newFlightDetails) {
         Flight existingFlight = flightRepository.findById(flightNumber)
                 .orElseThrow(() -> new EntityNotFoundException("Flight not found with number: " + flightNumber));
@@ -49,29 +54,34 @@ public class FlightService {
         return flightRepository.save(existingFlight);
     }
 
-    public List<Flight> getAllFlights(){
+    public List<Flight> getAllFlights() {
         return flightRepository.findAll();
     }
-    public Flight getFlightById(String flightId) {
-        return flightRepository.findById(flightId).orElseThrow(() -> new EntityNotFoundException("Flight not found with ID: " + flightId));
-    }
-    public List<Flight> getSimilarFlights(Flight flight) {
-        List<Flight> similarFlights = flightRepository.findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
-                flight.getFlightStartTime(),
-                flight.getFlightEndTime(),
-                flight.getFlightType(),
-                flight.getFlightClass(),
-                flight.getOrigin(),
-                flight.getDestination()
-        );
 
-        //return filterFlightsByAvailableSeats(similarFlights, flight.getAvailableSeats());
+    public Flight getFlightById(String flightId) {
+        return flightRepository.findById(flightId)
+                .orElseThrow(() -> new EntityNotFoundException("Flight not found with ID: " + flightId));
+    }
+
+    public List<Flight> getSimilarFlights(Flight flight) {
+        List<Flight> similarFlights = flightRepository
+                .findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
+                        flight.getFlightStartTime(),
+                        flight.getFlightEndTime(),
+                        flight.getFlightType(),
+                        flight.getFlightClass(),
+                        flight.getOrigin(),
+                        flight.getDestination());
+
+        // return filterFlightsByAvailableSeats(similarFlights,
+        // flight.getAvailableSeats());
         List<Flight> validFlights = filterFlightsByAvailableSeats(similarFlights, flight.getAvailableSeats());
         if (validFlights.isEmpty()) {
             throw new EmptyResultDataAccessException(1);
         }
         return validFlights;
     }
+
     private List<Flight> filterFlightsByAvailableSeats(List<Flight> flights, int requiredSeats) {
         List<Flight> validFlights = new ArrayList<>();
         for (Flight flight : flights) {
@@ -81,6 +91,7 @@ public class FlightService {
         }
         return validFlights;
     }
+
     public List<Flight> filterFlightsByPriceRange(List<Flight> flights, double minPrice, double maxPrice) {
         List<Flight> validFlights = new ArrayList<>();
         for (Flight flight : flights) {
@@ -91,9 +102,9 @@ public class FlightService {
         }
         return validFlights;
     }
+
     public long countFlights() {
         return flightRepository.count();
     }
-
 
 }

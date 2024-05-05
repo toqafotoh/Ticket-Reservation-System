@@ -1,11 +1,13 @@
 package com.project.ticketreservation.Repositories;
 
-import com.project.ticketreservation.Models.Entertainment;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.project.ticketreservation.Models.Entertainment;
+
 @Repository
-public interface EntertainmentRepository extends JpaRepository<Entertainment,Integer>{
+public interface EntertainmentRepository extends JpaRepository<Entertainment, Integer> {
     List<Entertainment> findByDestination(String destination);
 }
