@@ -17,6 +17,9 @@ public class RoundTripFlight extends Flight {
     @Column(name = "return_flight_end_time")
     private LocalDateTime returnFlightEndTime;
 
+    public RoundTripFlight() {
+    }
+
     public RoundTripFlight(String flightNumber, FlightType flightType, FlightClass flightClass, String origin,
             String destination,
             @Future(message = "Flight start time must be in the future") LocalDateTime flightStartTime,

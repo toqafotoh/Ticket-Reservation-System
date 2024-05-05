@@ -39,6 +39,9 @@ public class Passenger extends Account {
         feedbacks.clear(); // Remove references to Feedback entities
     }
 
+    public Passenger() {
+    }
+
     public Passenger(String nationalId, String name, String nationality, Integer age, Gender gender, String email,
             String hashedPassword, Role role, String accountImage, int loyaltyPoints, Collection<Ticket> tickets,
             Collection<PaymentModel> payments, Collection<Feedback> feedbacks) {

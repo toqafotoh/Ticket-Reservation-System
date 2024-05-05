@@ -1,9 +1,14 @@
 package com.project.ticketreservation.Models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import java.util.Collection;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 public class FlatOwner extends Passenger {
@@ -18,6 +23,9 @@ public class FlatOwner extends Passenger {
     @OneToMany(mappedBy = "flatOwner", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH, CascadeType.REMOVE }, orphanRemoval = true)
     private Collection<Flat> flats;
+
+    public FlatOwner() {
+    }
 
     public FlatOwner(int loyaltyPoints, Collection<Ticket> tickets, Collection<PaymentModel> payments,
             Collection<Feedback> feedbacks,

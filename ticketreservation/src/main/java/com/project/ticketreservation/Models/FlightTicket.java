@@ -28,6 +28,9 @@ public class FlightTicket extends Ticket {
     @Column(name = "dest")
     private String dest;
 
+    public FlightTicket() {
+    }
+
     public FlightTicket(String firstName, String lastName, String nationalID, String qrCode, String seat,
             String flightNumber, Flight flight, String origin, String dest) {
         this.firstName = firstName;

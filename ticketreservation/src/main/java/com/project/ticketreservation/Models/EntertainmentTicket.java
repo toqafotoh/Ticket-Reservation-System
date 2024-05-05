@@ -16,6 +16,9 @@ public class EntertainmentTicket extends Ticket {
     @JoinColumn(name = "entertainment_id", referencedColumnName = "entertainment_tour_id", insertable = false, updatable = false)
     private Entertainment entertainment;
 
+    public EntertainmentTicket() {
+    }
+
     public EntertainmentTicket(Double price, Integer entertainmentTourId, Entertainment entertainment) {
         super(price);
         this.entertainmentTourId = entertainmentTourId;
