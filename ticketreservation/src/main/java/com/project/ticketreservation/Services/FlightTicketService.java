@@ -19,12 +19,34 @@ import java.util.Optional;
 @RequiredArgsConstructor
 
 public class flightTicketService {
+
+    @Autowired
+    private  FlightTicketRepository Repo ;
+    @Autowired
+
     @Autowired
     private  FlightTicketRepository Repo ;
     private FlightTicketRepository flightTicketRepository;
+
     private FlightRepository fr;
     @Autowired
     private TicketReopsitory tr ;
+
+
+    public List<FlightTicket> getTickets(){
+        return Repo.findAll();
+    }
+
+    public boolean addFlightTicket(FlightTicket t){
+        Repo.save(t);
+        return true;
+    }
+
+    public void addFlight(Flight f)
+    {
+        fr.save(f);
+    }
+
 
     public List<FlightTicket> getPassengerFlightTickets(String passengerId){
         List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
@@ -43,6 +65,7 @@ public class flightTicketService {
     {
         fr.save(f);
     }
+
 
     public FlightTicket getTicket(String nid){
         Optional<FlightTicket> result =  Repo.findByNationalID(nid);
