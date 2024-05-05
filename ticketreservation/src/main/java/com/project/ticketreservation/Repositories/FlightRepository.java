@@ -1,6 +1,8 @@
 package com.project.ticketreservation.Repositories;
 
 import com.project.ticketreservation.Models.Flight;
+import com.project.ticketreservation.Models.FlightTicket;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;

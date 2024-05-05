@@ -15,11 +15,24 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ticket_id")
     private Integer ticketId;
+
     private Double price;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
-    @ManyToOne
-    @JoinColumn(name = "payment_id")
-    private Payment payment;
+
+    @Column(name = "payment_id")
+    private String paymentId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_id" ,insertable=false, updatable=false)
+    private PaymentModel payment;
+
+    public Ticket(Double price)
+    {
+        this.price = null ;
+      
+    }
+    
 }

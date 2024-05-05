@@ -54,6 +54,7 @@ public class FlightService {
     public Flight getFlightById(String flightId) {
         return flightRepository.findById(flightId).orElseThrow(() -> new EntityNotFoundException("Flight not found with ID: " + flightId));
     }
+
     public List<Flight> getSimilarFlights(Flight flight) {
         List<Flight> similarFlights = flightRepository.findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
                 flight.getFlightStartTime(),

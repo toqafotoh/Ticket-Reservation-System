@@ -98,7 +98,7 @@ public class AdminController {
         return roundTripFlightService.deleteRoundTripFlight(id);
     }
     @GetMapping("/payments")
-    public List<Payment> getAllPayments() {
+    public List<PaymentModel> getAllPayments() {
         return paymentService.getAllPayments();
     }
 
