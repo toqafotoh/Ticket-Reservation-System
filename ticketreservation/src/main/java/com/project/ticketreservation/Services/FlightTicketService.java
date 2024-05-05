@@ -18,14 +18,13 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 
-public class flightTicketService {
+public class FlightTicketService {
 
     @Autowired
     private  FlightTicketRepository Repo ;
     @Autowired
 
-    @Autowired
-    private  FlightTicketRepository Repo ;
+
     private FlightTicketRepository flightTicketRepository;
 
     private FlightRepository fr;
@@ -52,19 +51,7 @@ public class flightTicketService {
         List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
         return tickets;
     }
-    public List<FlightTicket> getTickets(){
-        return Repo.findAll();
-    }
-
-    public boolean addFlightTicket(FlightTicket t){
-        Repo.save(t);
-        return true;
-    }
-
-    public void addFlight(Flight f)
-    {
-        fr.save(f);
-    }
+ 
 
 
     public FlightTicket getTicket(String nid){

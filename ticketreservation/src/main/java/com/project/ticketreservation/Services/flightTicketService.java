@@ -24,6 +24,7 @@ public class FlightTicketService {
     private  FlightTicketRepository Repo ;
     @Autowired
 
+
     private FlightTicketRepository flightTicketRepository;
 
     private FlightRepository fr;
@@ -40,18 +41,17 @@ public class FlightTicketService {
         return true;
     }
 
-
+    public void addFlight(Flight f)
+    {
+        fr.save(f);
+    }
 
 
     public List<FlightTicket> getPassengerFlightTickets(String passengerId){
         List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
         return tickets;
     }
-
-    public void addFlight(Flight f)
-    {
-        fr.save(f);
-    }
+ 
 
 
     public FlightTicket getTicket(String nid){
