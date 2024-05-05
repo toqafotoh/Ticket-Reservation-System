@@ -1,18 +1,22 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.Models.Account;
-import com.project.ticketreservation.Repositories.AccountRepository;
+import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.repositories.AccountRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
-public class AccountService {
+public class AccountService implements UserDetailsService {
+
     @Autowired
     private AccountRepository accountRepository;
 
@@ -40,7 +44,8 @@ public class AccountService {
         if (!oldAccountId.equals(newAccountData.getNationalId())) {
             throw new IllegalArgumentException("Cannot change the account ID");
         }
-        Account existingEmailAccount = accountRepository.findByEmail(newAccountData.getEmail());
+        Account existingEmailAccount = accountRepository.findByEmail(newAccountData.getEmail())
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         if (existingEmailAccount != null && !existingEmailAccount.getNationalId().equals(oldAccountId)) {
             throw new IllegalArgumentException("Email " + newAccountData.getEmail() + " already exists");
         }
@@ -62,5 +67,11 @@ public class AccountService {
     public Account getAccountById(String accountId) {
         return accountRepository.findById(accountId)
                 .orElseThrow(() -> new EntityNotFoundException("Account not found with ID: " + accountId));
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String nationalId) throws UsernameNotFoundException {
+        return accountRepository.findByNationalId(nationalId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 }

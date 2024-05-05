@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Controllers;
+package com.project.ticketreservation.controllers;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.Models.Feedback;
-import com.project.ticketreservation.Services.FeedbackService;
+import com.project.ticketreservation.models.Feedback;
+import com.project.ticketreservation.services.FeedbackService;
 
 @RestController
 @RequestMapping

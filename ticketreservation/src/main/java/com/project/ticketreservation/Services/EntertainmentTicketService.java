@@ -1,15 +1,15 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.Models.EntertainmentTicket;
-import com.project.ticketreservation.Repositories.EntertainmentRepository;
-import com.project.ticketreservation.Repositories.EntertainmentTicketRepository;
-import com.project.ticketreservation.Repositories.PassengerRepository;
-import com.project.ticketreservation.Repositories.PaymentRepository;
+import com.project.ticketreservation.models.EntertainmentTicket;
+import com.project.ticketreservation.repositories.EntertainmentRepository;
+import com.project.ticketreservation.repositories.EntertainmentTicketRepository;
+import com.project.ticketreservation.repositories.PassengerRepository;
+import com.project.ticketreservation.repositories.PaymentRepository;
 
 @Service
 public class EntertainmentTicketService {

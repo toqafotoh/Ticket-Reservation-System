@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Controllers;
+package com.project.ticketreservation.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,20 +15,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.zxing.WriterException;
-import com.project.ticketreservation.Models.Flight;
-import com.project.ticketreservation.Models.FlightTicket;
-import com.project.ticketreservation.Models.Ticket;
-import com.project.ticketreservation.Services.FlightService;
-import com.project.ticketreservation.Services.FlightTicketServ;
-import com.project.ticketreservation.Services.TicketService;
+import com.project.ticketreservation.models.Flight;
+import com.project.ticketreservation.models.FlightTicket;
+import com.project.ticketreservation.models.Ticket;
 import com.project.ticketreservation.paypal.PaypalController;
+import com.project.ticketreservation.services.FlightService;
+import com.project.ticketreservation.services.FlightTicketService;
+import com.project.ticketreservation.services.TicketService;
 import com.project.ticketreservation.utils.TicketQRcodeGenerator;
 
 @RestController
 @RequestMapping("/ticket")
-public class FlightTicketControl {
+public class FlightTicketController {
     @Autowired
-    private FlightTicketServ fservice;
+    private FlightTicketService fservice;
 
     @Autowired
     private FlightService fs;

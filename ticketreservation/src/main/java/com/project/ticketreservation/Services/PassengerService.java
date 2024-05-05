@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.ticketreservation.Models.Passenger;
-import com.project.ticketreservation.Repositories.FeedbackRepository;
-import com.project.ticketreservation.Repositories.PassengerRepository;
-import com.project.ticketreservation.Repositories.PaymentRepository;
+import com.project.ticketreservation.models.Passenger;
+import com.project.ticketreservation.repositories.FeedbackRepository;
+import com.project.ticketreservation.repositories.PassengerRepository;
+import com.project.ticketreservation.repositories.PaymentRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
