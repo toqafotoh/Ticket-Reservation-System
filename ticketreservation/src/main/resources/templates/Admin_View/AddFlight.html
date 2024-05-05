@@ -164,7 +164,27 @@
                                                     aria-describedby="basic-addon1">
                                             </div>
                                         </div>
-
+                                        <div class="col-md-3">
+                                            <label for="endTime" class="form-label">End Time</label>
+                                            <div class="input-group date">
+                                                <input type="time" id="endTime" class="form-control" placeholder="Select end time" aria-label="End Time"
+                                                       aria-describedby="basic-addon1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3" id="return-start-time-container" style="display: none;">
+                                            <label for="return-start-time" class="form-label">Return Start Time</label>
+                                            <div class="input-group date">
+                                                <input type="time" id="return-start-time" class="form-control" placeholder="Select return start time"
+                                                       aria-label="Return Start Time" aria-describedby="basic-addon1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3" id="return-end-time-container" style="display: none;">
+                                            <label for="return-end-time" class="form-label">Return End Time</label>
+                                            <div class="input-group date">
+                                                <input type="time" id="return-end-time" class="form-control" placeholder="Select return end time"
+                                                       aria-label="Return End Time" aria-describedby="basic-addon1">
+                                            </div>
+                                        </div>
                                         <div class="col-md-3">
                                             <label for="Price" class="form-label">Price</label>
                                             <input type="text" class="form-control" id="Price" required>
@@ -179,8 +199,8 @@
                                         <div class="col-md-3">
                                             <label for="trip-type" class="form-label">Flight Type</label>
                                             <select class="form-control custom-select" id="trip-type">
-                                                <option value="one-way">One Way</option>
-                                                <option value="round-trip">Round Trip</option>
+                                                <option value="ow">One Way</option>
+                                                <option value="rt">Round Trip</option>
                                             </select>
                                         </div>
 
@@ -224,25 +244,11 @@
         </div>
         <script src="../../static/js/script.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
-
+        <script src="../../static/js/Createflights.js"></script>
         <!-- Bootstrap JS and jQuery (optional, for dropdown functionality) for Date and Time-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-            const tripTypeSelect = document.getElementById('trip-type');
-            const returnDateContainer = document.getElementById('return-date-container');
-            const returnDateInput = document.getElementById('return-date');
-
-            tripTypeSelect.addEventListener('change', function () {
-                if (this.value === 'round-trip') {
-                    returnDateContainer.style.display = 'block';
-                } else {
-                    returnDateContainer.style.display = 'none';
-                    returnDateInput.value = '';
-                }
-            });
-        </script>
     </body>
 
 </html>

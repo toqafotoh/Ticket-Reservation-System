@@ -1,4 +1,5 @@
 package com.project.ticketreservation.Models;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -15,24 +16,22 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ticket_id")
     private Integer ticketId;
-
     private Double price;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "passenger_id")
-    private Passenger passenger;
-
     @Column(name = "payment_id")
     private String paymentId;
+    @Column(name = "passenger_id")
+    private String passengerId;
+    @ManyToOne
+    @JoinColumn(name = "passenger_id",insertable=false, updatable=false)
+    private Passenger passenger;
+    @ManyToOne
+    @JoinColumn(name = "payment_id",insertable=false, updatable=false)
+    private Payment payment;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "payment_id" ,insertable=false, updatable=false)
-    private PaymentModel payment;
 
-    public Ticket(Double price)
+public Ticket(Double price)
     {
         this.price = null ;
-      
+
     }
-    
 }

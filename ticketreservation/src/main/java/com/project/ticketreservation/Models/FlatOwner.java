@@ -1,11 +1,13 @@
 package com.project.ticketreservation.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -20,6 +22,7 @@ public class FlatOwner extends Passenger {
     private String phoneNum;
     @Column(name = "flat_owner_rate")
     private Integer flatOwnerRate;
-    @OneToMany(mappedBy = "flatOwner")
-    private Set<Flat> flats;
+    @JsonIgnoreProperties("flatOwner")
+    @OneToMany(mappedBy = "flatOwner",cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.REMOVE}, orphanRemoval = true)
+    private Collection<Flat> flats;
 }

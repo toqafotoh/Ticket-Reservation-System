@@ -4,8 +4,9 @@ import com.project.ticketreservation.Models.Flight;
 import com.project.ticketreservation.Repositories.FlightRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -54,7 +55,6 @@ public class FlightService {
     public Flight getFlightById(String flightId) {
         return flightRepository.findById(flightId).orElseThrow(() -> new EntityNotFoundException("Flight not found with ID: " + flightId));
     }
-
     public List<Flight> getSimilarFlights(Flight flight) {
         List<Flight> similarFlights = flightRepository.findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
                 flight.getFlightStartTime(),
@@ -65,7 +65,34 @@ public class FlightService {
                 flight.getDestination()
         );
 
-        return similarFlights != null ? similarFlights : Collections.emptyList();
+        //return filterFlightsByAvailableSeats(similarFlights, flight.getAvailableSeats());
+        List<Flight> validFlights = filterFlightsByAvailableSeats(similarFlights, flight.getAvailableSeats());
+        if (validFlights.isEmpty()) {
+            throw new EmptyResultDataAccessException(1);
+        }
+        return validFlights;
+    }
+    private List<Flight> filterFlightsByAvailableSeats(List<Flight> flights, int requiredSeats) {
+        List<Flight> validFlights = new ArrayList<>();
+        for (Flight flight : flights) {
+            if (flight.getAvailableSeats() >= requiredSeats) {
+                validFlights.add(flight);
+            }
+        }
+        return validFlights;
+    }
+    public List<Flight> filterFlightsByPriceRange(List<Flight> flights, double minPrice, double maxPrice) {
+        List<Flight> validFlights = new ArrayList<>();
+        for (Flight flight : flights) {
+            double price = flight.getPrice();
+            if (price >= minPrice && price <= maxPrice) {
+                validFlights.add(flight);
+            }
+        }
+        return validFlights;
+    }
+    public long countFlights() {
+        return flightRepository.count();
     }
 
 

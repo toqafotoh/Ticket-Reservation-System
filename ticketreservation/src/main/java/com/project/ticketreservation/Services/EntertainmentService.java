@@ -41,7 +41,6 @@ public class EntertainmentService {
             throw new IllegalArgumentException("Cannot change the entertainment ID");
         }
         existingEntertainment.setPrice(editedEntertainment.getPrice());
-        existingEntertainment.setTime(editedEntertainment.getTime());
         existingEntertainment.setDescription(editedEntertainment.getDescription());
         existingEntertainment.setDestination(editedEntertainment.getDestination());
         return entertainmentRepository.save(existingEntertainment);

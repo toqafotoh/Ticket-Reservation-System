@@ -129,42 +129,29 @@
                             <!-- Start Edit Form -->
                             <div class="card col-12" style="display: none;">
                                 <div class="card-body">
-                                    <form class="row g-3 needs-validation" id="InfAdmin">
+                                    <form class="row g-3 needs-validation" id="editForm">
                                         <div class="col-md-6">
                                             <label for="validationCustom01" class="form-label">Entertainment ID</label>
                                             <input type="text" class="form-control" id="validationCustom01" required>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label for="validationCustom02" class="form-label">Date</label>
+                                            <label for="validationCustom02" class="form-label">Destination</label>
                                             <input type="text" class="form-control" id="validationCustom02" required>
                                         </div>
-
-                                        <div class="col-md-6">
-                                            <label for="validationCustom02" class="form-label">Time</label>
-                                            <input type="text" class="form-control" id="validationCustom02" required>
-                                        </div>
-
                                         <div class="col-md-6">
                                             <label for="validationCustom02" class="form-label">Price</label>
-                                            <input type="text" class="form-control" id="validationCustom02" required>
+                                            <input type="text" class="form-control" id="validationCustom04" required>
                                         </div>
-
-                                        <div class="col-md-3">
-                                            <label for="dateInput" class="form-label">Destination</label>
-                                            <input type="date" class="form-control" id="dateInput" name="dateInput">
-                                        </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <label for="validationAge" class="form-label">Description</label>
                                             <input type="text" class="form-control" id="validationAge" required>
                                         </div>
                                         <div class="col-md-3 d-grid gap-2" style="margin-top: 45px;">
-                                            <button class="btn btn-primary" type="submit" value="Submit"
-                                                form="InfAdmin">Confirm</button>
+                                            <button class="btn btn-primary" type="submit">Confirm</button> <!-- Remove value attribute -->
                                         </div>
                                         <div class="col-md-3 d-grid gap-2" style="margin-top: 45px;">
-                                            <button class="btn btn-danger" type="submit" value="Submit"
-                                                form="InfAdmin">Cancel</button>
+                                            <button class="btn btn-danger" type="button" onclick="cancelEdit()">Cancel</button> <!-- Change type to button -->
                                         </div>
                                     </form>
                                 </div>
@@ -180,46 +167,14 @@
                                                     <th scope="col">Entertainment ID</th>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Time</th>
-                                                    <th scope="col">Description</th>
+                                                    <th scope="col">Price</th>
                                                     <th scope="col">Destination</th>
                                                     <th scope="col">Handle</th>
                                                     <th scope="col">Handle</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr style="text-align: center;">
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <th scope="col">bedo@gmail.com</th>
-                                                    <td>Passenger</td>
-                                                    <td><button type="button" class="btn btn-outline-info">Edit</button>
-                                                    </td>
-                                                    <td><button type="button"
-                                                            class="btn btn-outline-danger">Delete</button></td>
-                                                </tr>
-                                                <tr style="text-align: center;">
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <th scope="col">bedo@gmail.com</th>
-                                                    <td>Owner</td>
-                                                    <td><button type="button" class="btn btn-outline-info">Edit</button>
-                                                    </td>
-                                                    <td><button type="button"
-                                                            class="btn btn-outline-danger">Delete</button></td>
-                                                </tr>
-                                                <tr style="text-align: center;">
-                                                    <th scope="row">3</th>
-                                                    <td>Larry the Bird</td>
-                                                    <td>Larry the Bird</td>
-                                                    <th scope="col">bedo@gmail.com</th>
-                                                    <td>Owner</td>
-                                                    <td><button type="button" class="btn btn-outline-info">Edit</button>
-                                                    </td>
-                                                    <td><button type="button"
-                                                            class="btn btn-outline-danger">Delete</button></td>
-                                                </tr>
+                                            <tbody id="entertainmentTableBody">
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -233,7 +188,9 @@
         </div>
         </div>
         <script src="../../static/js/script.js"></script>
+        <script src="../../static/js/viewEntertainments.js"></script>
         <script src="../../static/js/BootStarpScript.js"></script>
+
     </body>
 
 </html>
