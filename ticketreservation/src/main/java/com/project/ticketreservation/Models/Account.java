@@ -66,7 +66,7 @@ public class Account implements UserDetails {
     private Role role;
 
     private String accountImage;
-
+    private String phoneNum;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -78,7 +78,7 @@ public class Account implements UserDetails {
             @Min(value = 0, message = "Age must be a positive number") @Max(value = 100, message = "You must enter a valid age") Integer age,
             String gender,
             @NotBlank(message = "Email is required") @Email(message = "Email must be a valid email address") String email,
-            String hashedPassword, String role, String accountImage) {
+            String hashedPassword, String role, String accountImage, String phoneNum) {
         this.nationalId = nationalId;
         this.name = name;
         this.nationality = nationality;
@@ -88,6 +88,7 @@ public class Account implements UserDetails {
         this.hashedPassword = hashedPassword;
         this.role = Role.valueOf(role);
         this.accountImage = accountImage;
+        this.phoneNum = phoneNum;
     }
 
     public String getNationalId() {
@@ -160,6 +161,14 @@ public class Account implements UserDetails {
 
     public void setAccountImage(String accountImage) {
         this.accountImage = accountImage;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public LocalDateTime getCreatedAt() {

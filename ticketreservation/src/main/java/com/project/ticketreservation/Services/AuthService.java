@@ -1,6 +1,5 @@
 package com.project.ticketreservation.services;
 
-import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,8 +10,10 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.dto.LoginBody;
+import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.models.Passenger;
+import com.project.ticketreservation.models.Account.Role;
 import com.project.ticketreservation.repositories.AccountRepository;
 
 @Service
@@ -22,6 +23,10 @@ public class AuthService {
     @Autowired
     private AccountService accountService;
     @Autowired
+    private PassengerService passengerService;
+    @Autowired
+    private FlatOwnerService flatOwnerService;
+    @Autowired
     private JwtService jwtService;
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -30,7 +35,13 @@ public class AuthService {
 
     public Account signup(Account account) {
         if (validateEmail(account.getEmail())) {
-            return accountService.save(account);
+            accountService.save(account);
+            if(account.getRole() != Role.ADMIN){
+                Passenger passenger = passengerService.save(account);
+                if(account.getRole() == Role.FLATOWNER){
+                    flatOwnerService.save(passenger);
+                }
+            }
         }
         return null;
     }

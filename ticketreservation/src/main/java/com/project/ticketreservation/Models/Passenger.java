@@ -43,9 +43,9 @@ public class Passenger extends Account {
     }
 
     public Passenger(String nationalId, String name, String nationality, Integer age, String gender, String email,
-            String hashedPassword, String role, String accountImage, int loyaltyPoints, Collection<Ticket> tickets,
+            String hashedPassword, String role, String accountImage, String phoneNum, int loyaltyPoints, Collection<Ticket> tickets,
             Collection<PaymentModel> payments, Collection<Feedback> feedbacks) {
-        super(nationalId, name, nationality, age, gender, email, hashedPassword, role, accountImage);
+        super(nationalId, name, nationality, age, gender, email, hashedPassword, role, accountImage, phoneNum);
         this.loyaltyPoints = loyaltyPoints;
         this.tickets = tickets;
         this.payments = payments;
