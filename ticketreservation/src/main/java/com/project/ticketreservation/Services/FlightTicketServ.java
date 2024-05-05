@@ -1,30 +1,21 @@
 package com.project.ticketreservation.Services;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.project.ticketreservation.Models.FlightTicket;
 import com.project.ticketreservation.Models.Ticket;
 import com.project.ticketreservation.Repositories.FlightRepository;
 import com.project.ticketreservation.Repositories.FlightTicketRepository;
 import com.project.ticketreservation.Repositories.TicketReopsitory;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-@Service
-@RequiredArgsConstructor
-
-public class flightTicketService {
-
+public class FlightTicketServ {
     @Autowired
     private  FlightTicketRepository Repo ;
-
     @Autowired
-    private FlightTicketRepository flightTicketRepository;
-
     private FlightRepository fr;
     @Autowired
     private TicketReopsitory tr ;
@@ -33,21 +24,10 @@ public class flightTicketService {
     public List<FlightTicket> getTickets(){
         return Repo.findAll();
     }
-
-'
+    
     public boolean addFlightTicket(FlightTicket t){
         Repo.save(t);
         return true;
-    }
-
-    public void addFlight(Flight f)
-    {
-        fr.save(f);
-    }
-
-    public List<FlightTicket> getPassengerFlightTickets(String passengerId){
-        List<FlightTicket> tickets = flightTicketRepository.findByPassengerNationalId(passengerId);
-        return tickets;
     }
 
 
@@ -84,8 +64,4 @@ public class flightTicketService {
         System.out.println("Number of FlightTickets found: " + flightTickets.size());
         return flightTickets;
     }
-    
-
 }
-
-
