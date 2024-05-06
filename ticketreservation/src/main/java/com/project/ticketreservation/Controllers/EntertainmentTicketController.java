@@ -14,7 +14,7 @@ public class EntertainmentTicketController {
     @Autowired
     private EntertainmentTicketService entertainmentTicketService;
 
-    @PostMapping
+    @PostMapping("entertainmentTicket")
     public EntertainmentTicket createEntertainmentTicket(EntertainmentTicket entertainmentTicket) {
         return entertainmentTicketService.createEntertainmentTicket(entertainmentTicket);
     }

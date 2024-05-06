@@ -1,4 +1,4 @@
-
+console.log(l);
 
 function changeColor(){
     var elements1 = document.getElementsByClassName('from');

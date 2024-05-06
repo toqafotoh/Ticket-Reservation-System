@@ -2,7 +2,7 @@ $(document).ready(function() {
     // Function to fetch all flight details from the backend API
     function fetchAllFlights() {
         $.ajax({                       //TO TEST
-            url: "http://localhost:8080/flights", // Endpoint to fetch all flights
+            url: "http://localhost:8080/flights/result", // Endpoint to fetch all flights
             type: "GET",
             dataType: "json",
             success: function(data) {
@@ -15,7 +15,7 @@ $(document).ready(function() {
                     flightDiv.append('<p>Flight number: ' + flight.flightNumber + '</p>');    
                     flightDiv.append('<p>Flight Type: ' + flight.flightType + '</p>');
                     flightDiv.append('<p>Origin: ' + flight.origin + '</p>');
-                    flightDiv.append('<p>Destination: ' + flight.dest + '</p>');
+                    flightDiv.append('<p>Destination: ' + flight.destination + '</p>');
                     flightDiv.append('<p>Departure Date: ' + flight.flightStartTime + '</p>');
                     flightDiv.append('<p>Return Date: ' + flight.flightEndTime + '</p>');
                     flightDiv.append('<p>No. of Tickets: ' + flight.availableSeats + '</p>');
@@ -46,6 +46,3 @@ $(document).ready(function() {
     // Call the fetchAllFlights function to retrieve all flights
     fetchAllFlights();
 });
-
-
-var l = 10 ;
