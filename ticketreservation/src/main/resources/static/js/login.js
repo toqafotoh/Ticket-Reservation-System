@@ -31,12 +31,15 @@ function createToken(loginData){
         } else {
             ok = true;
         }
-        return response.text();
+        return response.json();
     })
     .then((data) => {
+        console.log(data);
         if(ok){
             alert('Login Success');
-            sessionStorage.setItem("accessToken", data);
+            sessionStorage.setItem("accessToken", data[0]);
+            sessionStorage.setItem("role", data[1]);
+            // window.location.href = "register.html";
         }
     })
     .catch((error) => {

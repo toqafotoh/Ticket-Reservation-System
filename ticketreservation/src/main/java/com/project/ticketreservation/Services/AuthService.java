@@ -51,7 +51,7 @@ public class AuthService {
         return newUser;
     }
 
-    public String login(LoginBody request) {
+    public String[] login(LoginBody request) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.email, request.hashedPassword));
@@ -63,7 +63,9 @@ public class AuthService {
         if (!passwordEncoder.matches(request.hashedPassword, account.getHashedPassword())) {
             throw new IllegalArgumentException("Invalid email or password.");
         }
-        return jwtService.generateToken(account);
+
+        String token = jwtService.generateToken(account);
+        return new String[] {token, jwtService.extractRole(token)};
     }
 
     private boolean validateEmail(String email) {
