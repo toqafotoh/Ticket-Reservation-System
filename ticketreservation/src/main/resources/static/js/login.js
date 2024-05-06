@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createToken(loginData){
-    fetch(`http://localhost:9090/api/login`, {
+    fetch(`http://localhost:8088/api/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

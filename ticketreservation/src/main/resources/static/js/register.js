@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createUser(userData){
-    fetch(`http://localhost:9090/api/signup`, {
+    fetch(`http://localhost:8088/api/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
