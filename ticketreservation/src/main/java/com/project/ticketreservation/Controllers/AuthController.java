@@ -3,14 +3,16 @@ package com.project.ticketreservation.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ticketreservation.dto.LoginBody;
+import com.project.ticketreservation.dto.SignupBody;
 import com.project.ticketreservation.dto.TokenRequest;
-import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.security.PasswordConfig;
 import com.project.ticketreservation.services.AuthService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,9 +24,13 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    @Autowired
+    private PasswordConfig passwordConfig;
+
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody Account request) {
-        Account newAccount = authService.signup(request);
+    public ResponseEntity<String> signup(@RequestBody SignupBody request) {
+        request.setHashedPassword(passwordConfig.passwordEncoder().encode(request.getHashedPassword()));
+        UserDetails newAccount = authService.signup(request);
         if(newAccount == null){
             return ResponseEntity.badRequest().body("Account not Created");
         }
@@ -32,7 +38,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginBody request) {
+    public String[] login(@RequestBody LoginBody request) {
         return authService.login(request);
     }
 
