@@ -14,17 +14,22 @@
         <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
         <!-- Css Styles -->
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/font-awesome.min.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/elegant-icons.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/flaticon.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/owl.carousel.min.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/nice-select.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/jquery-ui.min.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/magnific-popup.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/slicknav.min.css" type="text/css">
-        <link rel="stylesheet" href="../../static/templetCssPassenger/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/flaticon.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/nice-select.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/jquery-ui.min.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/magnific-popup.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="../templetCssPassenger/css/style.css" type="text/css">
         <script src="https://kit.fontawesome.com/408f1a0133.js" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+        <script src="../js/flightSearch.js"></script>
     </head>
 
     <body>
@@ -53,62 +58,56 @@
                     <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                         <div class="booking-form">
                             <h3>Search For Flight</h3>
-                            <form action="#">
+                            <form action="searchFlights.html" method="post" id="search-form">
                                 <div class="select-option">
                                     <label for="Countryorigin">Origin:</label>
-                                    <select id="Countryorigin">
-                                        <option value=""></option>
-                                        <option value="">Country 1</option>
-                                        <option value="">Country 2</option>
-                                    </select>
+                                    <input id="origin">
                                 </div>
                                 <div class="select-option">
                                     <label for="Countrydestination">Destination:</label>
-                                    <select id="Countrydestination">
-                                        <option value=""></option>
-                                        <option value="">Country 1</option>
-                                        <option value="">Country 2</option>
-                                    </select>
+                                    <input id="destination">
                                 </div>
                                 <div class="check-date">
                                     <label for="date-in">From:</label>
-                                    <input type="text" class="date-input" id="date-in">
-                                    <i class="icon_calendar"></i>
+                                    <input type="text" class="date-input" id="date-in" placeholder="DD-MM-YYYY">
+                                    <!--<i class="icon_calendar"></i>-->
                                 </div>
                                 <div class="check-date">
                                     <label for="date-out">To:</label>
-                                    <input type="text" class="date-input" id="date-out">
-                                    <i class="icon_calendar"></i>
+                                    <input type="text" class="date-input" id="date-out" placeholder="DD-MM-YYYY">
+                                   <!--<i class="icon_calendar"></i>-->
                                 </div>
                                 <div class="select-option">
-                                    <label for="guest">Type Ticket:</label>
-                                    <select id="guest">
-                                        <option value="">One Way</option>
-                                        <option value="">Round</option>
+                                    <label for="guest">Ticket Type:</label>
+                                    <select id="guest" id="ticket_type">
+                                        <option value=""></option>
+                                        <option value="">ow</option>
+                                        <option value="">rt</option>
                                     </select>
                                 </div>
                                 <div class="select-option">
                                     <label for="guest">Class Type:</label>
-                                    <select id="guest">
+                                    <select id="guest" id="class_type">
                                         <option value=""></option>
-                                        <option value="">Economic</option>
+                                        <option value="">Economy</option>
                                         <option value="">Business</option>
                                     </select>
                                 </div>
                                 <div class="check-date">
-                                    <label for="numberofTicket">Seats:</label>
-                                    <input type="text" class="input" id="numberofTicket" placeholder="Maximum 5 Seats">
+                                    <label for="numberofTickets">Seats:</label>
+                                    <input type="text" class="input" id="numberOfTickets" placeholder="Maximum 5 Seats">
                                 </div>
-                                <button type="submit">Search</button>
+                                 <button type="submit">Search</button>
+                                
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="hero-slider owl-carousel">
-                <div class="hs-item set-bg" data-setbg="../../static/templetCssPassenger/img/hero/hero-1.jpg"></div>
-                <div class="hs-item set-bg" data-setbg="../../static/templetCssPassenger/img/hero/hero-2.jpg"></div>
-                <div class="hs-item set-bg" data-setbg="../../static/templetCssPassenger/img/hero/hero-3.jpg"></div>
+                <div class="hs-item set-bg" data-setbg="../templetCssPassenger/img/hero/hero-1.jpg"></div>
+                <div class="hs-item set-bg" data-setbg="../templetCssPassenger/img/hero/hero-2.jpg"></div>
+                <div class="hs-item set-bg" data-setbg="../templetCssPassenger/img/hero/hero-3.jpg"></div>
             </div>
         </section>
         <!-- Hero Section End -->
@@ -140,14 +139,17 @@
                             <p>We’re here to help you, round the clock.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="service-item">
-                            <i class="flaticon-012-cocktail"></i>
-                            <h4>Entertainment</h4>
-                            <p>Explore the nearby sandy beaches, where you can take a refreshing swim, go for a
-                                leisurely stroll.</p>
+                       
+                        <div class="col-lg-4 col-sm-6">
+                         <a href="../Entertainment/entertainment.html">
+                            <div class="service-item">
+                                <i class="flaticon-012-cocktail"></i>
+                                <h4>Entertainment</h4>
+                                <p>Explore the nearby sandy beaches, where you can take a refreshing swim, go for a
+                                    leisurely stroll.</p>
+                            </div> 
+                         </a>
                         </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -167,7 +169,7 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="testimonial-slider owl-carousel">
                             <div class="ts-item">
-                                <div class="blog-item set-bg" data-setbg="../../static/templetCssPassenger/img/hero/Cairo-Egypt.png">
+                                <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/hero/Cairo-Egypt.png">
                                     <div class="bi-text">
                                         <span class="b-tag">Egypt, Cairo</span>
                                         <h4><a href="#">Travel Now</a></h4>
@@ -175,7 +177,7 @@
                                 </div>
                             </div>
                             <div class="ts-item">
-                                <div class="blog-item set-bg" data-setbg="../../static/templetCssPassenger/img/hero/city2.jpg">
+                                <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/hero/city2.jpg">
                                     <div class="bi-text">
                                         <span class="b-tag">United Stats, Chicago</span>
                                         <h4><a href="#">Travel Now</a></h4>
@@ -183,7 +185,7 @@
                                 </div>
                             </div>
                             <div class="ts-item">
-                                <div class="blog-item set-bg" data-setbg="../../static/templetCssPassenger/img/hero/city3.jpg">
+                                <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/hero/city3.jpg">
                                     <div class="bi-text">
                                         <span class="b-tag">United Stats, New York</span>
                                         <h4><a href="#">Travel Now</a></h4>
@@ -209,7 +211,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="blog-item set-bg" data-setbg="../../static/templetCssPassenger/img/blog/blog-1.jpg">
+                        <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/blog/blog-1.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Travel Trip</span>
                                 <h4><a href="#">Tremblant In Canada</a></h4>
@@ -217,7 +219,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="blog-item set-bg" data-setbg="../../static/templetCssPassenger/img/blog/blog-2.jpg">
+                        <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/blog/blog-2.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Camping</span>
                                 <h4><a href="#">Choosing A Static Caravan</a></h4>
@@ -225,7 +227,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="blog-item set-bg" data-setbg="../../static/templetCssPassenger/img/blog/blog-3.jpg">
+                        <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/blog/blog-3.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Event</span>
                                 <h4><a href="#">Copper Canyon</a></h4>
@@ -233,7 +235,7 @@
                         </div>
                     </div>
                     <div class="col-lg-8">
-                        <div class="blog-item small-size set-bg" data-setbg="../../static/templetCssPassenger/img/blog/blog-wide.jpg">
+                        <div class="blog-item small-size set-bg" data-setbg="../templetCssPassenger/img/blog/blog-wide.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Accommodation</span>
                                 <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
@@ -241,7 +243,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="blog-item small-size set-bg" data-setbg="../../static/templetCssPassenger/img/blog/blog-10.jpg">
+                        <div class="blog-item small-size set-bg" data-setbg="../templetCssPassenger/img/blog/blog-10.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Travel</span>
                                 <h4><a href="#">Traveling To Barcelona</a></h4>
@@ -258,14 +260,14 @@
         <!-- Footer Section End -->
 
         <!-- Js Plugins -->
-        <script src="../../static/templetCssPassenger/js/jquery-3.3.1.min.js"></script>
-        <script src="../../static/templetCssPassenger/js/bootstrap.min.js"></script>
-        <script src="../../static/templetCssPassenger/js/jquery.magnific-popup.min.js"></script>
-        <script src="../../static/templetCssPassenger/js/jquery.nice-select.min.js"></script>
-        <script src="../../static/templetCssPassenger/js/jquery-ui.min.js"></script>
-        <script src="../../static/templetCssPassenger/js/jquery.slicknav.js"></script>
-        <script src="../../static/templetCssPassenger/js/owl.carousel.min.js"></script>
-        <script src="../../static/templetCssPassenger/js/main.js"></script>
+        <script src="../templetCssPassenger/js/jquery-3.3.1.min.js"></script>
+        <script src="../templetCssPassenger/js/bootstrap.min.js"></script>
+        <script src="../templetCssPassenger/js/jquery.magnific-popup.min.js"></script>
+        <script src="../templetCssPassenger/js/jquery.nice-select.min.js"></script>
+        <script src="../templetCssPassenger/js/jquery-ui.min.js"></script>
+        <script src="../templetCssPassenger/js/jquery.slicknav.js"></script>
+        <script src="../templetCssPassenger/js/owl.carousel.min.js"></script>
+        <script src="../templetCssPassenger/js/main.js"></script>
     </body>
 
 </html>

@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Models;
+package com.project.ticketreservation.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -67,6 +67,20 @@ public class Flight {
         this.flightImage = flightImage;
         this.tickets = tickets;
     }
+
+    public Flight( String origin, String destination,
+        @Future(message = "Flight start time must be in the future") LocalDateTime flightStartTime,
+        @Future(message = "Flight end time must be in the future") LocalDateTime flightEndTime, 
+        FlightType flightType, FlightClass flightClass,
+        Integer availableSeats){
+            this.origin = origin;
+            this.destination = destination;
+            this.flightStartTime = flightStartTime;
+            this.flightEndTime = flightEndTime;
+            this.flightType = flightType;
+            this.flightClass = flightClass;
+            this.availableSeats = availableSeats;
+        }
 
     
 

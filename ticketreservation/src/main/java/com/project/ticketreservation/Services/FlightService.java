@@ -1,14 +1,15 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.Models.Flight;
-import com.project.ticketreservation.Repositories.FlightRepository;
+import com.project.ticketreservation.models.Flight;
+import com.project.ticketreservation.repositories.FlightRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -81,6 +82,25 @@ public class FlightService {
         }
         return validFlights;
     }
+
+    // public List<Flight> getSimilarFlights(String origin , String destination , Date flightStartDate , Date flightEndDate ,Flight.FlightType flightType, Flight.FlightClass flightClass , Integer avaliableSeats) {
+    //     List<Flight> similarFlights = flightRepository
+    //             .findByFlightStartTimeBetweenAndFlightTypeAndFlightClassAndOriginAndDestination(
+    //                     flightStartDate,
+    //                     flightEndDate,
+    //                     flightType,
+    //                     flightClass,
+    //                     origin,
+    //                     destination);
+
+    //     // return filterFlightsByAvailableSeats(similarFlights,
+    //     // flight.getAvailableSeats());
+    //     List<Flight> validFlights = filterFlightsByAvailableSeats(similarFlights, avaliableSeats);
+    //     if (validFlights.isEmpty()) {
+    //         throw new EmptyResultDataAccessException(1);
+    //     }
+    //     return validFlights;
+    // }
 
     private List<Flight> filterFlightsByAvailableSeats(List<Flight> flights, int requiredSeats) {
         List<Flight> validFlights = new ArrayList<>();

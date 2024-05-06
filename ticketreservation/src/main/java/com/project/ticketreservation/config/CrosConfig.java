@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Configurations;
+package com.project.ticketreservation.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.NonNull;

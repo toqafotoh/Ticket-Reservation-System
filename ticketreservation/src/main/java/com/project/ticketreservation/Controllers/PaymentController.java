@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Controllers;
+package com.project.ticketreservation.controllers;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.Models.PaymentModel;
-import com.project.ticketreservation.Services.PaymentService;
+import com.project.ticketreservation.models.PaymentModel;
+import com.project.ticketreservation.services.PaymentService;
 
 @RestController
 @RequestMapping

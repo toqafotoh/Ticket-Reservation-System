@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Models;
+package com.project.ticketreservation.models;
 
 import java.util.Date;
 
