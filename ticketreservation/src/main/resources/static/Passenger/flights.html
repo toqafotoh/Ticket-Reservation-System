@@ -34,6 +34,16 @@
         content: "";
         background-color: black;
     }
+    .lineOneWay::after{
+        position: absolute;
+        width: 80px;
+        height: 1.5px;
+        top: 55px;
+        left: 180px;
+        content: "";
+        background-color: black;
+    }
+
 
     
 </style>
@@ -51,6 +61,9 @@
             </div>
             <div class="col-lg-6 col-12">
                 <!-- For loop for this div -->
+                <!-- Conditional Rendering for 1 way and roundTrip  -->
+
+                <!-- round Trip  -->
                 <div class="col-12 card mt-4">
                     <div class="row">
                         <div class="col-9" style="padding: 10px 20px;">
@@ -116,15 +129,69 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 text-center" style="align-items: center;border-left: 1px solid black;">
-                            <p style="margin-top: 20px;">price</p>
-                            <div style="margin-top: 20px;">
-                                <button class="btn btn-warning">Book</button>
+                        <div class="col-3 text-center" style="border-left: 1px solid black;">
+                            <div style="margin-top: 5px;">
+                                <span class="badge text-bg-danger">Round Trip</span></h1>
+                            </div>
+                            <p style="margin-top: 10px;">price</p>
+                            <div style="margin-top: 10px;">
+                                <button class="btn btn-warning col-10" style="padding: 2px;">Book</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Oneway  -->
+                <div class="col-12 card mt-4">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-9" style="padding: 10px 20px;">
+                            <div class="d-flex" >
+                                <div class="col-3 text-center" style="align-items: center;">
+                                    <div>
+                                        <img src="../img/constructions-1.jpg" width="30" alt="">
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 14px;">Nesma Air Lines</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-center" >
+                                    <div class="d-flex">
+                                        <div class="col-3">
+                                            <p>2 pm</p>
+                                            <p>Cia</p>
+                                        </div>
+                                        <div class="col-6 non" >
+                                            <div class="lineOneWay">
+                                                <p style="margin-top: 30px;" class="text-center"  >nonstop</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <p>2 pm</p>
+                                            <p>Cia</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <p style="margin-top: 15px;">2h 1m</p>
+                                </div>
+                            </div>
+                            <!-- Card num 1  -->
+                        </div>
+                        <div class="col-3 text-center" style="border-left: 1px solid black;">
+                            <div style="margin-top: 5px;">
+                                <span class="badge text-bg-success">Oneway</span></h1>
+                            </div>
+                            <p style="margin-top: 10px;">price</p>
+                            <div style="margin-top: 10px;padding: 10px;">
+                                <button class="btn btn-warning col-10" style="padding: 2px;">Book</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+
                 
             </div>
             
