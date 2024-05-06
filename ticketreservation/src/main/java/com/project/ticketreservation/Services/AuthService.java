@@ -7,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.dto.LoginBody;
+import com.project.ticketreservation.dto.SignupBody;
 import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.models.Account.Role;
+import com.project.ticketreservation.models.FlatOwner;
+import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.repositories.AccountRepository;
 
 @Service
@@ -23,27 +26,29 @@ public class AuthService {
     @Autowired
     private AccountService accountService;
     @Autowired
-    private PassengerService passengerService;
-    @Autowired
-    private FlatOwnerService flatOwnerService;
-    @Autowired
     private JwtService jwtService;
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Account signup(Account account) {
+    public UserDetails signup(SignupBody account) {
+        UserDetails newUser = null;
         if (validateEmail(account.getEmail())) {
-            accountService.save(account);
-            if(account.getRole() != Role.ADMIN){
-                Passenger passenger = passengerService.save(account);
-                if(account.getRole() == Role.FLATOWNER){
-                    flatOwnerService.save(passenger);
-                }
+            if(account.getRole() == Role.ADMIN){
+                Account newAccount = new Account(account);
+                newUser = accountService.save(newAccount);
+            }
+            else if(account.getRole() == Role.PASSENGER){
+                Passenger newAccount = new Passenger(account);
+                newUser = accountService.save(newAccount);
+            }
+            else{
+                FlatOwner newAccount = new FlatOwner(account);
+                newUser = accountService.save(newAccount);
             }
         }
-        return null;
+        return newUser;
     }
 
     public String login(LoginBody request) {
