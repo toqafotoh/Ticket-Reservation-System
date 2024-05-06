@@ -1,0 +1,65 @@
+#box {
+  padding:5px;
+  width:200px;
+  z-index:10;
+  position:relative;
+}
+#box form {
+ background:#006699;
+ padding:5px;
+ display:none;
+ position:absolute;
+ top:27px;
+}
+#button {
+  width:100px;
+  padding:3px 10px;
+  border:1px solid #006699;
+  margin-bottom:15px;
+  cursor:pointer;
+}
+input[type="submit"] {
+  background:none;
+  color:#fff;
+  border:none;
+  text-align:left;
+  cursor:pointer;
+}
+.card {
+    width: 18rem;
+    margin-bottom: 20px;
+    padding: 0;
+    transition: transform 0.3s ease; /* Add transition effect */
+}
+.col-md-3 {
+    width: 40%;
+    position: relative; /* Change position to relative to adjust translation */
+    left: 200px;
+}
+.card-body {
+    padding: 20px;
+}
+.card-price {
+    font-size: 1.25rem;
+    color: #007bff;
+}
+
+/* Add hover effect to increase size */
+.card:hover {
+    transform: scale(1.05); /* Increase scale on hover */
+}
+
+/* Custom styling for carousel */
+#carouselExampleIndicators {
+    width: 70%;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+/* Styling for carousel captions */
+.carousel-caption {
+    color: white; /* Set background color to black */
+    font-weight: bold; /* Make text bold */
+    font-size: 1.5rem;
+    font-family: open-sans;
+}
