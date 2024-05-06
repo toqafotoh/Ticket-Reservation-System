@@ -39,7 +39,13 @@ function createToken(loginData){
             alert('Login Success');
             sessionStorage.setItem("accessToken", data[0]);
             sessionStorage.setItem("role", data[1]);
-            // window.location.href = "register.html";
+
+            if(data[1] == "ADMIN"){
+                window.location.href = "Admin_View/index.html";
+            }
+            else{
+                window.location.href = "register.html";
+            }
         }
     })
     .catch((error) => {
