@@ -1,4 +1,4 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Flat;
+import com.project.ticketreservation.Models.Flat;
 import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatMapper;
 import com.project.ticketreservation.dto.FlatsDto;
-import com.project.ticketreservation.repositories.FlatsRepository;
+import com.project.ticketreservation.Repositories.FlatsRepository;
 
 @Service
 public class FlatService {

@@ -55,12 +55,12 @@
         <h4>What could we improve?</h4>
       </div>
       <div class="form-group">
-        <label for="desc">Description: *</label>
+        <label for="desc">Description</label>
         <input type="text" name="desc" id="desc" class="form-control">
       </div>
       <!-- Modal Footer-->
-      <div class="modal-footer">
-        <button id="submitBtn" class="btn btn-primary" type="button">Submit</button>
+      <div class="modal-footer" style="padding-top: 10px;">
+        <button id="submitBtn" class="btn btn-primary" type="button" >Submit</button>
       </div>
     </form>
 
@@ -72,28 +72,21 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
 <script src="../../static/js/jquery-3.7.1.min.js"></script>
-<script src="../../static/js/main.js"></script>
+
 <script>
     $(function () {
-      $("#header").load("../fragments/header.html");
-      $("#footer").load("../fragments/footer.html");
-
+      $("#header").load("../static/fragments/header.html");
+      $("#footer").load("../static/fragments/footer.html");
       var passengerId = "123456789";
 
       $("#submitBtn").click(function() {
-// <!--          var formData = {-->
-// <!--              content: $("#desc").val(),-->
-// <!--              rate: parseInt($("input[name='rate']:checked").val()),-->
-// <!--              passengerId: passengerId-->
-// <!--          };-->
-// <!--          console.log(formData);-->
           $.ajax({
               type: "POST",
               url: 'http://localhost:9090/create/feedback',
               data:JSON.stringify({
-                    content: $("#desc").value,
-                    rate: $("input[name='rate']:checked").value,
-                    passengerId: passengerId
+                    content: $("#desc").val(),
+                    rate: parseInt($("input[name='rate']:checked").val()),
+                    passenger_id: passengerId
                 }),
               contentType: 'application/json',
               success: function(response) {

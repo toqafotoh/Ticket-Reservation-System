@@ -2,7 +2,7 @@ package com.project.ticketreservation.dto;
 
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Flat;
+import com.project.ticketreservation.Models.Flat;
 
 @Service
 public class FlatMapperImpl implements FlatMapper {

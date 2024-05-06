@@ -10,8 +10,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
-import com.project.ticketreservation.models.PaymentModel;
-import com.project.ticketreservation.services.PaymentService;
+import com.project.ticketreservation.Models.PaymentModel;
+import com.project.ticketreservation.Services.PaymentService;
 
 @Controller
 public class PaypalController {

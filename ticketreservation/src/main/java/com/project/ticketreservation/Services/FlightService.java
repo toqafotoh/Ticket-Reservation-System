@@ -1,4 +1,4 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Flight;
-import com.project.ticketreservation.repositories.FlightRepository;
+import com.project.ticketreservation.Models.Flight;
+import com.project.ticketreservation.Repositories.FlightRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

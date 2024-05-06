@@ -1,4 +1,4 @@
-package com.project.ticketreservation.controllers;
+package com.project.ticketreservation.Controllers;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.models.FlatOwner;
-import com.project.ticketreservation.services.FlatOwnerService;
+import com.project.ticketreservation.Models.FlatOwner;
+import com.project.ticketreservation.Services.FlatOwnerService;
 
 @RestController
 @RequestMapping

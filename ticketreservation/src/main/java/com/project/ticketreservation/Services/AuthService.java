@@ -1,4 +1,4 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,10 +11,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.dto.LoginBody;
-import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.models.Passenger;
-import com.project.ticketreservation.models.Account.Role;
-import com.project.ticketreservation.repositories.AccountRepository;
+import com.project.ticketreservation.Models.Account;
+import com.project.ticketreservation.Models.Passenger;
+import com.project.ticketreservation.Models.Account.Role;
+import com.project.ticketreservation.Repositories.AccountRepository;
 
 @Service
 public class AuthService {

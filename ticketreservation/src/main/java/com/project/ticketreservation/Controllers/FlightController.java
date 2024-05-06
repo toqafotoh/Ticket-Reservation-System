@@ -1,4 +1,4 @@
-package com.project.ticketreservation.controllers;
+package com.project.ticketreservation.Controllers;
 
 import java.sql.Date;
 import java.text.DateFormat;
@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.models.Flight;
-import com.project.ticketreservation.services.FlightService;
+import com.project.ticketreservation.Models.Flight;
+import com.project.ticketreservation.Services.FlightService;
 
 @RestController
 @RequestMapping

@@ -1,4 +1,4 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.RoundTripFlight;
-import com.project.ticketreservation.repositories.FlightRepository;
-import com.project.ticketreservation.repositories.RoundTripRepository;
+import com.project.ticketreservation.Models.RoundTripFlight;
+import com.project.ticketreservation.Repositories.FlightRepository;
+import com.project.ticketreservation.Repositories.RoundTripRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

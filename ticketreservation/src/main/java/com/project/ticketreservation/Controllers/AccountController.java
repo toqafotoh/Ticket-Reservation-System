@@ -1,4 +1,4 @@
-package com.project.ticketreservation.controllers;
+package com.project.ticketreservation.Controllers;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ticketreservation.Handler.GlobalExceptionHandler;
-import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.services.AccountService;
+import com.project.ticketreservation.Models.Account;
+import com.project.ticketreservation.Services.AccountService;
 
 import jakarta.validation.Valid;
 

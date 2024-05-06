@@ -1,15 +1,15 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Flat;
-import com.project.ticketreservation.models.FlatOwner;
-import com.project.ticketreservation.models.Passenger;
-import com.project.ticketreservation.repositories.FlatOwnerRepository;
-import com.project.ticketreservation.repositories.FlatRepository;
+import com.project.ticketreservation.Models.Flat;
+import com.project.ticketreservation.Models.FlatOwner;
+import com.project.ticketreservation.Models.Passenger;
+import com.project.ticketreservation.Repositories.FlatOwnerRepository;
+import com.project.ticketreservation.Repositories.FlatRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

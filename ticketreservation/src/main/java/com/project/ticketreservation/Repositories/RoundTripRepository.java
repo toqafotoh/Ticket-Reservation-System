@@ -1,4 +1,4 @@
-package com.project.ticketreservation.repositories;
+package com.project.ticketreservation.Repositories;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project.ticketreservation.models.Flight;
-import com.project.ticketreservation.models.RoundTripFlight;
+import com.project.ticketreservation.Models.Flight;
+import com.project.ticketreservation.Models.RoundTripFlight;
 
 @Repository
 public interface RoundTripRepository extends JpaRepository<RoundTripFlight, String> {

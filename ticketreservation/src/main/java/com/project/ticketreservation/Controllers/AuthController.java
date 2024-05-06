@@ -1,4 +1,4 @@
-package com.project.ticketreservation.controllers;
+package com.project.ticketreservation.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ticketreservation.dto.LoginBody;
 import com.project.ticketreservation.dto.TokenRequest;
-import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.services.AuthService;
+import com.project.ticketreservation.Models.Account;
+import com.project.ticketreservation.Services.AuthService;
 
 import jakarta.servlet.http.HttpServletRequest;
 

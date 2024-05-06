@@ -1,4 +1,4 @@
-package com.project.ticketreservation.repositories;
+package com.project.ticketreservation.Repositories;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project.ticketreservation.models.FlightTicket;
+import com.project.ticketreservation.Models.FlightTicket;
 
 @Repository
 public interface FlightTicketRepository extends JpaRepository<FlightTicket, Integer> {

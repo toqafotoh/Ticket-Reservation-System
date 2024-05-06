@@ -1,4 +1,4 @@
-package com.project.ticketreservation.controllers;
+package com.project.ticketreservation.Controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.models.Flat;
+import com.project.ticketreservation.Models.Flat;
 import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatsDto;
-import com.project.ticketreservation.services.FlatService;
+import com.project.ticketreservation.Services.FlatService;
 
 @RequestMapping("/api")
 @RestController

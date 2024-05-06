@@ -1,4 +1,4 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.security.Key;
 import java.time.Instant;
@@ -12,7 +12,7 @@ import javax.crypto.SecretKey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.Models.Account;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

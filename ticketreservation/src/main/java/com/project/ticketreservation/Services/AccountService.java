@@ -1,4 +1,4 @@
-package com.project.ticketreservation.services;
+package com.project.ticketreservation.Services;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.repositories.AccountRepository;
+import com.project.ticketreservation.Models.Account;
+import com.project.ticketreservation.Repositories.AccountRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
