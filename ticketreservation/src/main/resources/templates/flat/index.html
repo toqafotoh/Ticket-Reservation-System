@@ -109,6 +109,11 @@
         });
       },
       error: function(error) {
+        const errorMessage = $('<div>', {
+          class: 'col-lg-12 text-center btn btn-danger',
+          html: '<h3>NO Flats</h3>',
+        });
+        $('#flat-list').append(errorMessage);
         console.error('Error fetching flat data:', error);
       }
     });
