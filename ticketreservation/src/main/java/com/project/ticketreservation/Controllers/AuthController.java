@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.ticketreservation.dto.LoginBody;
 import com.project.ticketreservation.dto.SignupBody;
 import com.project.ticketreservation.dto.TokenRequest;
+import com.project.ticketreservation.security.PasswordConfig;
 import com.project.ticketreservation.services.AuthService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,8 +24,12 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    @Autowired
+    private PasswordConfig passwordConfig;
+
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupBody request) {
+        request.setHashedPassword(passwordConfig.passwordEncoder().encode(request.getHashedPassword()));
         UserDetails newAccount = authService.signup(request);
         if(newAccount == null){
             return ResponseEntity.badRequest().body("Account not Created");
