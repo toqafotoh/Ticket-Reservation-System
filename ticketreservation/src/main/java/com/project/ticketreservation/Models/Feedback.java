@@ -2,6 +2,7 @@ package com.project.ticketreservation.Models;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,15 +39,11 @@ public class Feedback {
 
     public Feedback() {
     }
-
-    public Feedback(Integer feedbackId, String content, LocalDate feedbackDate, @Min(0) @Max(5) Integer rate,
-            String passengerId, Passenger passenger) {
-        this.feedbackId = feedbackId;
+    @JsonCreator(mode = JsonCreator.Mode.DEFAULT)
+    public Feedback(String content, Integer rate, String passengerId) {
         this.content = content;
-        this.feedbackDate = feedbackDate;
         this.rate = rate;
         this.passengerId = passengerId;
-        this.passenger = passenger;
     }
 
     public Integer getFeedbackId() {

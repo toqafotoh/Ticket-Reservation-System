@@ -6,43 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/bootstrap.css" />
     <link rel="stylesheet" href="../../static/css/main.css" />
-    <style>
-        /* Custom styling for cards */
-        .card {
-            width: 18rem;
-            margin-bottom: 20px;
-            padding: 0;
-            transition: transform 0.3s ease; /* Add transition effect */
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .card-price {
-            font-size: 1.25rem;
-            color: #007bff;
-        }
-
-        /* Add hover effect to increase size */
-        .card:hover {
-            transform: scale(1.05); /* Increase scale on hover */
-        }
-
-        /* Custom styling for carousel */
-        #carouselExampleIndicators {
-            width: 70%;
-            margin: 0 auto;
-            padding: 25px;
-        }
-
-        /* Styling for carousel captions */
-        .carousel-caption {
-            color: white; /* Set background color to black */
-            font-weight: bold; /* Make text bold */
-            font-size: 1.5rem;
-            font-family: open-sans;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../../static/css/entertainment.css" />
 </head>
 <body>
     <div id="header"></div>
@@ -107,6 +71,16 @@
                         <p class="card-price">$1000</p>
                         <p class="card-time">Time: 10:00 AM - 6:00 PM</p>
                         <a href="#" class="btn btn-primary">Book Now</a>
+
+                    </div>
+                    <div id="box">
+                        <button id="button" class="btn btn-primary" type="button">Submit</button>
+<!--                        <span id="button">Login</span>-->
+                        <form action="" id="form">
+                            <p><input type="text" placeholder="username"/></p>
+                            <p><input type="password" placeholder="password" /></p>
+                            <p><input type="submit" value="Sign in" /></p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -170,6 +144,10 @@
         $(function () {
           $("#header").load("../fragments/header.html");
           $("#footer").load("../fragments/footer.html");
+        });
+        $("#button").click(function() {
+          $("#box form").toggle("slow");
+          return false;
         });
     </script>
 
