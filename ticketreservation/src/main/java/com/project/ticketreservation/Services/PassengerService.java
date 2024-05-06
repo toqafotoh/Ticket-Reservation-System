@@ -9,6 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.ticketreservation.Models.Account;
 import com.project.ticketreservation.Models.Passenger;
 import com.project.ticketreservation.Repositories.PassengerRepository;
+import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.models.Flat;
+import com.project.ticketreservation.models.FlatOwner;
+import com.project.ticketreservation.models.Passenger;
+import com.project.ticketreservation.repositories.PassengerRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -37,9 +42,8 @@ public class PassengerService {
         }
     }
 
-    public Passenger save(Account account) {
-        Passenger passenger = (Passenger) account;
-        passenger.setLoyaltyPoints(0);
+    public Passenger save(Passenger passenger) {
+        System.out.println("Saving Passenger");
         return passengerRepository.save(passenger);
     }
 }

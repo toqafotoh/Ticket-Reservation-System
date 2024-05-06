@@ -3,6 +3,7 @@ package com.project.ticketreservation.Models;
 import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.ticketreservation.dto.SignupBody;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,8 +12,8 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class FlatOwner extends Passenger {
-    @Column(name = "flat_owner_rate")
-    private Integer flatOwnerRate;
+    @Column(name = "flat_owner_rate", columnDefinition = "INT default 0")
+    private int flatOwnerRate;
     @JsonIgnoreProperties("flatOwner")
     @OneToMany(mappedBy = "flatOwner", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH, CascadeType.REMOVE }, orphanRemoval = true)
@@ -21,15 +22,12 @@ public class FlatOwner extends Passenger {
     public FlatOwner() {
     }
 
-    public FlatOwner(int loyaltyPoints, Collection<Ticket> tickets, Collection<PaymentModel> payments,
-            Collection<Feedback> feedbacks,
-            Integer flatOwnerRate, Collection<Flat> flats) {
-        super(loyaltyPoints, tickets, payments, feedbacks);
-        this.flatOwnerRate = flatOwnerRate;
-        this.flats = flats;
+    public FlatOwner(SignupBody body) {
+        super(body);
+        this.flatOwnerRate = 0;
     }
 
-    public Integer getFlatOwnerRate() {
+    public int getFlatOwnerRate() {
         return flatOwnerRate;
     }
 

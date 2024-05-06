@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.project.ticketreservation.dto.SignupBody;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -89,6 +91,19 @@ public class Account implements UserDetails {
         this.role = Role.valueOf(role);
         this.accountImage = accountImage;
         this.phoneNum = phoneNum;
+    }
+
+    public Account(SignupBody body){
+        this.nationalId = body.getNationalId();
+        this.name = body.getName();
+        this.nationality = body.getNationality();
+        this.age = body.getAge();
+        this.gender = body.getGender();
+        this.email = body.getEmail();
+        this.hashedPassword = body.getHashedPassword();
+        this.role = body.getRole();
+        this.accountImage = body.getAccountImage();
+        this.phoneNum = body.getPhoneNum();
     }
 
     public String getNationalId() {

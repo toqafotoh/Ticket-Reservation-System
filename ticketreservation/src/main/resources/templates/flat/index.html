@@ -16,13 +16,116 @@
       <div class="section-header">
         <h2>Flats</h2>
         <p>
-          Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam
-          porro nihil id ratione ea sunt quis dolorem dolore earum
+          Enjoy the
+      modern furnishings, fully equipped kitchen, and easy access to nearby
+      shops, restaurants, and public transportation.
         </p>
       </div>
 
-      <div class="row data-row gy-4">
-        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+      <div class="row data-row gy-4" id="flat-list">
+      </div>
+    </div>
+    <section id="footer">
+
+    </section>
+  </section>
+
+  <script src="../../static/js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("../../static/fragments/header.html");
+      $("#footer").load("../../static/fragments/footer.html");
+    });
+
+
+    $.ajax({
+      url: 'http://localhost:8088/api/flats',
+      method: 'GET',
+      success: function(data) {
+        const flatListContainer = $('#flat-list');
+        $.each(data, function(index, flat) {
+          const cardItem = $('<div>', {
+            class: 'col-lg-12',
+            'data-aos': 'fade-up',
+            'data-aos-delay': '100'
+          });
+
+          cardItem.html(`
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-4">
+                  <div>
+                    <img src="../../static/img/${flat.flatImage}" class="img-fluid h-100" alt="">
+                  </div>
+                </div>
+                <div class="col-xl-5 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">${flat.flatDescription}</h4>
+                    <p>
+                      Fuga in dolorum et iste et culpa. Commodi possimus
+                      nesciunt modi voluptatem placeat deleniti adipisci. Cum
+                      delectus doloribus non veritatis. Officia temporibus illo
+                      magnam. Dolor eos et.
+                    </p>
+                    <div class="row" style="align-items: center">
+                      <div class="col-lg-6 col-12">
+                        <h5>Price</h5>
+                      </div>
+                      <div class="col-lg-6 col-12">
+                        <p>${flat.price}</p>
+                      </div>
+                    </div>
+                    <div class="row" style="align-items: center">
+                      <div class="col-lg-6 col-12">
+                        <h5>Capacity</h5>
+                      </div>
+                      <div class="col-lg-6 col-12">
+                        <p>${flat.capacity}</p>
+                      </div>
+                    </div>
+                    <div class="row" style="align-items: center">
+                      <div class="col-lg-6 col-12">
+                        <h5>Country</h5>
+                      </div>
+                      <div class="col-lg-6 col-12">
+                        <p>${flat.countryName}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3">
+                  <div class="card-body">
+                    <p>Flat Owner number :</p>
+                    <strong>${flat.flatOwnerPhoneNum}</strong>
+                    <p>Rating</p>
+                    <p>${flat.flatOwnerRate}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `);
+
+          flatListContainer.append(cardItem);
+        });
+      },
+      error: function(error) {
+        const errorMessage = $('<div>', {
+          class: 'col-lg-12 text-center btn btn-danger',
+          html: '<h3>NO Flats</h3>',
+        });
+        $('#flat-list').append(errorMessage);
+        console.error('Error fetching flat data:', error);
+      }
+    });
+  </script>
+
+  <script src="../../static/js/main.js"></script>
+</body>
+
+</html>
+
+
+        <!-- <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
           <div class="card-item">
             <div class="row">
               <div class="col-xl-4">
@@ -75,97 +178,5 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- End Card Item -->
-      </div>
-    </div>
-    <section id="footer">
-
-    </section>
-  </section>
-
-
-  <!-- End Constructions Section -->
-
-  <script src="../../static/js/jquery-3.7.1.min.js"></script>
-  <script>
-    $(function () {
-      $("#header").load("../fragments/header.html");
-      $("#footer").load("../fragments/footer.html");
-    });
-
-
-    // $(document).ready(function () {
-    //   $.ajax({
-    //     url: '/flats',
-    //     type: 'GET',
-    //     success: function (data) {
-    //       console.log(data);
-    //       data.forEach(function (flat) {
-
-    //         var flatHtml = `
-    //       <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
-    //         <div class="card-item">
-    //           <div class="row">
-    //             <div class="col-xl-4">
-    //               <img src="${flat.imagePath}" alt="${flat.title}" class="card-bg">
-    //             </div>
-    //             <div class="col-xl-5 d-flex align-items-center">
-    //               <div class="card-body">
-    //                 <h4 class="card-title">${flat.title}</h4>
-    //                 <p>${flat.description}</p>
-    //                 <div class="row" style="align-items: center">
-    //                   <div class="col-lg-6 col-12">
-    //                     <h5>Price</h5>
-    //                   </div>
-    //                   <div class="col-lg-6 col-12">
-    //                     <p>${flat.price}</p>
-    //                   </div>
-    //                 </div>
-    //                 <div class="row" style="align-items: center">
-    //                   <div class="col-lg-6 col-12">
-    //                     <h5>Capacity</h5>
-    //                   </div>
-    //                   <div class="col-lg-6 col-12">
-    //                     <p>${flat.capacity}</p>
-    //                   </div>
-    //                 </div>
-    //                 <div class="row" style="align-items: center">
-    //                   <div class="col-lg-6 col-12">
-    //                     <h5>Country</h5>
-    //                   </div>
-    //                   <div class="col-lg-6 col-12">
-    //                     <p>${flat.country}</p>
-    //                   </div>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //             <div class="col-xl-3">
-    //               <div class="card-body">
-    //                 <p>Flat Owner number :</p>
-    //                 <strong>${flat.ownerNumber}</strong>
-    //                 <p>Rating</p>
-    //                 <p>${flat.rating}</p>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     `;
-
-    //         $('.data-row').append(flatHtml);
-    //       });
-    //     },
-    //     error: function (xhr, status, error) {
-    //       console.error('Error fetching flats:', error);
-    //     }
-    //   });
-    // });
-
-
-  </script>
-
-  <script src="../../static/js/main.js"></script>
-</body>
-
-</html>

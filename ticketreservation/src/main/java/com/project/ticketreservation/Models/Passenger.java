@@ -3,6 +3,7 @@ package com.project.ticketreservation.Models;
 import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.ticketreservation.dto.SignupBody;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -42,22 +43,9 @@ public class Passenger extends Account {
     public Passenger() {
     }
 
-    public Passenger(String nationalId, String name, String nationality, Integer age, String gender, String email,
-            String hashedPassword, String role, String accountImage, String phoneNum, int loyaltyPoints, Collection<Ticket> tickets,
-            Collection<PaymentModel> payments, Collection<Feedback> feedbacks) {
-        super(nationalId, name, nationality, age, gender, email, hashedPassword, role, accountImage, phoneNum);
-        this.loyaltyPoints = loyaltyPoints;
-        this.tickets = tickets;
-        this.payments = payments;
-        this.feedbacks = feedbacks;
-    }
-
-    public Passenger(int loyaltyPoints, Collection<Ticket> tickets, Collection<PaymentModel> payments,
-            Collection<Feedback> feedbacks) {
-        this.loyaltyPoints = loyaltyPoints;
-        this.tickets = tickets;
-        this.payments = payments;
-        this.feedbacks = feedbacks;
+    public Passenger(SignupBody body){
+        super(body);
+        this.loyaltyPoints = 0;
     }
 
     public int getLoyaltyPoints() {
