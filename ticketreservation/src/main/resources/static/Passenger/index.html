@@ -30,6 +30,7 @@
     
 
         <script src="../js/flightSearch.js"></script>
+        <script src="../js/submitbooking.js"></script>
     </head>
 
     <body>
@@ -58,47 +59,44 @@
                     <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                         <div class="booking-form">
                             <h3>Search For Flight</h3>
-                            <form action="searchFlights.html" method="post" id="search-form">
+                            <form method="post" id="search-form"><!--FORM-->
                                 <div class="select-option">
                                     <label for="Countryorigin">Origin:</label>
-                                    <input id="origin">
+                                    <input id="origin" class="origin">
                                 </div>
                                 <div class="select-option">
                                     <label for="Countrydestination">Destination:</label>
-                                    <input id="destination">
+                                    <input id="destination" class="destination">
                                 </div>
                                 <div class="check-date">
                                     <label for="date-in">From:</label>
-                                    <input type="text" class="date-input" id="date-in" placeholder="DD-MM-YYYY">
+                                    <input type="text" class="date-input date-in" id="date-in" placeholder="DD-MM-YYYY">
                                     <!--<i class="icon_calendar"></i>-->
                                 </div>
                                 <div class="check-date">
                                     <label for="date-out">To:</label>
-                                    <input type="text" class="date-input" id="date-out" placeholder="DD-MM-YYYY">
+                                    <input type="text" class="date-input date-out" id="date-out" placeholder="DD-MM-YYYY">
                                    <!--<i class="icon_calendar"></i>-->
                                 </div>
                                 <div class="select-option">
                                     <label for="guest">Ticket Type:</label>
-                                    <select id="guest" id="ticket_type">
-                                        <option value=""></option>
-                                        <option value="">ow</option>
-                                        <option value="">rt</option>
+                                    <select  id="ticket_type" class="flight_type">
+                                        <option value="ow">ow</option>
+                                        <option value="rt">rt</option>
                                     </select>
                                 </div>
                                 <div class="select-option">
                                     <label for="guest">Class Type:</label>
-                                    <select id="guest" id="class_type">
-                                        <option value=""></option>
-                                        <option value="">Economy</option>
-                                        <option value="">Business</option>
+                                    <select  id="class_type" class="class_type">
+                                        <option value="Economy">Economy</option>
+                                        <option value="Business">Business</option>
                                     </select>
                                 </div>
                                 <div class="check-date">
                                     <label for="numberofTickets">Seats:</label>
-                                    <input type="text" class="input" id="numberOfTickets" placeholder="Maximum 5 Seats">
+                                    <input type="text" class="input numberOfSeats" id="numberOfTickets" placeholder="Maximum 5 Seats">
                                 </div>
-                                 <button type="submit">Search</button>
-                                
+                                 <button type="submit" id="search-flight">Search</button>
                             </form>
                         </div>
                     </div>
@@ -125,11 +123,13 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6">
+                       <a href="ShowAlllFlights.html"> 
                         <div class="service-item">
                             <i class="flaticon-036-parking"></i>
                             <h4>Easy & Fast Booking</h4>
                             <p>Search, compare and book your tickets at the lowest fares.</p>
                         </div>
+                       </a>
                     </div>
 
                     <div class="col-lg-4 col-sm-6">
@@ -268,6 +268,7 @@
         <script src="../templetCssPassenger/js/jquery.slicknav.js"></script>
         <script src="../templetCssPassenger/js/owl.carousel.min.js"></script>
         <script src="../templetCssPassenger/js/main.js"></script>
+
     </body>
 
 </html>

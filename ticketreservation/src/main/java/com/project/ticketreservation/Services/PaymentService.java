@@ -16,6 +16,7 @@ import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PaymentService {
+    @Autowired
     private PaymentRepository paymentRepository;
     @Autowired
     private PassengerRepository passengerRepository;
