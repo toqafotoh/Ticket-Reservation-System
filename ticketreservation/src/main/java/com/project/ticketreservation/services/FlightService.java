@@ -40,13 +40,10 @@ public class FlightService {
         if (!flightNumber.equals(newFlightDetails.getFlightNumber())) {
             throw new IllegalArgumentException("Cannot change the flight number");
         }
-        existingFlight.setFlightNumber(newFlightDetails.getFlightNumber());
-        existingFlight.setFlightImage(newFlightDetails.getFlightImage());
-        existingFlight.setFlightType(newFlightDetails.getFlightType());
+        existingFlight.setFlightClass(newFlightDetails.getFlightClass());
         existingFlight.setAirline(newFlightDetails.getAirline());
         existingFlight.setAvailableSeats(newFlightDetails.getAvailableSeats());
         existingFlight.setFlightStartTime(newFlightDetails.getFlightStartTime());
-        existingFlight.setFlightEndTime(newFlightDetails.getFlightEndTime());
         existingFlight.setOrigin(newFlightDetails.getOrigin());
         existingFlight.setDestination(newFlightDetails.getDestination());
         existingFlight.setPrice(newFlightDetails.getPrice());
