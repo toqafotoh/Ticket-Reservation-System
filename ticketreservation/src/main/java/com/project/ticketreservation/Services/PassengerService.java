@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.List;
 
@@ -6,12 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.ticketreservation.Models.Account;
-import com.project.ticketreservation.Models.Passenger;
-import com.project.ticketreservation.Repositories.PassengerRepository;
-import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.models.Flat;
-import com.project.ticketreservation.models.FlatOwner;
 import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.repositories.PassengerRepository;
 

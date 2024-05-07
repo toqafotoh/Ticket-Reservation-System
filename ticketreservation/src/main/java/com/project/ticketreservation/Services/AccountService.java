@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;

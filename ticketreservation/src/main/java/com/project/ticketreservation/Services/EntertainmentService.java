@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.Models.Entertainment;
-import com.project.ticketreservation.Repositories.EntertainmentRepository;
+import com.project.ticketreservation.models.Entertainment;
+import com.project.ticketreservation.repositories.EntertainmentRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

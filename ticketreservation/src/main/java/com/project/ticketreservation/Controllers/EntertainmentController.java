@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Controllers;
+package com.project.ticketreservation.controllers;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.Models.Entertainment;
-import com.project.ticketreservation.Services.EntertainmentService;
+import com.project.ticketreservation.models.Entertainment;
+import com.project.ticketreservation.services.EntertainmentService;
 
 @RestController
 @RequestMapping

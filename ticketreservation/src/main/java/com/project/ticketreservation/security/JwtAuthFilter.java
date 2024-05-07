@@ -11,9 +11,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.project.ticketreservation.Models.Account;
-import com.project.ticketreservation.Services.AccountService;
-import com.project.ticketreservation.Services.JwtService;
+import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.services.AccountService;
+import com.project.ticketreservation.services.JwtService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

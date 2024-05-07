@@ -1,14 +1,15 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
-import com.project.ticketreservation.Models.Feedback;
-import com.project.ticketreservation.Repositories.FeedbackRepository;
-import com.project.ticketreservation.Repositories.PassengerRepository;
+import java.util.List;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.project.ticketreservation.models.Feedback;
+import com.project.ticketreservation.repositories.FeedbackRepository;
+import com.project.ticketreservation.repositories.PassengerRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class FeedbackService {

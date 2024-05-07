@@ -1,4 +1,4 @@
-package com.project.ticketreservation.Services;
+package com.project.ticketreservation.services;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 import com.project.ticketreservation.dto.LoginBody;
 import com.project.ticketreservation.dto.SignupBody;
 import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.models.Account.Role;
 import com.project.ticketreservation.models.FlatOwner;
 import com.project.ticketreservation.models.Passenger;
+import com.project.ticketreservation.models.Account.Role;
 import com.project.ticketreservation.repositories.AccountRepository;
 
 @Service
