@@ -18,11 +18,14 @@ import com.project.ticketreservation.models.FlatOwner;
 import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.models.Account.Role;
 import com.project.ticketreservation.repositories.AccountRepository;
+import com.project.ticketreservation.repositories.PassengerRepository;
 
 @Service
 public class AuthService {
     @Autowired
     private AccountRepository accountRepository;
+    @Autowired
+    private PassengerRepository passengerRepository;
     @Autowired
     private AccountService accountService;
     @Autowired
@@ -108,5 +111,9 @@ public class AuthService {
 
     public int extractLoyalityPoints(String token) {
         return jwtService.extractLoyalityPoints(token);
+    }
+
+    public Passenger returnPassenger(String nationalId) {
+        return passengerRepository.findById(nationalId).orElseThrow();
     }
 }

@@ -3,6 +3,7 @@ package com.project.ticketreservation.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.ticketreservation.dto.LoginBody;
 import com.project.ticketreservation.dto.SignupBody;
 import com.project.ticketreservation.dto.TokenRequest;
+import com.project.ticketreservation.dto.UserData;
+import com.project.ticketreservation.models.Account;
+import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.security.PasswordConfig;
 import com.project.ticketreservation.services.AuthService;
 
@@ -40,6 +44,14 @@ public class AuthController {
     @PostMapping("/login")
     public String[] login(@RequestBody LoginBody request) {
         return authService.login(request);
+    }
+
+    @PostMapping("/userData")
+    @PreAuthorize("hasRole('PASSENGER') or hasRole('FLATOWNER')")
+    public UserData userData() {
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Passenger passengerData = authService.returnPassenger(current.getNationalId());
+        return new UserData(passengerData);
     }
 
     @PostMapping("/validate")

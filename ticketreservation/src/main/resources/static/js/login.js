@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createToken(loginData){
-    fetch(`http://localhost:8088/api/login`, {
+    fetch(`http://localhost:9090/api/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function createToken(loginData){
                 window.location.href = "Admin_View/index.html";
             }
             else{
-                window.location.href = "register.html";
+                window.location.href = "profile_user.html";
             }
         }
     })

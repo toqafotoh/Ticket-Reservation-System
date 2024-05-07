@@ -10,7 +10,7 @@ $(document).ready(function() { //done
         // Check if the flight number is present in the URL
         if (flightNumber) {
             $.ajax({
-                url: "http://localhost:8080/flights/" + flightNumber,
+                url: "http://localhost:9090/flights/" + flightNumber,
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
@@ -61,7 +61,7 @@ $(document).ready(function() {
         var wantedTickets = $('.tickets').val();
         console.log(flightNumber);
         console.log(wantedTickets);
-        window.location.href = "http://localhost:8080/Ticket/submitBooking.html?flightNumber=" + flightNumber+'&wantedTickets='+wantedTickets;
+        window.location.href = "http://localhost:9090/Ticket/submitBooking.html?flightNumber=" + flightNumber+'&wantedTickets='+wantedTickets;
 
     });
 });
