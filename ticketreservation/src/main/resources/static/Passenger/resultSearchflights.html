@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="../js/searchResult.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    p{
+        margin: 0;
+        font-size: 14px;
+    }
+    .none{
+        position: relative;
+    }
+    /* .line::after{
+        position: absolute;
+        width: 80px;
+        height: 1.5px;
+        top: 30px;
+        left: 180px;
+        content: "";
+        background-color: black;
+    }
+
+    .line::before{
+        position: absolute;
+        width: 80px;
+        height: 1.5px;
+        top: 95px;
+        left: 180px;
+        content: "";
+        background-color: black;
+    } */
+    /* .lineOneWay::after{
+        position: absolute;
+        width: 80px;
+        height: 1.5px;
+        top: 55px;
+        left: 180px;
+        content: "";
+        background-color: black;
+    } */
+
+
+    
+</style>
+<body>
+    
+
+    <div id="header"></div>
+
+    <section style="padding: 100px 0px;">
+        <div class="d-flex" style="align-items: center;">
+            <div class="col-3">
+                <div style="padding: 50px;">
+                    <img src="../img/constructions-1.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            
+            <div class="col-lg-6 col-12" id="all">
+                <div id="nodata">
+                    <p class="nodataToshow"></p>
+                </div>
+                <!-- For loop for this div -->
+                <!-- Conditional Rendering for 1 way and roundTrip  -->
+
+                <!-- round Trip  -->
+                <div class="col-12 card mt-4 flight" id="removedflight">
+                    <div class="row">
+                        <div class="col-9" style="padding: 10px 20px;">
+                            <div class="d-flex" >
+                                <div class="col-3 text-center" style="align-items: center;">
+                                    
+                                    <div style="margin-top: 10px;">
+                                        <p style="font-size: 14px;" class="airline"></p>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-center" >
+                                    <div class="d-flex">
+                                        <div class="col-3">
+                                            <p class="flightStartTime"></p>
+                                            
+                                        </div>
+                                        <div class="col-6 non" >
+                                            <div class="line">
+                                                <p style="margin-top: 30px;" class="text-center"  > </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <p class="flightEndTime"></p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <p style="margin-top: 15px;" class="flightClass"></p>
+                                </div>
+                            </div>
+                            <!-- Card num 1  -->
+                            <div class="d-flex" style="margin-top: 10px;" >
+                                <div class="col-3 text-center" style="align-items: center;">
+                                    <div>
+                                        <p style="font-size: 14px;"></p>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-center" style="width: 70%;">
+                                    <div class="d-flex">
+                                        <div class="col-3">
+                                            <p class="origin"></p>
+                                        </div>
+                                        <div class="col-6 " >
+                                            <p  class="text-center avaliableSeats"></p>
+                                            <div class="line">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <p class="destination"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 text-center">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 text-center" style="border-left: 1px solid black;">
+                            <div style="margin-top: 5px;">
+                                <span class="badge text-bg-danger flightType"></span></h1>
+                            </div>
+                            <p style="margin-top: 10px;" class="price"></p>
+                            <div style="margin-top: 10px;">
+                               <a id="flightChoice"> 
+                                <button class="btn btn-warning col-10" style="padding: 2px;">Book Now</button>
+                               </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oneway 
+                <div class="col-12 card mt-4">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-9" style="padding: 10px 20px;">
+                            <div class="d-flex" >
+                                <div class="col-3 text-center" style="align-items: center;">
+                                    <div>
+                                        <img src="../img/constructions-1.jpg" width="30" alt="">
+                                    </div>
+                                    <div>
+                                        <p style="font-size: 14px;">Nesma Air Lines</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-center" >
+                                    <div class="d-flex">
+                                        <div class="col-3">
+                                            <p>2 pm</p>
+                                            <p>Cia</p>
+                                        </div>
+                                        <div class="col-6 non" >
+                                            <div class="lineOneWay">
+                                                <p style="margin-top: 30px;" class="text-center"  >nonstop</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <p>2 pm</p>
+                                            <p>Cia</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <p style="margin-top: 15px;">2h 1m</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-3 text-center" style="border-left: 1px solid black;">
+                            <div style="margin-top: 5px;">
+                                <span class="badge text-bg-success">Oneway</span></h1>
+                            </div>
+                            <p style="margin-top: 10px;">price</p>
+                            <div style="margin-top: 10px;padding: 10px;">
+                                <button class="btn btn-warning col-10" style="padding: 2px;">Book</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+
+                
+            </div>
+            
+            <div class="col-3">
+                <div style="padding: 50px;">
+                    <img src="../img/constructions-1.jpg" class="img-fluid" alt="">
+                </div>
+            </div> -->
+
+
+        </div>
+    
+    
+    </section>
+
+
+
+
+
+    <div id="footer"></div>
+
+
+    <script src="../../static/js/jquery-3.7.1.min.js"></script>
+    <script>
+            $(function () {
+      $("#header").load("../fragments/header.html");
+      $("#footer").load("../fragments/footer.html");
+    });
+    </script>
+</body>
+</html>
+
+<style>
+
+.origin , .destination{
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}   
+.destination{
+    margin-left: 30px;
+}
+.flightStartTime , .flightEndTime {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(19, 59, 96);
+}
+
+.airline , .flightClass{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(44, 133, 216);
+}
+.avaliableSeats{
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(23, 172, 127);
+}
+
+</style>
