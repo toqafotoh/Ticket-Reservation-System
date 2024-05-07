@@ -1,5 +1,6 @@
 package com.project.ticketreservation.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -12,6 +13,7 @@ public class EntertainmentTicket extends Ticket {
 
     @Column(name = "entertainment_id")
     private Integer entertainmentTourId;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "entertainment_id", referencedColumnName = "entertainment_tour_id", insertable = false, updatable = false)
     private Entertainment entertainment;

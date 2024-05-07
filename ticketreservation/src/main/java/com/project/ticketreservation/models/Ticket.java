@@ -1,5 +1,6 @@
 package com.project.ticketreservation.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,9 +23,11 @@ public class Ticket {
     private String paymentId;
     @Column(name = "passenger_id")
     private String passengerId;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "passenger_id", insertable = false, updatable = false)
     private Passenger passenger;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "payment_id", insertable = false, updatable = false)
     private PaymentModel payment;

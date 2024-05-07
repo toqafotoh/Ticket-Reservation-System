@@ -2,6 +2,7 @@ package com.project.ticketreservation.models;
 
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.ticketreservation.dto.SignupBody;
 
@@ -19,15 +20,15 @@ import jakarta.persistence.PreRemove;
 public class Passenger extends Account {
     @Column(columnDefinition = "INT default 0")
     private int loyaltyPoints;
-    @JsonIgnoreProperties("passenger")
+    @JsonIgnore
     @OneToMany(mappedBy = "passenger", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH, CascadeType.REMOVE }, orphanRemoval = true)
     private Collection<Ticket> tickets;
-    @JsonIgnoreProperties("passenger")
+    @JsonIgnore
     @OneToMany(mappedBy = "passenger", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH, CascadeType.REMOVE }, orphanRemoval = true)
     private Collection<PaymentModel> payments;
-    @JsonIgnoreProperties("passenger")
+    @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "passenger", orphanRemoval = true, cascade = { CascadeType.MERGE,
             CascadeType.REFRESH, CascadeType.DETACH, CascadeType.REMOVE })
     private Collection<Feedback> feedbacks;

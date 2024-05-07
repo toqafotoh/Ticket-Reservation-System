@@ -2,6 +2,7 @@ package com.project.ticketreservation.models;
 
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.ticketreservation.dto.SignupBody;
 
@@ -14,7 +15,7 @@ import jakarta.persistence.OneToMany;
 public class FlatOwner extends Passenger {
     @Column(name = "flat_owner_rate", columnDefinition = "INT default 0")
     private int flatOwnerRate;
-    @JsonIgnoreProperties("flatOwner")
+    @JsonIgnore
     @OneToMany(mappedBy = "flatOwner", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH, CascadeType.REMOVE }, orphanRemoval = true)
     private Collection<Flat> flats;

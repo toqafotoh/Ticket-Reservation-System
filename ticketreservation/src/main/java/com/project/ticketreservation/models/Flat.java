@@ -1,5 +1,6 @@
 package com.project.ticketreservation.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class Flat {
     private Double price;
     @Column(name = "flat_owner_id")
     private String flatOwnerId;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "flat_owner_id",insertable = false, updatable = false)
     // Test insertable, updatable conditions inside the database

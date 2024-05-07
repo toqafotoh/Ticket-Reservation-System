@@ -3,6 +3,7 @@ package com.project.ticketreservation.models;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -24,7 +25,7 @@ public class Entertainment {
     // @Min(value = 0, message = "Price must be greater than or equal to 0")
     private Double price;
     private String destination;
-    @JsonIgnoreProperties("entertainment")
+    @JsonIgnore
     @OneToMany(mappedBy = "entertainment", cascade = { CascadeType.ALL, CascadeType.MERGE, CascadeType.REFRESH,
             CascadeType.DETACH, CascadeType.REMOVE }, orphanRemoval = true)
     private Collection<EntertainmentTicket> tickets;

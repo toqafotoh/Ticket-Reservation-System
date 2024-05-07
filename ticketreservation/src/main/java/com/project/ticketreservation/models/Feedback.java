@@ -3,6 +3,7 @@ package com.project.ticketreservation.models;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +34,7 @@ public class Feedback {
 
     @Column(name = "passenger_id", length = 25)
     private String passengerId;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "passenger_id", insertable = false, updatable = false)
     private Passenger passenger;

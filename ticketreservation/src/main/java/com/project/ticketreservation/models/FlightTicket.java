@@ -1,5 +1,6 @@
 package com.project.ticketreservation.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,6 +21,7 @@ public class FlightTicket extends Ticket {
     @Column(name = "flight_number")
     private String flightNumber;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "flight_number", insertable = false, updatable = false)
     private Flight flight;
