@@ -1,6 +1,8 @@
 package com.project.ticketreservation.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.ticketreservation.dto.FlatsProfileDto;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,15 +28,16 @@ public class Flat {
     private String flatOwnerId;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "flat_owner_id",insertable = false, updatable = false)
+    @JoinColumn(name = "flat_owner_id", insertable = false, updatable = false)
     // Test insertable, updatable conditions inside the database
-    // make sure to change the flats owner when the owner id changes "inside the component"
+    // make sure to change the flats owner when the owner id changes "inside the
+    // component"
     private FlatOwner flatOwner;
     @Column(name = "flat_image")
     private String flatImage;
 
     public Flat() {
-    }    
+    }
 
     public Flat(Integer flatId, String address, String flatDescription, String countryName, Integer capacity,
             Double price, String flatOwnerId, FlatOwner flatOwner, String flatImage) {
@@ -49,60 +52,85 @@ public class Flat {
         this.flatImage = flatImage;
     }
 
+    public Flat(FlatsProfileDto flatData) {
+        this.address = flatData.getAddress();
+        this.flatDescription = flatData.getFlatDescription();
+        this.countryName = flatData.getCountryName();
+        this.capacity = flatData.getCapacity();
+        this.price = flatData.getPrice();
+        this.flatImage = flatData.getFlatImage();
+    }
+
     public Integer getFlatId() {
         return flatId;
     }
+
     public void setFlatId(Integer flatId) {
         this.flatId = flatId;
     }
+
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getFlatDescription() {
         return flatDescription;
     }
+
     public void setFlatDescription(String flatDescription) {
         this.flatDescription = flatDescription;
     }
+
     public String getCountryName() {
         return countryName;
     }
+
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
+
     public Integer getCapacity() {
         return capacity;
     }
+
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
+
     public Double getPrice() {
         return price;
     }
+
     public void setPrice(Double price) {
         this.price = price;
     }
+
     public String getFlatOwnerId() {
         return flatOwnerId;
     }
+
     public void setFlatOwnerId(String flatOwnerId) {
         this.flatOwnerId = flatOwnerId;
     }
+
     public FlatOwner getFlatOwner() {
         return flatOwner;
     }
+
     public void setFlatOwner(FlatOwner flatOwner) {
         this.flatOwner = flatOwner;
     }
+
     public String getFlatImage() {
         return flatImage;
     }
+
     public void setFlatImage(String flatImage) {
         this.flatImage = flatImage;
     }
 
-    
 }

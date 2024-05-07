@@ -22,7 +22,7 @@ public class FlatsProfileDto {
         this.flatImage = flat.getFlatImage();
     }
 
-    public FlatsProfileDto(String address, String flatDescription, String countryName, Integer capacity, Double price,
+    public FlatsProfileDto(String flatOwnerId, String address, String flatDescription, String countryName, Integer capacity, Double price,
             String flatImage) {
         this.address = address;
         this.flatDescription = flatDescription;

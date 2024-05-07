@@ -34,7 +34,7 @@ public class FlatsController {
     }
 
     @GetMapping("/profile/flats")
-    public List<FlatsProfileDto> getOwnerFlats() {
+    public List<FlatsDto> getOwnerFlats() {
         return flatService.getOwnerFlats();
     }
 
@@ -44,9 +44,9 @@ public class FlatsController {
     }
 
     @PostMapping("/flats")
-    public ResponseEntity<Flat> addFlat(@RequestBody FlatsDto flatDto) throws IOException {
+    public ResponseEntity<Flat> addFlat(@RequestBody FlatsProfileDto flatDto) throws IOException {
         Flat savedFlat = flatService.addFlat(flatDto);
-        return new ResponseEntity<>(savedFlat, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedFlat, HttpStatus.OK);
     }
 
     @PutMapping("/flats/{id}")

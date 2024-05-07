@@ -21,21 +21,50 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((data) => {
                 console.log(data);
                 if (ok) {
-                   data.forEach(item => {
                     const tableBody = document.querySelector("#flatOwnerTable tbody");
-                    console.log(item);
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
+                    tableBody.innerHTML = '';
+
+                    data.forEach(item => {
+                        console.log(item);
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<tr flat-id="${item.flatId}">
+                                    <td>${item.flatId}</td>
                                     <td>${item.address}</td>
                                     <td>${item.flatDescription}</td>
                                     <td>${item.countryName}</td>
                                     <td>${item.capacity}</td>
                                     <td>${item.price}</td>
                                     <td>${item.flatImage}</td>
+                                    <td>
+                                        <button type="button" class="delete-btn btn btn-outline-danger">Delete</button>
+                                    </td>
                                     `;
-                    tableBody.appendChild(row);
-            
-                   });
+                        tableBody.appendChild(row);
+
+                        row.querySelector('.delete-btn').addEventListener('click', function () {
+                                const flatId = item.flatId;
+                                fetch(`http://localhost:9090/api/flats/${flatId}`, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+                                        "Content-Type": "application/json",
+                                    },
+                                })
+                                    .then(response => {
+                                        if (response.ok) {
+                                            response.text().then(message => {
+                                                console.log(message);
+                                                this.closest('tr').remove();
+                                            });
+                                        } else {
+                                            response.text().then(message => {
+                                                console.error('Failed to delete user:', message);
+                                            });
+                                        }
+                                    })
+                                    .catch(error => console.error('Error deleting user:', error));
+                            });
+                        });
                 }
             })
             .catch((error) => {

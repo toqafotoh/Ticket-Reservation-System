@@ -27,23 +27,23 @@ public class FlatMapperImpl implements FlatMapper {
     public Flat ToEntity(FlatsDto dto) {
         Flat flat = new Flat();
         flat.setAddress(dto.getAddress());
-        flat.setFlatDescription(dto.getDescription());
-        flat.setCountryName(dto.getCountry_name());
+        flat.setFlatDescription(dto.getFlatDescription());
+        flat.setCountryName(dto.getCountryName());
         flat.setCapacity(dto.getCapacity());
         flat.setPrice(dto.getPrice());
-        flat.setFlatOwnerId(dto.getFlatOwner_id());
-        flat.setFlatImage(dto.getFlat_image());
+        flat.setFlatId(dto.getFlatId());
+        flat.setFlatImage(dto.getFlatImage());
         return flat;
     }
 
     private void SetNewFlat(Flat flat, FlatsDto dto) {
         flat.setAddress(dto.getAddress());
-        flat.setFlatDescription(dto.getDescription());
-        flat.setCountryName(dto.getCountry_name());
+        flat.setFlatDescription(dto.getFlatDescription());
+        flat.setCountryName(dto.getCountryName());
         flat.setCapacity(dto.getCapacity());
         flat.setPrice(dto.getPrice());
-        flat.setFlatOwnerId(dto.getFlatOwner_id());
-        flat.setFlatImage(dto.getFlat_image());
+        flat.setFlatId(dto.getFlatId());
+        flat.setFlatImage(dto.getFlatImage());
     }
 
     public Flat ChangeFlat(Flat flat, FlatsDto dto) {

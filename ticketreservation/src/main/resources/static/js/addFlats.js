@@ -1,40 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("addflatsFrom").addEventListener("submit", function () {
-        var ok = false;
-        fetch(`http://localhost:9090/api/profile/flats`, {
-            method: "GET",
+
+        var address = document.getElementById("addressInput").value;
+        var flatDescription = document.getElementById("descriptionInput").value;
+        var countryName = document.getElementById("countryInput").value;
+        var capacity = document.getElementById("capacityInput").value;
+        var price = document.getElementById("priceInput").value;
+        var flatImage = document.getElementById("imageInput").value;
+
+        const flatData = {
+            address: address,
+            flatDescription: flatDescription,
+            countryName: countryName,
+            capacity: capacity,
+            price: price,
+            flatImage: flatImage
+        }
+
+        fetch(`http://localhost:9090/api/flats`, {
+            method: "POST",
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
                 "Content-Type": "application/json",
             },
+            body: JSON.stringify(flatData)
         })
             .then((response) => {
                 if (!response.ok) {
                     alert('Invalid Credentials');
                 } else {
-                    ok = true;
+                    alert("Flat Added Successfully");
                 }
                 return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                if (ok) {
-                    data.forEach(item => {
-                        const tableBody = document.querySelector("#flatOwnerTable tbody");
-                        console.log(item);
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                                        <td>${item.address}</td>
-                                        <td>${item.flatDescription}</td>
-                                        <td>${item.countryName}</td>
-                                        <td>${item.capacity}</td>
-                                        <td>${item.price}</td>
-                                        <td>${item.flatImage}</td>
-                                        `;
-                        tableBody.appendChild(row);
-    
-                    });
-                }
             })
             .catch((error) => {
                 console.error(

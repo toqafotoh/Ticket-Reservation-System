@@ -1,44 +1,46 @@
 package com.project.ticketreservation.dto;
 
+import com.project.ticketreservation.models.Flat;
+
 public class FlatsDto {
-    private String flatOwner_id;
+    private Integer flatId;
     private String address;
-    private String description;
-    private String country_name;
+    private String flatDescription;
+    private String countryName;
     private Integer capacity;
     private Double price;
-    private String flat_image;
+    private String flatImage;
 
     public FlatsDto() {
     }
 
-    public FlatsDto(String flatOwner_id, String address, String description, String country_name, Integer capacity,
-            Double price, String flat_image) {
-        this.flatOwner_id = flatOwner_id;
+    public FlatsDto(Integer flatId, String address, String flatDescription, String countryName, Integer capacity,
+            Double price, String flatImage) {
+        this.flatId = flatId;
         this.address = address;
-        this.description = description;
-        this.country_name = country_name;
+        this.flatDescription = flatDescription;
+        this.countryName = countryName;
         this.capacity = capacity;
         this.price = price;
-        this.flat_image = flat_image;
+        this.flatImage = flatImage;
     }
 
-    public FlatsDto(String flatOwner_id, FlatsProfileDto flatData){
-        this.flatOwner_id = flatOwner_id;
-        this.address = flatData.getAddress();
-        this.description = flatData.getFlatDescription();
-        this.country_name = flatData.getCountryName();
-        this.capacity = flatData.getCapacity();
-        this.price = flatData.getPrice();
-        this.flat_image = flatData.getFlatImage();
+    public FlatsDto(Flat flat){
+        this.flatId = flat.getFlatId();
+        this.address = flat.getAddress();
+        this.flatDescription = flat.getFlatDescription();
+        this.countryName = flat.getCountryName();
+        this.capacity = flat.getCapacity();
+        this.price = flat.getPrice();
+        this.flatImage = flat.getFlatImage();
     }
 
-    public String getFlatOwner_id() {
-        return flatOwner_id;
+    public Integer getFlatId() {
+        return flatId;
     }
 
-    public void setFlatOwner_id(String flatOwner_id) {
-        this.flatOwner_id = flatOwner_id;
+    public void setFlatId(Integer flatId) {
+        this.flatId = flatId;
     }
 
     public String getAddress() {
@@ -49,20 +51,20 @@ public class FlatsDto {
         this.address = address;
     }
 
-    public String getDescription() {
-        return description;
+    public String getFlatDescription() {
+        return flatDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFlatDescription(String flatDescription) {
+        this.flatDescription = flatDescription;
     }
 
-    public String getCountry_name() {
-        return country_name;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCountry_name(String country_name) {
-        this.country_name = country_name;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
     public Integer getCapacity() {
@@ -81,11 +83,11 @@ public class FlatsDto {
         this.price = price;
     }
 
-    public String getFlat_image() {
-        return flat_image;
+    public String getFlatImage() {
+        return flatImage;
     }
 
-    public void setFlat_image(String flat_image) {
-        this.flat_image = flat_image;
+    public void setFlatImage(String flatImage) {
+        this.flatImage = flatImage;
     }
 }

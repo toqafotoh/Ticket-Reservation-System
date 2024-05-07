@@ -31,12 +31,12 @@ public class FlatService {
                 .collect(Collectors.toList());
     }
 
-    public List<FlatsProfileDto> getOwnerFlats() {
+    public List<FlatsDto> getOwnerFlats() {
         Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Flat> flats = flatRepository.findByFlatOwnerId(current.getNationalId());
 
-        List<FlatsProfileDto> result = flats.stream()
-                .map(flat -> new FlatsProfileDto(flat))
+        List<FlatsDto> result = flats.stream()
+                .map(flat -> new FlatsDto(flat))
                 .collect(Collectors.toList());
         return result;
     }
@@ -49,8 +49,10 @@ public class FlatService {
 
     }
 
-    public Flat addFlat(FlatsDto flatDto) throws IOException {
-        Flat flat = flatMapper.ToEntity(flatDto);
+    public Flat addFlat(FlatsProfileDto flatDto) throws IOException {
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Flat flat = new Flat(flatDto);
+        flat.setFlatOwnerId(current.getNationalId());
         return flatRepository.save(flat);
     }
 
