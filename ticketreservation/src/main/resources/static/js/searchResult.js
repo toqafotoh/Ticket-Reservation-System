@@ -1,48 +1,55 @@
+
+
 $(document).ready(function() {
-    // Function to fetch all flight details from the backend API
-    function fetchAllFlights() {
-        $.ajax({                       //TO TEST
-            url: "http://localhost:8080/flights/result", // Endpoint to fetch all flights
+     // Parse the query string parameters from the URL
+     var urlParams = new URLSearchParams(window.location.search);
+     var wantedTickets = urlParams.get('wantedTickets'); // Get the value of the 'flightNo' parameter
+     
+     // Check if the flight number is present in the URL
+    function getFlight() {
+        $.ajax({
+            url: "http://localhost:8080/flights/result",
             type: "GET",
             dataType: "json",
             success: function(data) {
-                // Loop through the list of flights
-                data.forEach(function(flight, index) {
-                    // Create a new <div> element for each flight
-                    var flightDiv = $('<div>').attr('id', 'flight_' + index).addClass('flight');
-                    
-                    // Append flight details to the <div> element
-                    flightDiv.append('<p>Flight number: ' + flight.flightNumber + '</p>');    
-                    flightDiv.append('<p>Flight Type: ' + flight.flightType + '</p>');
-                    flightDiv.append('<p>Origin: ' + flight.origin + '</p>');
-                    flightDiv.append('<p>Destination: ' + flight.destination + '</p>');
-                    flightDiv.append('<p>Departure Date: ' + flight.flightStartTime + '</p>');
-                    flightDiv.append('<p>Return Date: ' + flight.flightEndTime + '</p>');
-                    flightDiv.append('<p>No. of Tickets: ' + flight.availableSeats + '</p>');
-                    flightDiv.append('<p>Flight Class: ' + flight.flightClass + '</p>');
-                    flightDiv.append('<p>Flight Price: ' + flight.price + '</p>');
-                    flightDiv.append('<br />');
+                if ($.isEmptyObject(data)) {
+                    // If no flight data, display a message
+                    $('#removedflight').remove(); // Clear the existing content
+                    $('.nodataToshow').text("No matching flights to show")
+                } else {
+                     
+                    var $template = $('.flight'); 
 
-                    var viewTicketLink = $('<a>').attr('href', 'submitBooking.html?flightNumber=' + flight.flightNumber).text('View Flight');
-                    // viewTicketLink.click(function() {
-                    //     var selectedFlightNo = flight.flightNo;
-                    //     window.location.href = 'submitBooking.html?flightNo=' + selectedFlightNo;
-                    
-                    // });
-                    flightDiv.append(viewTicketLink);
-                    // Append the <div> element to the HTML body or any other container
-                    $('#flights').append(flightDiv);
+                    $('#all').empty(); 
 
-                    // Add click event listener to the flight div
-                    
-                });
+                    $.each(data, function(index, flight) {
+                        var $clonedFlight = $template.clone(); // Clone the template
+                        
+                        $clonedFlight.find('.origin').text(flight.origin);
+                        $clonedFlight.find('.destination').text(flight.destination);
+                        $clonedFlight.find('.flightStartTime').text(flight.flightStartTime);
+                        $clonedFlight.find('.flightEndTime').text(flight.flightEndTime);
+                        if (flight.flightType === "ow") {
+                            $clonedFlight.find('.flightType').text("One Way");
+                        } else if (flight.flightType === "rt") {
+                            $clonedFlight.find('.flightType').text("Round Trip");
+                        }
+                        $clonedFlight.find('.flightClass').text(flight.flightClass);
+                        $clonedFlight.find('.availableSeats').text(flight.availableSeats);
+                        $clonedFlight.find('.price').text(flight.price);
+                        $clonedFlight.find('.airline').text(flight.airline);
+
+                        $clonedFlight.find('#flightChoice').attr('href', 'http://localhost:8080/Ticket/submitBooking.html?flightNumber=' + flight.flightNumber+'&wantedTickets='+wantedTickets);
+
+                       
+                        $('#all').append($clonedFlight);
+                    });
+                }
             },
             error: function() {
                 console.log('Error fetching flight details');
             }
         });
     }
-
-    // Call the fetchAllFlights function to retrieve all flights
-    fetchAllFlights();
+    getFlight();
 });

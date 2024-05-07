@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ticketreservation.models.Flight;
@@ -59,54 +60,35 @@ public class FlightController {
         return flightService.countFlights();
     }
 
-    // @PostMapping("/flights/search")
-    // public String recieveFlightData(@RequestBody Map<String , String> request)
-    // {
-    //     Date flightStartDate = Date.valueOf(request.get("flightStartDate"));
-    //     Date flightEndDate = Date.valueOf(request.get("flightEndDate"));
-
-    //     flightToSearch = new Flight(request.get("origin"), request.get("destination"),
-    //       flightStartDate.toInstant()
-    //         .atZone(ZoneId.systemDefault())
-    //         .toLocalDateTime()
-    //         , flightEndDate.toInstant()
-    //         .atZone(ZoneId.systemDefault())
-    //         .toLocalDateTime()
-    //     , Flight.FlightType.valueOf(request.get("flightType")) , 
-    //       Flight.FlightClass.valueOf(request.get("flightClass") ),Integer.valueOf( request.get("avaliableSeats")));
-        
-    //       return "Done";
-    // }
-
     @PostMapping("/flights/search")
-public Flight recieveFlightData(@RequestBody Map<String , String> request) {
-    String flightStartDateStr = request.get("flightStartDate");
-    String flightEndDateStr = request.get("flightEndDate");
+    public Flight recieveFlightData(@RequestBody Map<String , String> request) {
+        String flightStartDateStr = request.get("flightStartDate");
+        String flightEndDateStr = request.get("flightEndDate");
 
-    // Parse the date strings into java.sql.Date objects
-    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    Date flightStartDate = null;
-    Date flightEndDate = null;
-    try {
-        flightStartDate = new Date(dateFormat.parse(flightStartDateStr).getTime());
-        flightEndDate = new Date(dateFormat.parse(flightEndDateStr).getTime());
-    } catch (ParseException e) {
-        // Handle parsing exception
-        e.printStackTrace();
-    }
+        // Parse the date strings into java.sql.Date objects
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date flightStartDate = null;
+        Date flightEndDate = null;
+        try {
+            flightStartDate = new Date(dateFormat.parse(flightStartDateStr).getTime());
+            flightEndDate = new Date(dateFormat.parse(flightEndDateStr).getTime());
+        } catch (ParseException e) {
+            // Handle parsing exception
+            e.printStackTrace();
+        }
 
-    // Convert java.sql.Date objects to LocalDateTime
-    LocalDateTime flightStartDateTime = flightStartDate.toLocalDate().atStartOfDay();
-    LocalDateTime flightEndDateTime = flightEndDate.toLocalDate().atStartOfDay();
+        // Convert java.sql.Date objects to LocalDateTime
+        LocalDateTime flightStartDateTime = flightStartDate.toLocalDate().atStartOfDay();
+        LocalDateTime flightEndDateTime = flightEndDate.toLocalDate().atStartOfDay();
 
-    // Create the Flight object
-    flightToSearch = new Flight(request.get("origin"), request.get("destination"),
-            flightStartDateTime, flightEndDateTime,
-            Flight.FlightType.valueOf(request.get("flightType")),
-            Flight.FlightClass.valueOf(request.get("flightClass")),
-            Integer.valueOf(request.get("availableSeats")));
+        // Create the Flight object
+        flightToSearch = new Flight(request.get("origin"), request.get("destination"),
+                flightStartDateTime, flightEndDateTime,
+                Flight.FlightType.valueOf(request.get("flightType")),
+                Flight.FlightClass.valueOf(request.get("flightClass")),
+                Integer.valueOf(request.get("availableSeats")));
 
-    return flightToSearch;
+        return flightToSearch;
 }
 
     

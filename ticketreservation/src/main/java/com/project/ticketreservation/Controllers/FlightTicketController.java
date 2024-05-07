@@ -59,10 +59,12 @@ public class FlightTicketController {
     }
 
     @PostMapping("/add")
-    public void addTicket(@RequestBody Map<String, String> request) throws IOException, WriterException {
+    public void addTicket(@RequestBody Map<String, String> request ) throws IOException, WriterException {
         FlightTicket t = new FlightTicket(request.get("firstName"),
                 request.get("lastName"), request.get("nationalID"), "GJ78",
                 request.get("flightNumber"), request.get("origin"), request.get("dest"));
+
+                
         // Ticket ticket = new Ticket(null);
 
         String qrcode = generate_QRCode(t);
