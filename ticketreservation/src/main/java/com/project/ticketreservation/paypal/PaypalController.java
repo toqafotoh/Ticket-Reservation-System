@@ -1,6 +1,9 @@
 package com.project.ticketreservation.paypal;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
+import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.PaymentModel;
 import com.project.ticketreservation.services.PaymentService;
 
@@ -69,7 +73,7 @@ public class PaypalController {
         try {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if (payment.getState().equals("approved")) {
-                model = new PaymentModel(paymentId, Double.valueOf(amountt), true);
+                model = new PaymentModel(paymentId, Double.valueOf(amountt), true );
                 ps.createPaymmentDB(model); // done
                 ps.setTicketPaymentIDAndprice(paymentId, Double.valueOf(amountt));
                 payid = paymentId;

@@ -44,6 +44,7 @@ public class PaymentModel {
         this.transactionDate = transactionDate;
         this.transactionState = transactionState;
     }
+    
 
     public String getPaymentId() {
         return paymentId;
