@@ -28,6 +28,10 @@ public class JwtService {
     @Value("${token.expiration}")
     Long jwtExpirationMs;
 
+    public String extractNationalId(String token) {
+        return (String) extractSubject(token);
+    }
+
     public String extractName(String token) {
         return (String) extractClaim(token, "name");
     }
@@ -46,10 +50,6 @@ public class JwtService {
     
     public String extractNationality(String token) {
         return (String) extractClaim(token, "nationality");
-    }
-
-    public String extractNationalId(String token) {
-        return (String) extractClaim(token, "nationalId");
     }
 
     public String extractGender(String token) {

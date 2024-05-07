@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "flightImage": "jj"
             };
 
-            fetch("http://localhost:8081/flights", {
+            fetch("http://localhost:9090/flights", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,24 +77,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify(flightData)
             })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Failed to add flight');
-                }
-            })
-            .then(data => {
-                if (data === true) {
-                    alert('Flight added successfully');
-                } else {
-                   alert('Flight ID already exists');
-                }
-            })
-            .catch(error => {
-                console.error('Error adding flight:', error);
-                alert('Failed to add flight');
-            });
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to add flight');
+                    }
+                })
+                .then(data => {
+                    if (data === true) {
+                        alert('Flight added successfully');
+                    } else {
+                        alert('Flight ID already exists');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error adding flight:', error);
+                    alert('Failed to add flight');
+                });
         } else {
             const flightData = {
                 "flightNumber": flightNumber,
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "flightImage": "jj"
             };
 
-            fetch("http://localhost:8081/round-trip-flights", {
+            fetch("http://localhost:9090/round-trip-flights", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,24 +120,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify(flightData)
             })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Failed to add flight');
-                }
-            })
-            .then(data => {
-                if (data === true) {
-                    alert('Flight added successfully');
-                } else {
-                    alert('Flight ID already exists');
-                }
-            })
-            .catch(error => {
-                console.error('Error adding flight:', error);
-                alert('Failed to add flight');
-            });
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to add flight');
+                    }
+                })
+                .then(data => {
+                    if (data === true) {
+                        alert('Flight added successfully');
+                    } else {
+                        alert('Flight ID already exists');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error adding flight:', error);
+                    alert('Failed to add flight');
+                });
         }
     });
 });

@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('InfAdmin').addEventListener('submit', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('InfAdmin').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
 
         const form = event.target;
@@ -23,25 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
             destination: form.querySelector('#destination').value
         };
 
-        fetch('http://localhost:8081/entertainment', {
+        fetch('http://localhost:9090/entertainment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(entertainment)
         })
-        .then(response => response.json())
-        .then(result => {
-            if (result) {
-                alert('Entertainment added successfully');
-                form.reset(); // Reset the form after successful submission
-            } else {
+            .then(response => response.json())
+            .then(result => {
+                if (result) {
+                    alert('Entertainment added successfully');
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    alert('Failed to add entertainment');
+                }
+            })
+            .catch(error => {
+                console.error('Error adding entertainment:', error);
                 alert('Failed to add entertainment');
-            }
-        })
-        .catch(error => {
-            console.error('Error adding entertainment:', error);
-            alert('Failed to add entertainment');
-        });
+            });
     });
 });

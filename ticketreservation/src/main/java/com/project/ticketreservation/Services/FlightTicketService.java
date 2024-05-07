@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.models.FlightTicket;
 import com.project.ticketreservation.models.Ticket;
-import com.project.ticketreservation.repositories.FlightRepository;
+// import com.project.ticketreservation.repositories.FlightRepository;
 import com.project.ticketreservation.repositories.FlightTicketRepository;
 import com.project.ticketreservation.repositories.TicketRepository;
 
@@ -17,8 +17,8 @@ import com.project.ticketreservation.repositories.TicketRepository;
 public class FlightTicketService {
     @Autowired
     private FlightTicketRepository Repo;
-    @Autowired
-    private FlightRepository fr;
+    // @Autowired
+    // private FlightRepository fr;
     @Autowired
     private TicketRepository tr;
 

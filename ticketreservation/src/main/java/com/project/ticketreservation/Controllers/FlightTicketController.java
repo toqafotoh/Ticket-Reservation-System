@@ -21,7 +21,7 @@ import com.project.ticketreservation.models.Ticket;
 import com.project.ticketreservation.paypal.PaypalController;
 import com.project.ticketreservation.services.FlightService;
 import com.project.ticketreservation.services.FlightTicketService;
-import com.project.ticketreservation.services.TicketService;
+// import com.project.ticketreservation.services.TicketService;
 import com.project.ticketreservation.utils.TicketQRcodeGenerator;
 
 @RestController
@@ -33,8 +33,8 @@ public class FlightTicketController {
     @Autowired
     private FlightService fs;
 
-    @Autowired
-    private TicketService ts;
+    // @Autowired
+    // private TicketService ts;
 
     @GetMapping("getTickets")
     public ResponseEntity<List<FlightTicket>> getTickets() throws IOException, WriterException {
