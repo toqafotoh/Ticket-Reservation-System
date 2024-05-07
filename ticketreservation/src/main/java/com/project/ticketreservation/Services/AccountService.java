@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.models.Account;
-import com.project.ticketreservation.models.Flat;
-import com.project.ticketreservation.models.FlatOwner;
+// import com.project.ticketreservation.models.Flat;
+// import com.project.ticketreservation.models.FlatOwner;
 import com.project.ticketreservation.repositories.AccountRepository;
 
 import jakarta.persistence.EntityNotFoundException;

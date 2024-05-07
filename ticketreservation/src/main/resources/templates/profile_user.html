@@ -22,7 +22,8 @@
                         <img class="img-account-profile rounded-circle mb-2"
                             src="http://bootdey.com/img/Content/avatar/avatar1.png" alt>
                         <div class="small font-italic text-muted mb-4"></div>
-                        <button class="btn btn-primary" type="button" id="editProfileBtn">Edit Profile</button>
+                        <button class="btn btn-primary" type="button" id="editProfileBtn" data-bs-toggle="modal"
+                            data-bs-target="#accountDetailsForm">Edit Profile</button>
                     </div>
                 </div>
             </div>
@@ -65,76 +66,103 @@
                             </tr>
                         </table>
 
-                        <form id="accountDetailsForm" style="display: none;">
+                        <div class="modal fade" id="accountDetailsForm" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="accountDetailsForm">Update profile</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card col-12">
+                                            <div class="card-body">
+                                                <form class="row g-3 needs-validation" id="InfAdmin">
+                                                    <div class="mb-3">
+                                                        <label class="small mb-1" for="inputname">Name</label>
+                                                        <input class="form-control" id="inputname" type="text"
+                                                            placeholder="Enter your name">
+                                                    </div>
 
+                                                    <div class="row gx-3 mb-3">
 
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputname">Name</label>
-                                <input class="form-control" id="inputname" type="text" placeholder="Enter your name">
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1" for="inputemail">Email</label>
+                                                            <input class="form-control" id="inputemail" type="email"
+                                                                placeholder="Enter your E-mail">
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1" for="inputNID">National Id</label>
+                                                            <input class="form-control" id="inputNID" type="text"
+                                                                placeholder="Enter your National ID">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row gx-3 mb-3">
+
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1"
+                                                                for="inputNationality">Nationality</label>
+                                                            <input class="form-control" id="inputNationality"
+                                                                type="text" placeholder=" Enter Nationality">
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1" for="inputgender">Gender</label>
+                                                            <input class="form-control" id="inputgender" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row gx-3 mb-3">
+                                                        <div class="col-md-6">
+                                                            <label for="dateInput"
+                                                                class="small mb-1">BirthOfDate</label>
+                                                            <input type="date" class="form-control" id="dateInput"
+                                                                name="dateInput">
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1" for="inputrole">Role</label>
+                                                            <input class="form-control" id="inputrole" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row gx-3 mb-3">
+                                                        <div class="col-md-6">
+                                                            <label for="dateInput" class="small mb-1">Old
+                                                                Password</label>
+                                                            <input type="password" class="form-control" id="passInput"
+                                                                name="passInput" placeholder="Enter your Old password">
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1" for="inputnewpass">New
+                                                                password</label>
+                                                            <input class="form-control" id="inputnewpass"
+                                                                type="password" placeholder="Enter your New Password">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="small mb-1" for="upimage">Upload image</label>
+                                                        <input type="file" class="form-control"
+                                                            aria-label="file example" required>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="row gx-3 mb-3">
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputemail">Email</label>
-                                    <input class="form-control" id="inputemail" type="email"
-                                        placeholder="Enter your E-mail">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputNID">National Id</label>
-                                    <input class="form-control" id="inputNID" type="text"
-                                        placeholder="Enter your National ID">
-                                </div>
-                            </div>
-
-                            <div class="row gx-3 mb-3">
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputNationality">Nationality</label>
-                                    <input class="form-control" id="inputNationality" type="text"
-                                        placeholder=" Enter Nationality">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputgender">Gender</label>
-                                    <input class="form-control" id="inputgender" readonly>
-                                </div>
-                            </div>
-
-                            <div class="row gx-3 mb-3">
-                                <div class="col-md-6">
-                                    <label for="dateInput" class="small mb-1">BirthOfDate</label>
-                                    <input type="date" class="form-control" id="dateInput" name="dateInput">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputrole">Role</label>
-                                    <input class="form-control" id="inputrole" readonly>
-                                </div>
-                            </div>
-
-                            <div class="row gx-3 mb-3">
-                                <div class="col-md-6">
-                                    <label for="dateInput" class="small mb-1">Old Password</label>
-                                    <input type="password" class="form-control" id="passInput" name="passInput"
-                                        placeholder="Enter your Old password">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputnewpass">New password</label>
-                                    <input class="form-control" id="inputnewpass" type="password"
-                                        placeholder="Enter your New Password">
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="small mb-1" for="upimage">Upload image</label>
-                                <input type="file" class="form-control" aria-label="file example" required>
-                            </div>
-
-                            <button class="btn btn-primary" type="button">Save changes</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -283,7 +311,7 @@
             </div>
         </div>
 
-        <script>
+        <!-- <script>
             $(document).ready(function () {
                 // Populate the table with sample data
                 $('#name').text('John Doe');
@@ -303,7 +331,7 @@
                     isFormVisible = !isFormVisible;
                 });
             });
-        </script>
+        </script> -->
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="../static/js/BootStarpScript.js"></script>
 </body>
