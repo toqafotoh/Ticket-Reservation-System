@@ -102,25 +102,51 @@
     <div class="row" id="row">  <!-- Entertainments-->
         <div class="col-md-3" id="removeMain">
             <div class="card mb-3">
+                
                 <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title destination"></h5>
 
                     <p class="entertainment-desc description">Egypt is not only a country of antiquity, but also of magnificent landscapes offering cities and oases, deserts and beaches, ancient obelisks, and modern hotels.</p>
                     <div class="form-group" style="font-size: 20px;">Price</div>
-                    <p class="card-price price"></p>
+                    <p class="card-price price">3000$</p>
                     <p class="card-time time"></p>
                     <form>
                         <div class="form-group" style="padding-bottom: 10px;">
                             <label for="ID">National ID</label>
-                            <input type="email" class="form-control nid" id="ID" aria-describedby="emailHelp" placeholder="National ID">
+                            <input type="email" class="form-control" id="ID" aria-describedby="emailHelp" placeholder="National ID">
                         </div>
                         <div class="form-group"style="padding-bottom: 10px;">
                             <label for="ticketNumber">Number Of Tickets</label>
-                            <input class="form-control ticketNumber" id="ticketNumber" type="number" min="1" max="10" placeholder="maximum 5">
+                            <input class="form-control" id="ticketNumber" type="number" min="1" max="10" placeholder="maximum 10">
                         </div>
                         <button type="submit" class="btn btn-primary" >Book Now</button>
+
+
+                    <form action="#"id="book-flight" class="book-flight" >
+                        <p hidden class="entertainmentTourId">1</p>
+                        <!-- <div class="row">
+                            <div class="col-md-6 transform-color" style="width:100%" >
+                                <div class="form-group transform-color" >
+                                    <span class="form-label transform-color" >National Id</span>
+                                    <input class="form-control input-tranform transform-color inputt nid" type="text"  required>
+                                </div>
+                            </div>
+                        </div>		 -->
+                           <div>
+                            <div class="col-md-6 transform-color" style="width:100%">
+                                <div class="form-group transform-color">
+                                    <span class="form-label transform-color" >Number of Tickets</span>
+                                    <input class="form-control transform-color inputt ticketNumber" placeholder="noOfTickets" required>
+                                </div>		
+                            </div>
+                          </div>
+                        <div class="form-btn">
+                            <button style="margin-top: 10px; margin-left: 20px; width: 100px;" class="submit_btn btn btn-primary" type="submit">Book</button>
+                        </div>
+
                     </form>
+
                 </div>
 
             </div>
@@ -144,15 +170,8 @@
     </script>
 <script src="../js/showEntertainments.js"></script>
 
-<!-- JavaScript to toggle form visibility -->
-<!-- <script>
-        $(document).ready(function() {
-            $(".show-form").click(function() {
-                // Toggle the visibility of the next sibling form
-                $(this).next(".booking-form").toggle();
-            });
-        });
-    </script> -->
+
+
 </body>
 <section id="footer"></section>>
 </html>
