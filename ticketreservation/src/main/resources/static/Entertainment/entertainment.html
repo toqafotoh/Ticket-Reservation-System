@@ -102,6 +102,7 @@
     <div class="row" id="row">  <!-- Entertainments-->
         <div class="col-md-3" id="removeMain">
             <div class="card mb-3">
+                
                 <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title destination"></h5>
@@ -120,7 +121,32 @@
                             <input class="form-control" id="ticketNumber" type="number" min="1" max="10" placeholder="maximum 10">
                         </div>
                         <button type="submit" class="btn btn-primary" >Book Now</button>
+
+
+                    <form action="#"id="book-flight" class="book-flight" >
+                        <p hidden class="entertainmentTourId">1</p>
+                        <!-- <div class="row">
+                            <div class="col-md-6 transform-color" style="width:100%" >
+                                <div class="form-group transform-color" >
+                                    <span class="form-label transform-color" >National Id</span>
+                                    <input class="form-control input-tranform transform-color inputt nid" type="text"  required>
+                                </div>
+                            </div>
+                        </div>		 -->
+                           <div>
+                            <div class="col-md-6 transform-color" style="width:100%">
+                                <div class="form-group transform-color">
+                                    <span class="form-label transform-color" >Number of Tickets</span>
+                                    <input class="form-control transform-color inputt ticketNumber" placeholder="noOfTickets" required>
+                                </div>		
+                            </div>
+                          </div>
+                        <div class="form-btn">
+                            <button style="margin-top: 10px; margin-left: 20px; width: 100px;" class="submit_btn btn btn-primary" type="submit">Book</button>
+                        </div>
+
                     </form>
+
                 </div>
 
             </div>
@@ -143,6 +169,10 @@
         });
     </script>
 <script src="../js/showEntertainments.js"></script>
+
+<script>
+
+</script>
 
 <!-- JavaScript to toggle form visibility -->
 <script>

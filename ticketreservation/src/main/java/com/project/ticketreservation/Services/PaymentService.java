@@ -1,10 +1,13 @@
 package com.project.ticketreservation.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.PaymentModel;
 import com.project.ticketreservation.models.Ticket;
 import com.project.ticketreservation.repositories.FlightTicketRepository;
@@ -29,10 +32,12 @@ public class PaymentService {
         return paymentRepository.findAll();
     }
 
-    public String createPaymmentDB(PaymentModel model) {
+    public String createPaymmentDB(PaymentModel model)
+     { 
+        model.setTransactionDate(new Date());
         paymentRepository.save(model);
-        return "done";
-    }
+        return "payment done";
+     }
 
     public String setTicketPaymentIDAndprice(String paymentID, Double price) {
         // Get all the tickets with a payment_id of null
@@ -59,7 +64,8 @@ public class PaymentService {
     }
 
     public PaymentModel createPayment(PaymentModel payment) {
-        String passengerId = payment.getPassenger().getNationalId();
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String passengerId  = current.getNationalId();
         if (!passengerRepository.existsById(passengerId)) {
             throw new EntityNotFoundException("Passenger with ID " + passengerId + " not found");
         }

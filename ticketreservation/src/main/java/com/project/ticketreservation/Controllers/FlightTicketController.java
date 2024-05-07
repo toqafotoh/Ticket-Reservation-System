@@ -91,7 +91,7 @@ public class FlightTicketController {
 
     @GetMapping("/getFlights")
     public List<Flight> getFlights() {
-
+        
         List<Flight> flights = fs.getAllFlights();
         return flights;
     }

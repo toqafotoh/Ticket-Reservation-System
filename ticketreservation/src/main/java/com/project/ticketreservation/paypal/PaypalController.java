@@ -69,7 +69,7 @@ public class PaypalController {
         try {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if (payment.getState().equals("approved")) {
-                model = new PaymentModel(paymentId, Double.valueOf(amountt), true);
+                model = new PaymentModel(paymentId, Double.valueOf(amountt), true , payerId);
                 ps.createPaymmentDB(model); // done
                 ps.setTicketPaymentIDAndprice(paymentId, Double.valueOf(amountt));
                 payid = paymentId;

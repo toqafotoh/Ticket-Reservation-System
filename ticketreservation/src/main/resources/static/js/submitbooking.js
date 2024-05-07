@@ -48,21 +48,6 @@ var origin1 ;
 var dest1;
 
 
-// submitBooking.js
-
-function getWantedTicketsFromStorage() {
-    var wantedTickets = localStorage.getItem('wantedTickets');
-    return wantedTickets;
-  }
-  
-  // Use the getWantedTicketsFromStorage() function where needed
-  var wantedTickets = getWantedTicketsFromStorage();
-  console.log('Wanted Tickets:', wantedTickets);
-  
-
-
-
-
    $(document).ready(function() { //done
     // Function to fetch flight details from the backend API
     function fetchFlightDetails() {

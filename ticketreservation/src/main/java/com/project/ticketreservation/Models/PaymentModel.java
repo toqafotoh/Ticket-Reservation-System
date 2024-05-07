@@ -24,11 +24,19 @@ public class PaymentModel {
     private Date transactionDate;
     private boolean transactionState;
 
-    public PaymentModel(String paymentId, Double TotalPayment, boolean transactionState) {
+    public PaymentModel(String paymentId, Double TotalPayment, boolean transactionState , String passengerid) {
         this.paymentId = paymentId;
         this.totalAmount = TotalPayment;
         this.transactionState = transactionState;
         this.transactionDate = new Date();
+        this.passenger.setNationalId(passengerid);
+    }
+    public PaymentModel(Double TotalPayment, boolean transactionState , String passengerid) {
+        
+        this.totalAmount = TotalPayment;
+        this.transactionState = transactionState;
+        this.transactionDate = new Date();
+        this.passenger.setNationalId(passengerid);
     }
 
     public PaymentModel() {

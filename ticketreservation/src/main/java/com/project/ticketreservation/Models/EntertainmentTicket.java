@@ -25,10 +25,11 @@ public class EntertainmentTicket extends Ticket {
         this.entertainment = entertainment;
     }
 
-    public EntertainmentTicket(Integer entertainmentTourId, Entertainment entertainment) {
-        this.entertainmentTourId = entertainmentTourId;
-        this.entertainment = entertainment;
-    }
+    // public EntertainmentTicket(Integer entertainmentTourId, String passengerId , String paymentId) {
+    //     this.entertainmentTourId = entertainmentTourId;
+    //     ticket.setPassengerId(passengerId);
+    //     ticket.setPaymentId(paymentId);
+    // }
 
     public EntertainmentTicket(Integer ticketId, Double price, String paymentId, String passengerId,
             Passenger passenger, PaymentModel payment, Integer entertainmentTourId, Entertainment entertainment) {
