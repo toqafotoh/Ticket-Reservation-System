@@ -1,7 +1,7 @@
 $(document).ready(function() {
     function getEntertainments() {
         $.ajax({
-            url: "http://localhost:8080/entertainment",
+            url: "http://localhost:9090/entertainment",
             type: "GET",
             dataType: "json",
             success: function(data) {

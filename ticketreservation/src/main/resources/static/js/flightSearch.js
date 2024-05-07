@@ -16,7 +16,7 @@ $(document).ready(function() {
         console.log("Form data:", formData);
 
         $.ajax({
-            url: "http://localhost:8080/flights/search",
+            url: "http://localhost:9090/flights/search",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(formData),
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
         var wantedTickets = $('.numberOfSeats').val();
         $('#search-flight').submit();
-        window.location.href = "http://localhost:8080/Passenger/resultSearchflights.html?wantedTickets=" + wantedTickets;
+        window.location.href = "http://localhost:9090/Passenger/resultSearchflights.html?wantedTickets=" + wantedTickets;
 
     });
 });

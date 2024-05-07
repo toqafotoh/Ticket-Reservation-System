@@ -75,7 +75,7 @@ function getWantedTicketsFromStorage() {
         // Check if the flight number is present in the URL
         if (flightNumber) {
             $.ajax({
-                url: "http://localhost:8080/flights/" + flightNumber,
+                url: "http://localhost:9090/flights/" + flightNumber,
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
@@ -134,7 +134,7 @@ $(document).ready(function() {
     $(document).on('submit', '.ticket-form', function(event) {
         event.preventDefault();
 
-        var url = "http://localhost:8080/ticket/add";
+        var url = "http://localhost:9090/ticket/add";
 
         // Extract form data for the current form
         var formData = {

@@ -5,7 +5,7 @@ $(document).ready(function() {
     // Check if the flight number is present in the URL
    function getFlight() {
        $.ajax({
-           url: "http://localhost:8080/flights",
+           url: "http://localhost:9090/flights",
            type: "GET",
            dataType: "json",
            success: function(data) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
                        $clonedFlight.find('.price').text(flight.price);
                        $clonedFlight.find('.airline').text(flight.airline);
 
-                       $clonedFlight.find('#flightChoice').attr('href', 'http://localhost:8080/Ticket/flightForm.html?flightNumber=' + flight.flightNumber);
+                       $clonedFlight.find('#flightChoice').attr('href', 'http://localhost:9090/Ticket/flightForm.html?flightNumber=' + flight.flightNumber);
 
                        $('#all').append($clonedFlight);
                    });

@@ -61,7 +61,7 @@
   $(document).ready(function() {
     function getTicket() {
         $.ajax({
-            url: "http://localhost:8080/ticket/paymentTickets",
+            url: "http://localhost:9090/ticket/paymentTickets",
             type: "GET",
             dataType: "json",
             success: function(data) {
@@ -82,7 +82,7 @@
                     $clonedTicket.find('.dest2').text(ticket.dest);
                     
                     // Create a new image element and set the src attribute using AJAX data
-                    var img = $('<img>').attr('src', 'http://localhost:8080/images/TicketsQRcode/'+ticket.firstName+ticket.nationalID+'-TicketQRCODE.png'); // Assuming 'data.imageUrl' contains the URL retrieved via AJAX
+                    var img = $('<img>').attr('src', 'http://localhost:9090/images/TicketsQRcode/'+ticket.firstName+ticket.nationalID+'-TicketQRCODE.png'); // Assuming 'data.imageUrl' contains the URL retrieved via AJAX
                     $clonedTicket.find('.qrcode').append(img);
                     console.log(data);
 
