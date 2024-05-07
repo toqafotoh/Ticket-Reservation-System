@@ -20,7 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="flat_service" target="19" />
+      <module name="flat_service" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
