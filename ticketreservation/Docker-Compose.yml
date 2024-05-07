@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+    server:
+        build:
+            context: . # specify the build context directory
+        restart: always
+        ports:
+            - 8080:8080
+        depends_on:
+            - mysqldb
+    mysqldb:
+        image: "mysql:8.0.36"
+        restart: always
+        # restart: always
+        ports:
+            - 3307:3306
+        environment:
+            MYSQL_DATABASE: topic
+            # MYSQL_USER: root
+            MYSQL_PASSWORD: abdelwahed#12345#
+            MYSQL_ROOT_PASSWORD: abdelwahed#12345#
