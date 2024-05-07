@@ -1,5 +1,3 @@
-console.log(l);
-
 function changeColor(){
     var elements1 = document.getElementsByClassName('from');
     var elements2 = document.getElementsByClassName('from-b');

@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatMapper;
 import com.project.ticketreservation.dto.FlatsDto;
+import com.project.ticketreservation.dto.FlatsProfileDto;
+import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.repositories.FlatsRepository;
 
@@ -26,6 +29,16 @@ public class FlatService {
         return flats.stream()
                 .map(flatMapper::toFlatDTORespone)
                 .collect(Collectors.toList());
+    }
+
+    public List<FlatsProfileDto> getOwnerFlats() {
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Flat> flats = flatRepository.findByFlatOwnerId(current.getNationalId());
+
+        List<FlatsProfileDto> result = flats.stream()
+                .map(flat -> new FlatsProfileDto(flat))
+                .collect(Collectors.toList());
+        return result;
     }
 
     public FlatDtoRespone getFlatById(Integer id) {

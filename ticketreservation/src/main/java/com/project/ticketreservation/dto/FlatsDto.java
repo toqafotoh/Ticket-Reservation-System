@@ -23,6 +23,16 @@ public class FlatsDto {
         this.flat_image = flat_image;
     }
 
+    public FlatsDto(String flatOwner_id, FlatsProfileDto flatData){
+        this.flatOwner_id = flatOwner_id;
+        this.address = flatData.getAddress();
+        this.description = flatData.getFlatDescription();
+        this.country_name = flatData.getCountryName();
+        this.capacity = flatData.getCapacity();
+        this.price = flatData.getPrice();
+        this.flat_image = flatData.getFlatImage();
+    }
+
     public String getFlatOwner_id() {
         return flatOwner_id;
     }

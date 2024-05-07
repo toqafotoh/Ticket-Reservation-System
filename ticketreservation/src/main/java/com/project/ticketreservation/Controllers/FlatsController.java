@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatsDto;
+import com.project.ticketreservation.dto.FlatsProfileDto;
 import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.services.FlatService;
 
@@ -30,6 +31,11 @@ public class FlatsController {
     @GetMapping("/flats")
     public List<FlatDtoRespone> getAllFlats() {
         return flatService.getAllFlats();
+    }
+
+    @GetMapping("/profile/flats")
+    public List<FlatsProfileDto> getOwnerFlats() {
+        return flatService.getOwnerFlats();
     }
 
     @GetMapping("/flats/{id}")

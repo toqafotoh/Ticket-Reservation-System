@@ -11,6 +11,7 @@
     <!-- Bootstrap CSS Time and Date-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <script src="js/addFlats.js" crossorigin="anonymous"></script>
     <!-- End Date -->
 </head>
 
@@ -24,47 +25,41 @@
 
                 <div class="card col-12">
                     <div class="card-body">
-                        <form class="row g-3 needs-validation" id="InfAdmin">
-                            <div class="col-md-6">
-                                <label for="validationCustom01" class="form-label">flat Id</label>
-                                <input type="text" class="form-control" id="validationCustom01" required>
-                            </div>
+                        <form class="row g-3 needs-validation" id="addflatsFrom">
 
                             <div class="col-md-6">
                                 <label for="validationCustom02" class="form-label">address</label>
-                                <input type="text" class="form-control" id="validationCustom02" required>
+                                <input type="text" class="form-control" id="addressInput" required>
                             </div>
 
                             <div class="col-md-6">
                                 <label for="validationState" class="form-label">flat Description</label>
-                                <input type="text" class="form-control" id="validationState" required>
+                                <input type="text" class="form-control" id="descriptionInput" required>
                             </div>
 
                             <div class="col-md-3">
                                 <label for="dateInput" class="form-label">country Name</label>
-                                <input type="text" class="form-control" id="textInput" name="Input">
+                                <input type="text" class="form-control" id="countryInput" name="Input">
                             </div>
 
                             <div class="col-md-3">
                                 <label for="dateInput" class="form-label">capacity</label>
-                                <input type="text" class="form-control" id="textInput" name="Input">
+                                <input type="text" class="form-control" id="capacityInput" name="Input">
                             </div>
 
                             <div class="col-md-3">
                                 <label for="dateInput" class="form-label">price</label>
-                                <input type="text" class="form-control" id="textInput" name="Input">
+                                <input type="text" class="form-control" id="priceInput" name="Input">
                             </div>
 
-
-
-                            <div class="col-mb-3">
-                                <label>Upload Image</label>
-                                <input type="file" class="form-control" aria-label="file example" required>
+                            <div class="col-md-3">
+                                <label>Image Link</label>
+                                <input type="text" class="form-control" id="imageInput" name="Input">
                             </div>
 
                             <!-- start handle with code -->
                             <div class="col-md-3 mt-5 d-grid gap-2">
-                                <button class="btn btn-primary" type="submit" value="Submit" form="InfAdmin">Publish
+                                <button class="btn btn-primary" type="submit" value="Submit">Publish
                                     Flat</button>
                             </div>
                             <!-- end handle with code -->

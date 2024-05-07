@@ -45,7 +45,7 @@ function createToken(loginData){
                 window.location.href = "Admin_View/index.html";
             }
             else{
-                window.location.href = "profile_user.html";
+                window.location.href = "Passenger/home.html";
             }
         }
     })

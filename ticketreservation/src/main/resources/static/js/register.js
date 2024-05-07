@@ -46,7 +46,7 @@ function createUser(userData){
                 document.getElementById("signupForm").reset();
             } else {
                 alert('User Created Successfully');
-                // window.location.href = "login.html";
+                window.location.href = "login.html";
             }
             return response ;
         })
