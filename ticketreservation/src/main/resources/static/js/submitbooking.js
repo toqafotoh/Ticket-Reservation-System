@@ -1,3 +1,5 @@
+console.log(l);
+
 function changeColor(){
     var elements1 = document.getElementsByClassName('from');
     var elements2 = document.getElementsByClassName('from-b');
@@ -46,21 +48,6 @@ var origin1 ;
 var dest1;
 
 
-// submitBooking.js
-
-function getWantedTicketsFromStorage() {
-    var wantedTickets = localStorage.getItem('wantedTickets');
-    return wantedTickets;
-  }
-  
-  // Use the getWantedTicketsFromStorage() function where needed
-  var wantedTickets = getWantedTicketsFromStorage();
-  console.log('Wanted Tickets:', wantedTickets);
-  
-
-
-
-
    $(document).ready(function() { //done
     // Function to fetch flight details from the backend API
     function fetchFlightDetails() {
@@ -73,7 +60,7 @@ function getWantedTicketsFromStorage() {
         // Check if the flight number is present in the URL
         if (flightNumber) {
             $.ajax({
-                url: "http://localhost:9090/flights/" + flightNumber,
+                url: "http://localhost:8080/flights/" + flightNumber,
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
@@ -132,7 +119,7 @@ $(document).ready(function() {
     $(document).on('submit', '.ticket-form', function(event) {
         event.preventDefault();
 
-        var url = "http://localhost:9090/ticket/add";
+        var url = "http://localhost:8080/ticket/add";
 
         // Extract form data for the current form
         var formData = {
@@ -170,4 +157,5 @@ $(document).ready(function() {
         });
     });
 });
+
 
