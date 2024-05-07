@@ -3,11 +3,11 @@ package com.project.ticketreservation.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.models.FlatOwner;
-import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.repositories.FlatOwnerRepository;
 import com.project.ticketreservation.repositories.FlatRepository;
 
@@ -56,9 +56,8 @@ public class FlatOwnerService {
                 .orElseThrow(() -> new EntityNotFoundException("Owner not found with ID: " + ownerId));
     }
 
-    public FlatOwner save(Passenger passenger) {
-        FlatOwner flatOwner = (FlatOwner) passenger;
-        flatOwner.setFlatOwnerRate(0);
+    public UserDetails save(FlatOwner flatOwner) {
+        System.out.println("Saving FlatOwner");
         return flatOwnerRepository.save(flatOwner);
     }
 }

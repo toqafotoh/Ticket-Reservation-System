@@ -7,14 +7,13 @@ import com.project.ticketreservation.models.Ticket;
 import com.project.ticketreservation.repositories.TicketRepository;
 
 @Service
-
 public class TicketService {
 
     @Autowired
-    private TicketRepository tc;
+    private TicketRepository ticketRepository;
 
-    public boolean addTicket(Ticket t) {
-        tc.save(t);
+    public boolean addTicket(Ticket ticket) {
+        ticketRepository.save(ticket);
         return true;
     }
 

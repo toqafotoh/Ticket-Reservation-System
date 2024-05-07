@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="../css/main.css" />
-    
+
     <style>
         /* Custom styling for cards */
         .card {
@@ -46,137 +46,113 @@
     </style>
 </head>
 <body>
-    <div id="header"></div>
-    <div class="container mt-5" style="padding-top: 50px;">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="mb-4">Exploring Entertainment and Travel Abroad</h1>
-                <p class="lead">Whether it's the vibrant cultural festivals of Spain, the serene landscapes of New Zealand, or the bustling marketplaces of Morocco, traveling abroad offers an escape into different worlds of entertainment and excitement. Each destination brings its own unique blend of adventures, shows, and historical sites, promising memories that last a lifetime.</p>
-            </div>
-        </div>
-        <!-- Bootstrap Carousel -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../images/entertainment/travel1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <p >Embark on a journey of discovery and adventure.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../images/entertainment/travel2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>Explore the world's wonders and create unforgettable memories.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../images/entertainment/travel4.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>Discover new cultures, tastes, and experiences in every corner of the globe.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- End Bootstrap Carousel -->
-        <!-- New sentence -->
-        <div class="row">
-            <div class="col-lg-12 mt-4">
-                <p>Explore more destinations. Find things to do in cities around the world.</p>
-            </div>
-        </div>
-        <!-- End new sentence -->
-        <div class="row" id="row">  <!-- Entertainments-->
-            <div class="col-md-3" id="removeMain">
-                <div class="card mb-3">
-                    <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title destination"></h5>
-                        <p class="entertainment-desc description"></p>
-                        <p class="card-price price"></p>
-                        <p class="card-time time"></p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-md-3">
-                <div class="card mb-3">
-                    <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Egypt</h5>
-                        <p class="entertainment-desc">Get ready to explore new cultures, experience diverse entertainment, and embark on journeys unlike any other. The world is full of destinations waiting to be discovered.</p>
-                        <p class="card-price">$1000</p>
-                        <p class="card-time">Time: 10:00 AM - 6:00 PM</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3">
-                    <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Egypt</h5>
-                        <p class="entertainment-desc">Get ready to explore new cultures, experience diverse entertainment, and embark on journeys unlike any other. The world is full of destinations waiting to be discovered.</p>
-                        <p class="card-price">$1000</p>
-                        <p class="card-time">Time: 10:00 AM - 6:00 PM</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3">
-                    <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Egypt</h5>
-                        <p class="entertainment-desc">Get ready to explore new cultures, experience diverse entertainment, and embark on journeys unlike any other. The world is full of destinations waiting to be discovered.</p>
-                        <p class="card-price">$1000</p>
-                        <p class="card-time">Time: 10:00 AM - 6:00 PM</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                    </div>
-                </div> 
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-3">
-                    <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Egypt</h5>
-                        <p class="entertainment-desc">Get ready to explore new cultures, experience diverse entertainment, and embark on journeys unlike any other. The world is full of destinations waiting to be discovered.</p>
-                        <p class="card-price">$1000</p>
-                        <p class="card-time">Time: 10:00 AM - 6:00 PM</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                    </div>
-                </div>-
-            </div>-->
+<div id="header"></div>
+<div class="container mt-5" style="padding-top: 50px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="mb-4">Exploring Entertainment and Travel Abroad</h1>
+            <p class="lead">Whether it's the vibrant cultural festivals of Spain, the serene landscapes of New Zealand, or the bustling marketplaces of Morocco, traveling abroad offers an escape into different worlds of entertainment and excitement. Each destination brings its own unique blend of adventures, shows, and historical sites, promising memories that last a lifetime.</p>
         </div>
     </div>
+    <!-- Bootstrap Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
 
-    <!-- Bootstrap JavaScript Bundle (Bootstrap JS + Popper JS) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
-    <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/main.js"></script>
-   
-    <script>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../images/entertainment/travel1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <p >Embark on a journey of discovery and adventure.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/entertainment/travel2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <p>Explore the world's wonders and create unforgettable memories.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../images/entertainment/travel4.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <p>Discover new cultures, tastes, and experiences in every corner of the globe.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- End Bootstrap Carousel -->
+    <!-- New sentence -->
+    <div class="row">
+        <div class="col-lg-12 mt-4">
+            <p>Explore more destinations. Find things to do in cities around the world.</p>
+        </div>
+    </div>
+    <!-- End new sentence -->
+    <div class="row" id="row">  <!-- Entertainments-->
+        <div class="col-md-3" id="removeMain">
+            <div class="card mb-3">
+                <img src="../images/entertainment/egypt.jpg" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                    <h5 class="card-title destination"></h5>
+
+                    <p class="entertainment-desc description">Egypt is not only a country of antiquity, but also of magnificent landscapes offering cities and oases, deserts and beaches, ancient obelisks, and modern hotels.</p>
+                    <div class="form-group" style="font-size: 20px;">Price</div>
+                    <p class="card-price price">3000$</p>
+                    <p class="card-time time"></p>
+                    <form>
+                        <div class="form-group" style="padding-bottom: 10px;">
+                            <label for="ID">National ID</label>
+                            <input type="email" class="form-control" id="ID" aria-describedby="emailHelp" placeholder="National ID">
+                        </div>
+                        <div class="form-group"style="padding-bottom: 10px;">
+                            <label for="ticketNumber">Number Of Tickets</label>
+                            <input class="form-control" id="ticketNumber" type="number" min="1" max="10" placeholder="maximum 10">
+                        </div>
+                        <button type="submit" class="btn btn-primary" >Book Now</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Repeat the same structure for other cards if needed -->
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle (Bootstrap JS + Popper JS) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/main.js"></script>
+
+<script>
         $(function () {
           $("#header").load("../fragments/header.html");
           $("#footer").load("../fragments/footer.html");
         });
     </script>
-    <script src="../js/showEntertainments.js"></script>
+<script src="../js/showEntertainments.js"></script>
 
+<!-- JavaScript to toggle form visibility -->
+<script>
+        $(document).ready(function() {
+            $(".show-form").click(function() {
+                // Toggle the visibility of the next sibling form
+                $(this).next(".booking-form").toggle();
+            });
+        });
+    </script>
 </body>
-<section id="footer">
+<section id="footer"></section>>
 </html>

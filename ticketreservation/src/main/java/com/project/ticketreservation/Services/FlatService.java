@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatMapper;
 import com.project.ticketreservation.dto.FlatsDto;
+import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.repositories.FlatsRepository;
 
 @Service

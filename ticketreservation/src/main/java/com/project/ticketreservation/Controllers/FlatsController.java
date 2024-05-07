@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.dto.FlatDtoRespone;
 import com.project.ticketreservation.dto.FlatsDto;
+import com.project.ticketreservation.models.Flat;
 import com.project.ticketreservation.services.FlatService;
 
 @RequestMapping("/api")

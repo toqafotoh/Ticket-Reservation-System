@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.repositories.PassengerRepository;
 
@@ -37,9 +36,8 @@ public class PassengerService {
         }
     }
 
-    public Passenger save(Account account) {
-        Passenger passenger = (Passenger) account;
-        passenger.setLoyaltyPoints(0);
+    public Passenger save(Passenger passenger) {
+        System.out.println("Saving Passenger");
         return passengerRepository.save(passenger);
     }
 }
