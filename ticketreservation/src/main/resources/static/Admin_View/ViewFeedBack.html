@@ -166,7 +166,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const feedbackId = urlParams.get("id");
 
-            fetch(`http://localhost:8081/feedbacks/${feedbackId}`)
+            fetch(`http://localhost:9090/feedbacks/${feedbackId}`)
                 .then(response => response.json())
                 .then(feedback => {
                     document.getElementById("name").value = feedback.passenger.name;

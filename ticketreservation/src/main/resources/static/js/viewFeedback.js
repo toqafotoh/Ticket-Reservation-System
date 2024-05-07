@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("http://localhost:8081/feedbacks")
+    fetch("http://localhost:9090/feedbacks")
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById("feedback-table");

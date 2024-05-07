@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchEntertainmentData() {
-    fetch('http://localhost:8081/entertainment')
+    fetch('http://localhost:9090/entertainment')
     .then(response => response.json())
     .then(data => {
         const tableBody = document.getElementById('entertainmentTableBody');
@@ -34,7 +34,7 @@ function fetchEntertainmentData() {
 }
 
 function editEntertainment(id) {
-    fetch(`http://localhost:8081/entertainment/${id}`)
+    fetch(`http://localhost:9090/entertainment/${id}`)
     .then(response => response.json())
     .then(data => {
         document.getElementById('validationCustom01').value = data.entertainmentTourId;
@@ -53,7 +53,7 @@ function editEntertainment(id) {
 }
 
 function deleteEntertainment(id) {
-    fetch(`http://localhost:8081/entertainment/${id}`, {
+    fetch(`http://localhost:9090/entertainment/${id}`, {
         method: 'DELETE'
     })
     .then(response => {
@@ -79,7 +79,7 @@ function submitEditForm(event) {
     const price = document.getElementById('validationCustom04').value;
     const destination = document.getElementById('validationCustom02').value;
     const description = document.getElementById('validationAge').value;
-    fetch(`http://localhost:8081/entertainment/${id}`)
+    fetch(`http://localhost:9090/entertainment/${id}`)
         .then(response => response.json())
         .then(data => {
             if (parseInt(id) !== data.entertainmentTourId) {
@@ -103,7 +103,7 @@ function submitEditForm(event) {
                 description: description
             };
 
-            fetch(`http://localhost:8081/entertainment/${id}`, {
+            fetch(`http://localhost:9090/entertainment/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
