@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sessionStorage.getItem("role") == "PASSENGER") {
         document.getElementById("flatOwnerSection").style.display = "none";
     }
-    // document.getElementById("accountDetailsTable").addEventListener("DOMContentLoaded", function () {
-    console.log("loaded");
     var ok = false;
     fetch(`http://localhost:9090/api/userData`, {
         method: "POST",
@@ -38,60 +36,62 @@ document.addEventListener("DOMContentLoaded", function () {
                 error
             );
         });
-    // })
-    // document.getElementById("loginForm").addEventListener("submit", function (event) {
-    //     event.preventDefault();
 
-    //     var email = document.getElementById("inputemail").value;
-    //     var hashedPassword = document.getElementById("inputpassword").value;
+    document.getElementById("updateUser").addEventListener("submit", function () {
+        var name = document.getElementById("updateName").value;
+        var email = document.getElementById("updateEmail").value;
+        var nationality = document.getElementById("updateNationality").value;
+        var age = new Date(document.getElementById("updateAge").value);
+        var password = document.getElementById("updatePassword").value;
 
-    //     let loginData = {
-    //         email: email,
-    //         hashedPassword: hashedPassword
-    //     };
+        age = calculateAge(age);
 
-    //     console.log(loginData);
+        const updateData = {
+            name: name,
+            email: email,
+            nationality: nationality,
+            age: age,
+            password: password
+        }
 
-    //     createToken(loginData);
-    // })
+        updateUser(updateData);
+    })
 });
 
-// function createToken(loginData){
-//     fetch(`http://localhost:8088/api/login`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(loginData),
-//     })
-//     .then((response) => {
-//         if (!response.ok) {
-//             alert('Invalid Credentials');
-//             document.getElementById("loginForm").reset();
-//         } else {
-//             ok = true;
-//         }
-//         return response.json();
-//     })
-//     .then((data) => {
-//         console.log(data);
-//         if(ok){
-//             alert('Login Success');
-//             sessionStorage.setItem("accessToken", data[0]);
-//             sessionStorage.setItem("role", data[1]);
+function calculateAge(birthday) {
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
-//             if(data[1] == "ADMIN"){
-//                 window.location.href = "Admin_View/index.html";
-//             }
-//             else{
-//                 window.location.href = "register.html";
-//             }
-//         }
-//     })
-//     .catch((error) => {
-//         console.error(
-//             "There was a problem with the fetch operation:",
-//             error
-//         );
-//     });
-// }
+function updateUser(params) {
+    let ok = false;
+    fetch(`http://localhost:9090/accounts/update`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(params),
+    })
+        .then((response) => {
+            if (!response.ok) {
+                alert('Invalid Credentials');
+            } else {
+                ok = true;
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            if (ok) {
+                alert('Update Successful');
+            }
+        })
+        .catch((error) => {
+            console.error(
+                "There was a problem with the fetch operation:",
+                error
+            );
+        });
+}

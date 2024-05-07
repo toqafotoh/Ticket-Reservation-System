@@ -95,43 +95,32 @@
                     <div class="modal-body">
                       <div class="card col-12">
                         <div class="card-body">
-                          <form class="row g-3 needs-validation" id="InfAdmin1">
+                          <form
+                            class="row g-3 needs-validation"
+                            id="updateUser"
+                          >
                             <div class="mb-3">
                               <label class="small mb-1" for="inputname"
                                 >Name</label
                               >
                               <input
                                 class="form-control"
-                                id="inputname"
+                                id="updateName"
                                 type="text"
-                                placeholder="Enter your name"
+                                placeholder="Update your name"
                               />
                             </div>
 
-                            <div class="row gx-3 mb-3">
-                              <div class="col-md-6">
-                                <label class="small mb-1" for="inputemail"
-                                  >Email</label
-                                >
-                                <input
-                                  class="form-control"
-                                  id="inputemail"
-                                  type="email"
-                                  placeholder="Enter your E-mail"
-                                />
-                              </div>
-
-                              <div class="col-md-6">
-                                <label class="small mb-1" for="inputNID"
-                                  >National Id</label
-                                >
-                                <input
-                                  class="form-control"
-                                  id="inputNID"
-                                  type="text"
-                                  placeholder="Enter your National ID"
-                                />
-                              </div>
+                            <div class="mb-3">
+                              <label class="small mb-1" for="inputemail"
+                                >Email</label
+                              >
+                              <input
+                                class="form-control"
+                                id="updateEmail"
+                                type="email"
+                                placeholder="Update your E-mail"
+                              />
                             </div>
 
                             <div class="row gx-3 mb-3">
@@ -141,100 +130,55 @@
                                 >
                                 <input
                                   class="form-control"
-                                  id="inputNationality"
+                                  id="updateNationality"
                                   type="text"
-                                  placeholder=" Enter Nationality"
-                                />
-                              </div>
-
-                              <div class="col-md-6">
-                                <label class="small mb-1" for="inputgender"
-                                  >Gender</label
-                                >
-                                <input
-                                  class="form-control"
-                                  id="inputgender"
-                                  readonly
+                                  placeholder=" Update Nationality"
                                 />
                               </div>
                             </div>
 
                             <div class="row gx-3 mb-3">
                               <div class="col-md-6">
-                                <label for="dateInput" class="small mb-1"
-                                  >BirthOfDate</label
+                                <label for="updateAge" class="small mb-1"
+                                  >DateOfBirth</label
                                 >
                                 <input
                                   type="date"
                                   class="form-control"
-                                  id="dateInput"
-                                  name="dateInput"
-                                />
-                              </div>
-
-                              <div class="col-md-6">
-                                <label class="small mb-1" for="inputrole"
-                                  >Role</label
-                                >
-                                <input
-                                  class="form-control"
-                                  id="inputrole"
-                                  readonly
+                                  id="updateAge"
+                                  name="updateAge"
                                 />
                               </div>
                             </div>
 
                             <div class="row gx-3 mb-3">
-                              <div class="col-md-6">
-                                <label for="dateInput" class="small mb-1"
-                                  >Old Password</label
-                                >
-                                <input
-                                  type="password"
-                                  class="form-control"
-                                  id="passInput"
-                                  name="passInput"
-                                  placeholder="Enter your Old password"
-                                />
                               </div>
 
                               <div class="col-md-6">
-                                <label class="small mb-1" for="inputnewpass"
+                                <label class="small mb-1" for="updatePassword"
                                   >New password</label
                                 >
                                 <input
                                   class="form-control"
-                                  id="inputnewpass"
+                                  id="updatePassword"
                                   type="password"
                                   placeholder="Enter your New Password"
                                 />
                               </div>
                             </div>
-
-                            <div class="mb-3">
-                              <label class="small mb-1" for="upimage"
-                                >Upload image</label
-                              >
-                              <input
-                                type="file"
-                                class="form-control"
-                                aria-label="file example"
-                                required
-                              />
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button
+                          </div>
+                          <div class="modal-footer">
+                            <button
                             type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"
-                          >
+                            >
                             Close
                           </button>
-                          <button type="button" class="btn btn-primary">
+                          <button type="submit" class="btn btn-primary">
                             Save changes
                           </button>
+                        </form>
                         </div>
                       </div>
                     </div>
@@ -286,29 +230,6 @@
                 </thead>
 
                 <tbody id="flat-table-body">
-                  <tr style="text-align: center">
-                    <td id="name">Michael Johnson</td>
-                    <td id="email">michael.johnson@example.com</td>
-                    <td id="nid">456789123</td>
-                    <td id="nationality">Canadian</td>
-                    <td id="gender">Male</td>
-                    <td id="birthdate">1978-03-12</td>
-                    <td>
-                      <button
-                        type="button"
-                        class="btn btn-outline-info"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        Edit
-                      </button>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-outline-danger">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>

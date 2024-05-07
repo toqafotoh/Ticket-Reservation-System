@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createToken(loginData){
+    let ok = false;
     fetch(`http://localhost:9090/api/login`, {
         method: "POST",
         headers: {

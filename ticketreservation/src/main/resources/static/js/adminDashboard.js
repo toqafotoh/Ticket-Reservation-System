@@ -4,19 +4,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchDashboardData() {
-    fetch('http://localhost:9090/flights/count')
+    fetch('http://localhost:9090/flights/count', {
+        headers: {
+            "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json",
+        },
+    })
         .then(response => response.json())
         .then(data => {
             document.getElementById('flights').textContent = data;
         });
 
-    fetch('http://localhost:9090/payments/total')
+    fetch('http://localhost:9090/payments/total', {
+        headers: {
+            "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json",
+        },
+    })
         .then(response => response.json())
         .then(data => {
             document.getElementById('earning').textContent = '$' + data.toFixed(2);
         });
 
-    fetch('http://localhost:9090/feedback/count')
+    fetch('http://localhost:9090/feedback/count', {
+        headers: {
+            "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json",
+        },
+    })
         .then(response => response.json())
         .then(data => {
             document.getElementById('feedback').textContent = data;
@@ -24,9 +39,15 @@ function fetchDashboardData() {
 }
 
 function fetchUsersData() {
-    fetch('http://localhost:9090/users')
+    fetch('http://localhost:9090/users', {
+        headers: {
+            "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+            "Content-Type": "application/json",
+        },
+    })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const tableBody = document.getElementById('users');
             tableBody.innerHTML = '';
             data.forEach(user => {
@@ -49,7 +70,11 @@ function fetchUsersData() {
                 button.addEventListener('click', function () {
                     const userId = this.closest('tr').getAttribute('data-user-id');
                     fetch(`http://localhost:9090/users/delete/${userId}`, {
-                        method: 'DELETE'
+                        method: 'DELETE',
+                        headers: {
+                            "Authorization": `Bearer ${sessionStorage.getItem("accessToken")}`,
+                            "Content-Type": "application/json",
+                        },
                     })
                         .then(response => {
                             if (response.ok) {

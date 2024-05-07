@@ -19,6 +19,7 @@ import com.project.ticketreservation.models.Passenger;
 import com.project.ticketreservation.models.Account.Role;
 import com.project.ticketreservation.repositories.AccountRepository;
 import com.project.ticketreservation.repositories.PassengerRepository;
+import com.project.ticketreservation.security.PasswordConfig;
 
 @Service
 public class AuthService {
@@ -33,9 +34,12 @@ public class AuthService {
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
+    private PasswordConfig passwordConfig;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public UserDetails signup(SignupBody account) {
+        account.setHashedPassword(passwordConfig.passwordEncoder().encode(account.getHashedPassword()));
         UserDetails newUser = null;
         if (validateEmail(account.getEmail())) {
             if(account.getRole() == Role.ADMIN){

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,27 +13,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ticketreservation.Handler.GlobalExceptionHandler;
+import com.project.ticketreservation.dto.UpdateBody;
 import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.services.AccountService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping
 public class AccountController {
     @Autowired
     private AccountService accountService;
+
     @GetMapping("/users")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Account> getAllUsers(){
         return accountService.getAllUsers();
     }
-    @PutMapping("/accounts/{id}")
-    public ResponseEntity<?> updateAccount(@PathVariable("id") String oldAccountId, @RequestBody @Valid Account newAccountData, BindingResult result) {
-        if (result.hasErrors()) {
-            return GlobalExceptionHandler.handleValidationErrors(result);
-        }
-        Account updatedAccount = accountService.updateAccount(oldAccountId, newAccountData);
+
+    @PutMapping("/accounts/update")
+    public ResponseEntity<?> updateAccount(@RequestBody UpdateBody updatedData) {
+        Account updatedAccount = accountService.updateAccount(updatedData);
         return ResponseEntity.ok().body(updatedAccount);
     }
     @GetMapping("/accounts/{id}")
@@ -42,6 +40,7 @@ public class AccountController {
         return ResponseEntity.ok().body(account);
     }
     @DeleteMapping("/users/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean deleteAccount(@PathVariable String id){
         return accountService.deleteAccount(id);
     }

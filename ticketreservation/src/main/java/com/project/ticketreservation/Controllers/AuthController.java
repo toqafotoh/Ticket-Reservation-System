@@ -28,12 +28,8 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @Autowired
-    private PasswordConfig passwordConfig;
-
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignupBody request) {
-        request.setHashedPassword(passwordConfig.passwordEncoder().encode(request.getHashedPassword()));
         UserDetails newAccount = authService.signup(request);
         if(newAccount == null){
             return ResponseEntity.badRequest().body("Account not Created");

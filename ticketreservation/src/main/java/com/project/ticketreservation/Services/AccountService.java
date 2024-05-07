@@ -5,15 +5,19 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.project.ticketreservation.dto.UpdateBody;
 import com.project.ticketreservation.models.Account;
 // import com.project.ticketreservation.models.Flat;
 // import com.project.ticketreservation.models.FlatOwner;
 import com.project.ticketreservation.repositories.AccountRepository;
+import com.project.ticketreservation.security.PasswordConfig;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -22,36 +26,26 @@ public class AccountService implements UserDetailsService {
 
     @Autowired
     private AccountRepository accountRepository;
+    @Autowired
+    private PasswordConfig passwordConfig;
 
-    public Account updateAccount(String oldAccountId, Account newAccountData) {
-        Account existingAccount = accountRepository.findById(oldAccountId)
-                .orElseThrow(() -> new EntityNotFoundException("Account not found with ID: " + oldAccountId));
+    public Account updateAccount(UpdateBody newAccountData) {
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        validateUpdateAccount(oldAccountId, newAccountData);
+        Account existingAccount = accountRepository.findById(current.getNationalId())
+                .orElseThrow(() -> new EntityNotFoundException("Account not found"));
 
         setAccountProperties(existingAccount, newAccountData);
 
         return accountRepository.save(existingAccount);
     }
 
-    private void setAccountProperties(Account existingAccount, Account newAccountData) {
-        existingAccount.setAge(newAccountData.getAge());
+    private void setAccountProperties(Account existingAccount, UpdateBody newAccountData) {
         existingAccount.setName(newAccountData.getName());
-        existingAccount.setGender(newAccountData.getGender());
         existingAccount.setEmail(newAccountData.getEmail());
         existingAccount.setNationality(newAccountData.getNationality());
-        existingAccount.setNationalId(newAccountData.getNationalId());
-    }
-
-    private void validateUpdateAccount(String oldAccountId, Account newAccountData) {
-        if (!oldAccountId.equals(newAccountData.getNationalId())) {
-            throw new IllegalArgumentException("Cannot change the account ID");
-        }
-        Account existingEmailAccount = accountRepository.findByEmail(newAccountData.getEmail())
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        if (existingEmailAccount != null && !existingEmailAccount.getNationalId().equals(oldAccountId)) {
-            throw new IllegalArgumentException("Email " + newAccountData.getEmail() + " already exists");
-        }
+        existingAccount.setAge(newAccountData.getAge());
+        existingAccount.setHashedPassword(passwordConfig.passwordEncoder().encode(newAccountData.getPassword()));
     }
 
     public boolean deleteAccount(String accountId) {
@@ -64,7 +58,7 @@ public class AccountService implements UserDetailsService {
     }
 
     public List<Account> getAllUsers() {
-        return accountRepository.findByRoleIn(Arrays.asList("passenger", "owner"));
+        return accountRepository.findByRoleIn(Arrays.asList("PASSENGER", "FLATOWNER"));
     }
 
     public Account getAccountById(String accountId) {
