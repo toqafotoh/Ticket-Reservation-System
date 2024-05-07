@@ -25,15 +25,20 @@
         <link rel="stylesheet" href="../templetCssPassenger/css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="../templetCssPassenger/css/style.css" type="text/css">
         <script src="https://kit.fontawesome.com/408f1a0133.js" crossorigin="anonymous"></script>
+        
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
         <script src="../js/flightSearch.js"></script>
         <script src="../js/submitbooking.js"></script>
+        <link rel="stylesheet" href="../css/main.css" />
     </head>
 
     <body>
+        <div id="header"></div>
         <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
@@ -75,28 +80,30 @@
                                 </div>
                                 <div class="check-date">
                                     <label for="date-out">To:</label>
-                                    <input type="text" class="date-input date-out" id="date-out" placeholder="DD-MM-YYYY">
-                                   <!--<i class="icon_calendar"></i>-->
+                                    <input type="text" class="date-input date-out" id="date-out"
+                                        placeholder="DD-MM-YYYY">
+                                    <!--<i class="icon_calendar"></i>-->
                                 </div>
                                 <div class="select-option">
                                     <label for="guest">Ticket Type:</label>
-                                    <select  id="ticket_type" class="flight_type">
+                                    <select id="ticket_type" class="flight_type">
                                         <option value="ow">ow</option>
                                         <option value="rt">rt</option>
                                     </select>
                                 </div>
                                 <div class="select-option">
                                     <label for="guest">Class Type:</label>
-                                    <select  id="class_type" class="class_type">
+                                    <select id="class_type" class="class_type">
                                         <option value="Economy">Economy</option>
                                         <option value="Business">Business</option>
                                     </select>
                                 </div>
                                 <div class="check-date">
                                     <label for="numberofTickets">Seats:</label>
-                                    <input type="text" class="input numberOfSeats" id="numberOfTickets" placeholder="Maximum 5 Seats">
+                                    <input type="text" class="input numberOfSeats" id="numberOfTickets"
+                                        placeholder="Maximum 5 Seats">
                                 </div>
-                                 <button type="submit" id="search-flight">Search</button>
+                                <button type="submit" id="search-flight">Search</button>
                             </form>
                         </div>
                     </div>
@@ -123,13 +130,13 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6">
-                       <a href="ShowAlllFlights.html"> 
-                        <div class="service-item">
-                            <i class="flaticon-036-parking"></i>
-                            <h4>Easy & Fast Booking</h4>
-                            <p>Search, compare and book your tickets at the lowest fares.</p>
-                        </div>
-                       </a>
+                        <a href="ShowAlllFlights.html">
+                            <div class="service-item">
+                                <i class="flaticon-036-parking"></i>
+                                <h4>Easy & Fast Booking</h4>
+                                <p>Search, compare and book your tickets at the lowest fares.</p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-lg-4 col-sm-6">
@@ -139,17 +146,17 @@
                             <p>We’re here to help you, round the clock.</p>
                         </div>
                     </div>
-                       
-                        <div class="col-lg-4 col-sm-6">
-                         <a href="../Entertainment/entertainment.html">
+
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="../Entertainment/entertainment.html">
                             <div class="service-item">
                                 <i class="flaticon-012-cocktail"></i>
                                 <h4>Entertainment</h4>
                                 <p>Explore the nearby sandy beaches, where you can take a refreshing swim, go for a
                                     leisurely stroll.</p>
-                            </div> 
-                         </a>
-                        </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -169,7 +176,8 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="testimonial-slider owl-carousel">
                             <div class="ts-item">
-                                <div class="blog-item set-bg" data-setbg="../templetCssPassenger/img/hero/Cairo-Egypt.png">
+                                <div class="blog-item set-bg"
+                                    data-setbg="../templetCssPassenger/img/hero/Cairo-Egypt.png">
                                     <div class="bi-text">
                                         <span class="b-tag">Egypt, Cairo</span>
                                         <h4><a href="#">Travel Now</a></h4>
@@ -235,7 +243,8 @@
                         </div>
                     </div>
                     <div class="col-lg-8">
-                        <div class="blog-item small-size set-bg" data-setbg="../templetCssPassenger/img/blog/blog-wide.jpg">
+                        <div class="blog-item small-size set-bg"
+                            data-setbg="../templetCssPassenger/img/blog/blog-wide.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Accommodation</span>
                                 <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
@@ -243,7 +252,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="blog-item small-size set-bg" data-setbg="../templetCssPassenger/img/blog/blog-10.jpg">
+                        <div class="blog-item small-size set-bg"
+                            data-setbg="../templetCssPassenger/img/blog/blog-10.jpg">
                             <div class="bi-text">
                                 <span class="b-tag">Travel</span>
                                 <h4><a href="#">Traveling To Barcelona</a></h4>
@@ -253,6 +263,7 @@
                 </div>
             </div>
         </section>
+        <section id="footer"></section>>
         <!-- Blog Section End -->
 
         <!-- Footer Section Begin -->
@@ -268,7 +279,13 @@
         <script src="../templetCssPassenger/js/jquery.slicknav.js"></script>
         <script src="../templetCssPassenger/js/owl.carousel.min.js"></script>
         <script src="../templetCssPassenger/js/main.js"></script>
-
+        <script src="./js/main.js"></script>
+        <script>
+            $(function () {
+                $("#header").load("../fragments/header.html");
+                $("#footer").load("../fragments/footer.html");
+            });
+        </script>
     </body>
 
 </html>
