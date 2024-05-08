@@ -205,9 +205,7 @@
                   <th>Payment ID</th>
                   <th>Origin</th>
                   <th>Destination</th>
-                  <th>Seat</th>
-                  <th>QR Code</th>
-                  <th>Ticket Status</th>
+                  <th>National ID</th>
                 </tr>
               </table>
             </div>
@@ -372,7 +370,62 @@
         $("#header").load("fragments/header.html");
         $("#footer").load("fragments/footer.html");
       });
+
+
+
+      $(document).ready(function() {
+    // Function to fetch flight tickets for a specific national ID
+    function fetchFlightTickets() {
+        fetch('http://localhost:9090/ticket/nid', {
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("accessToken"),
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch national ID');
+                }
+                return response.text();
+            })
+            .then(nationalID => {
+                console.log('National ID:', nationalID);
+                // Call the AJAX function to fetch flight tickets using the retrieved national ID
+                $.ajax({
+                    url: "http://localhost:9090/ticket/all/" + nationalID,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+
+                        // Populate the table with flight ticket data
+                        $.each(data, function(index, ticket) {
+                            var row = '<tr>' +
+                                '<td>' + ticket.flightNumber + '</td>' +
+                                '<td>' + ticket.paymentId + '</td>' +
+                                '<td>' + ticket.origin + '</td>' +
+                                '<td>' + ticket.dest + '</td>' +
+                                '<td>' + ticket.passengerId + '</td>' +
+                                '</tr>';
+                            $('#TicketDetailsTable').find('tbody').append(row);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching flight tickets:", error);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching national ID:', error);
+            });
+    }
+
+    // Call the fetchFlightTickets function to fetch flight tickets
+    fetchFlightTickets();
+});
+
   </script>
   
   </body>
 </html>
+
+

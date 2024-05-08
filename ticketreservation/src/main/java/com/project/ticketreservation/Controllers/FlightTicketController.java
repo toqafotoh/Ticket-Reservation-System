@@ -89,6 +89,26 @@ public class FlightTicketController {
         return fservice.getTicket(nationalID);
     }
 
+    // @GetMapping("/all")
+    // public  List<FlightTicket> callGetFlightTickets()
+    // {
+    //     Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    //     String nationalid = current.getNationalId();
+    //     return getFlightTickets(nationalid);
+    // }
+    @GetMapping("nid") 
+    public String nationalid()
+    {
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String nationalid = current.getNationalId();
+        return nationalid;
+    }
+
+    @GetMapping("/all/{nationalID}")
+    public List<FlightTicket> getFlightTickets(@PathVariable String nationalID) {
+        return fservice.getAllTickets(nationalID);
+    }
+
     @GetMapping("")
     public Flight findFlightparam(@RequestParam("flightNumber") String id) {
         return fs.getFlightById(id); // new

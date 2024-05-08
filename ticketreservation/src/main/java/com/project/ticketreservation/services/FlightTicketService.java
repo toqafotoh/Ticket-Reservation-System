@@ -31,6 +31,12 @@ public class FlightTicketService {
         return true;
     }
 
+    public List<FlightTicket> getAllTickets(String nid) {
+        List<FlightTicket> tickets = Repo.findByPassengerNationalId(nid);
+        return tickets;
+    }
+    
+
     public FlightTicket getTicket(String nid) {
         Optional<FlightTicket> result = Repo.findByNationalID(nid);
         return result.orElse(null);
