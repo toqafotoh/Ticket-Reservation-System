@@ -16,7 +16,6 @@ public class PaymentModel {
     @Column(name = "payment_id")
     private String paymentId; // insertable not incremental
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "passenger_id", insertable = false, updatable = false)
     private Passenger passenger;
