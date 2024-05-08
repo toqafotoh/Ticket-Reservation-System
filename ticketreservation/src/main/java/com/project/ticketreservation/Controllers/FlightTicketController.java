@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.zxing.WriterException;
+import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.Flight;
 import com.project.ticketreservation.models.FlightTicket;
 import com.project.ticketreservation.models.Ticket;
 import com.project.ticketreservation.paypal.PaypalController;
 import com.project.ticketreservation.services.FlightService;
 import com.project.ticketreservation.services.FlightTicketService;
+import com.project.ticketreservation.services.TicketService;
 // import com.project.ticketreservation.services.TicketService;
 import com.project.ticketreservation.utils.TicketQRcodeGenerator;
 
@@ -33,8 +36,8 @@ public class FlightTicketController {
     @Autowired
     private FlightService fs;
 
-    // @Autowired
-    // private TicketService ts;
+    @Autowired
+    private TicketService ts;
 
     @GetMapping("getTickets")
     public ResponseEntity<List<FlightTicket>> getTickets() throws IOException, WriterException {
@@ -63,14 +66,16 @@ public class FlightTicketController {
         FlightTicket t = new FlightTicket(request.get("firstName"),
                 request.get("lastName"), request.get("nationalID"), "GJ78",
                 request.get("flightNumber"), request.get("origin"), request.get("dest"));
-
+       
+         Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 
-        // Ticket ticket = new Ticket(null);
+        //Ticket ticket = new Ticket(null);
+        t.setPassengerId(current.getNationalId());
 
         String qrcode = generate_QRCode(t);
         t.setQRcode(qrcode);
         fservice.addFlightTicket(t);
-        // ts.addTicket(ticket);
+        //ts.addTicket(ticket);
 
     }
 

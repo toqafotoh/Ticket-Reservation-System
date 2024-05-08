@@ -49,9 +49,8 @@
     </div>
    </div> 
 
-    <!--<button id="printB" class="buttoon" onclick="areaPrint()">Print Ticket</button>-->
+    <button id="printB" class="buttoon" onclick="areaPrint()">Print Ticket</button>
 
-    
 </body>
 </html>
 
@@ -98,6 +97,18 @@
     }
     getTicket();
 });
+
+
+ function areaPrint() {
+    const areaToPrint = document.getElementById('ticket');
+  
+      areaToPrint.classList.add('ticket'); 
+      // Adds css class to ticket
+      
+      window.print();
+      // Prints area to which class was assigned only
+   }
+    document.getElementById('printBtn').addEventListener('click', () => { window.print() });
 
 
 </script>

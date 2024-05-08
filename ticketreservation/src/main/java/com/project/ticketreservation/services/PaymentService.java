@@ -3,8 +3,10 @@ package com.project.ticketreservation.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.PaymentModel;
 import com.project.ticketreservation.models.Ticket;
 import com.project.ticketreservation.repositories.FlightTicketRepository;
@@ -37,7 +39,7 @@ public class PaymentService {
     public String setTicketPaymentIDAndprice(String paymentID, Double price) {
         // Get all the tickets with a payment_id of null
         List<Ticket> ticketsWithNullPayment = tr.findBypaymentIdAndPrice(null, null);
-
+        
         // Update the payment_id for each of the tickets
         for (Ticket ticket : ticketsWithNullPayment) {
             ticket.setPaymentId(paymentID);

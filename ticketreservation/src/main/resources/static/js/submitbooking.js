@@ -114,6 +114,51 @@ var dest1;
 
 var buttonEnabled =0 ;
 
+// $(document).ready(function() {
+//     // Attach a single submit event handler to the document
+//     $(document).on('submit', '.ticket-form', function(event) {
+//         event.preventDefault();
+
+//         var url = "http://localhost:9090/ticket/add";
+
+//         // Extract form data for the current form
+//         var formData = {
+//             firstName: $(this).find('.FN').val(),
+//             lastName: $(this).find('.LN').val(),
+//             nationalID: $(this).find('.nid').val(),
+//             flightNumber: flightnum,
+//             origin: origin1,
+//             dest: dest1
+//         };
+//         console.log("Form data:", formData);
+
+//         // Make AJAX request to create a new ticket
+//         $.ajax({
+//             url: url,
+//             type: "POST",
+//             contentType: "application/json",
+//             data: JSON.stringify(formData),
+//             success: function(data) {
+//                 console.log("Ticket created successfully:", data);
+//                 buttonEnabled+=1 ;
+//                 console.log(buttonEnabled);
+//                 console.log(tickets);
+//                 if(buttonEnabled == tickets)
+//                 {
+//                     var $continueCheckoutButton = $('button.continue-checkout');
+//                     $continueCheckoutButton.prop('disabled', false);
+//                 }
+//                 // You can handle success if needed
+//             },
+//             error: function(xhr, status, error) {
+//                 console.log("Error creating ticket for form:", formData);
+//                 console.error("Error:", error);
+//             }
+//         });
+//     });
+// });
+
+
 $(document).ready(function() {
     // Attach a single submit event handler to the document
     $(document).on('submit', '.ticket-form', function(event) {
@@ -136,7 +181,10 @@ $(document).ready(function() {
         $.ajax({
             url: url,
             type: "POST",
-            contentType: "application/json",
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("accessToken"),
+                "Content-Type": "application/json"
+            },
             data: JSON.stringify(formData),
             success: function(data) {
                 console.log("Ticket created successfully:", data);
@@ -157,5 +205,7 @@ $(document).ready(function() {
         });
     });
 });
+
+
 
 
