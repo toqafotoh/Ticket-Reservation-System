@@ -72,7 +72,7 @@ public class AuthService {
         }
 
         String token = jwtService.generateToken(account);
-        return new String[] {token, jwtService.extractRole(token)};
+        return new String[] {token, jwtService.extractRole(token), jwtService.extractName(token)};
     }
 
     private boolean validateEmail(String email) {

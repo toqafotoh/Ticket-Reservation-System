@@ -42,11 +42,11 @@ public class FlightTicketController {
     @GetMapping("getTickets")
     public ResponseEntity<List<FlightTicket>> getTickets() throws IOException, WriterException {
         List<FlightTicket> tickets = fservice.getTickets();
-        if (!tickets.isEmpty()) {
-            for (FlightTicket t : tickets) {
-                TicketQRcodeGenerator.generateQRcode(t);
-            }
-        }
+        // if (!tickets.isEmpty()) {
+        //     // for (FlightTicket t : tickets) {
+        //     //     //TicketQRcodeGenerator.generateQRcode(t);
+        //     // }
+        // }
         return ResponseEntity.ok(fservice.getTickets());
     }
 
@@ -72,8 +72,9 @@ public class FlightTicketController {
         //Ticket ticket = new Ticket(null);
         t.setPassengerId(current.getNationalId());
 
-        String qrcode = generate_QRCode(t);
-        t.setQRcode(qrcode);
+        //String qrcode = generate_QRCode(t);
+       
+       // t.setQRcode(qrcode);
         fservice.addFlightTicket(t);
         //ts.addTicket(ticket);
 

@@ -33,6 +33,9 @@
                 class="form-control"
                 id="inputname"
                 type="text"
+                minlength="3"
+                maxlength="19"
+                required
                 placeholder="Enter your name"
               />
             </div>
@@ -44,6 +47,7 @@
                   class="form-control"
                   id="inputemail"
                   type="email"
+                  required
                   placeholder="Enter your E-mail"
                 />
               </div>
@@ -53,6 +57,9 @@
                 <input
                   class="form-control"
                   id="inputNID"
+                  minlength="15"
+                  required
+                  maxlength="30"
                   type="text"
                   placeholder="Enter your National ID"
                 />
@@ -68,17 +75,22 @@
                   class="form-control"
                   id="inputNationality"
                   type="text"
+                  minlength="5"
+                  maxlength="10"
+                  required
                   placeholder=" Enter Nationality"
                 />
               </div>
               <div class="col-md-6">
-                <label class="small mb-1" for="inputNumber"
-                  >Phone Number</label
-                >
+                <label class="small mb-1" for="inputNumber">Phone Number</label>
                 <input
+                  min="0"
                   class="form-control"
                   id="inputNumber"
                   type="number"
+                  maxlength="15"
+                  minlength="12"
+                  required
                   placeholder=" Enter Phone Number"
                 />
               </div>
@@ -90,13 +102,18 @@
                     class="form-control"
                     id="dateInput"
                     name="dateInput"
+                    required
                   />
                 </div>
               </div>
 
               <div class="col-md-3">
                 <label class="small mb-1" for="inputgender">Gender</label>
-                <select class="form-control custom-select" id="inputgender">
+                <select
+                  class="form-control custom-select"
+                  id="inputgender"
+                  required
+                >
                   <option value="MALE">Male</option>
                   <option value="FEMALE">Female</option>
                 </select>
@@ -106,7 +123,11 @@
             <div class="row gx-3 mb-3">
               <div class="col-md-3">
                 <label class="small mb-1" for="inputrole">Role</label>
-                <select class="form-control custom-select" id="inputrole">
+                <select
+                  class="form-control custom-select"
+                  id="inputrole"
+                  required
+                >
                   <option value="PASSENGER">Passenger</option>
                   <option value="FLATOWNER">Flat Owner</option>
                 </select>
@@ -117,20 +138,35 @@
               <div class="col-md-6">
                 <label class="small mb-1" for="inputpassword">Password</label>
                 <input
+                  required
                   class="form-control"
                   id="inputpassword"
                   type="password"
+                  minlength="8"
+                  maxlength="30"
                   placeholder="Enter your New Password"
                 />
               </div>
             </div>
             <div class="input-group">
-              <button class="btn btn-primary" type="submit">SignUp</button>
+              <button class="btn btn-primary" onclick="date()" type="submit">
+                SignUp
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
     <div id="footer"></div>
+
+    <script>
+      const x = document.querySelector("#dateInput");
+
+      function date() {
+        if (x.value > Date()) {
+          alert("Date must be not today");
+        }
+      }
+    </script>
   </body>
 </html>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.ticketreservation.models.Account;
 import com.project.ticketreservation.models.Feedback;
 import com.project.ticketreservation.services.FeedbackService;
 
@@ -38,8 +40,8 @@ public class FeedbackController {
     public Feedback createFeedback(@RequestBody Map<String, Object> feedbackMap) {
         String content = (String) feedbackMap.get("content");
         Integer rate = (Integer) feedbackMap.get("rate");
-        String passengerId = (String) feedbackMap.get("passenger_id");
-        Feedback feedback = new Feedback(content,rate,passengerId);
+        Account current = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Feedback feedback = new Feedback(content,rate,current.getNationalId());
         return(feedbackService.addFeedback(feedback));
     }
 

@@ -1,29 +1,98 @@
-  <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container d-flex justify-content-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">travelism@org.com</a>
-        <i class="bi bi-phone"></i> 07775000
-      </div>
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+  <div class="container d-flex justify-content-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope"></i>
+      <a href="mailto:contact@example.com">travelism@org.com</a>
+      <i class="bi bi-phone"></i> 07775000
     </div>
   </div>
+</div>
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-      <h1 class="logo me-auto"><a href="index.html">Travelism</a></h1>
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto" href="\src\main\resources\static\Passenger\home.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="\src\main\resources\static\flat\index.html">Flats</a></li>
-          <li><a class="nav-link scrollto" href="\src\main\resources\static\Entertainment\entertainment.html">Entertainment</a></li>
-          <li><a class="nav-link scrollto" href="\src\main\resources\static\profile_user.html">Profile</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
+          const tableBody = document.querySelector("#login-btn");
+          const row = document.createElement('div');
+          row.innerHTML = ``;
+          tableBody.appendChild(row);
 
-      <a href="\src\main\resources\static\login.html" class="appointment-btn"><span>Login</a>
-      <!-- Type Welcome for user after logging in  -->
-
+    });
+  </script> -->
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+    <h1 class="logo me-auto">Travelism</h1>
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li>
+          <a
+            class="nav-link scrollto"
+            href="\src\main\resources\static\Passenger\home.html"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link scrollto"
+            href="\src\main\resources\static\flat\index.html"
+            >Flats</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link scrollto"
+            href="\src\main\resources\static\Entertainment\entertainment.html"
+            >Entertainment</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link scrollto"
+            href="\src\main\resources\static\profile_user.html"
+            >Profile</a
+          >
+        </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <div id="login-btn">
+      <a
+        href="\src\main\resources\static\login.html"
+        class="appointment-btn"
+        id="username-field"
+        ><span>
+          <script>
+            const span = document.createElement("span");
+            span.innerHTML = "Login";
+            if (sessionStorage.getItem("name")) {
+              span.innerHTML = sessionStorage.getItem("name");
+              document.querySelector("#username-field").removeAttribute("href");
+            }
+            document.querySelector("#username-field").appendChild(span);
+          </script>
+        </span></a
+      >
     </div>
-  </header>
+
+    <div id="logout-btn" onclick="log()">
+      <a
+        href="\src\main\resources\static\login.html"
+        class="appointment-btn"
+        id="logout-field"
+        ><span>
+          <script>
+            const span1 = document.createElement("span");
+            span1.innerHTML = "Logout";
+            document.querySelector("#logout-field").appendChild(span1);
+            function log() {
+              sessionStorage.clear();
+              window.location.reload();
+            }
+          </script>
+        </span></a
+      >
+    </div>
+
+    <!-- Type Welcome for user after logging in  -->
+  </div>
+</header>

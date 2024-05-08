@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <script src="../js/showAllFlights.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -27,7 +26,7 @@
         content: "";
         background-color: black;
     }
-
+    
     .line::before{
         position: absolute;
         width: 80px;
@@ -47,14 +46,14 @@
         background-color: black;
     } */
 
-
     
-</style>
+    
+    </style>
 <body>
     
-
+    
     <div id="header"></div>
-
+    
     <section style="padding: 100px 0px;">
         <div class="d-flex" style="align-items: center;">
             <div class="col-3">
@@ -69,7 +68,7 @@
                 </div>
                 <!-- For loop for this div -->
                 <!-- Conditional Rendering for 1 way and roundTrip  -->
-
+                
                 <!-- round Trip  -->
                 <div class="col-12 card mt-4 flight" id="removedflight">
                     <div class="row">
@@ -136,36 +135,36 @@
                             </div>
                             <p style="margin-top: 10px;" class="price"></p>
                             <div style="margin-top: 10px;">
-                               <a id="flightChoice"> 
-                                <button class="btn btn-warning col-10" style="padding: 2px;">Book Now</button>
-                               </a> 
+                                <a id="flightChoice"> 
+                                    <button class="btn btn-warning col-10" style="padding: 2px;">Book Now</button>
+                                </a> 
                             </div>
                         </div>
                     </div>
                 </div>
-<!--                 
-                 Oneway 
-                <div class="col-12 card mt-4 removedRTflight">
-                    <div class="row" style="align-items: center;">
-                        <div class="col-9" style="padding: 10px 20px;">
-                            <div class="d-flex" >
-                                <div class="col-3 text-center" style="align-items: center;">
-                                    <div>
-                                        <p style="font-size: 14px;" class="airline"></p>
+                <!--                 
+                    Oneway 
+                    <div class="col-12 card mt-4 removedRTflight">
+                        <div class="row" style="align-items: center;">
+                            <div class="col-9" style="padding: 10px 20px;">
+                                <div class="d-flex" >
+                                    <div class="col-3 text-center" style="align-items: center;">
+                                        <div>
+                                            <p style="font-size: 14px;" class="airline"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 text-center" >
-                                    <div class="d-flex">
-                                        <div class="col-3">
-                                            <p id="flightStartTime"></p>
-                                        </div>
-                                        <div class="col-6 non" >
-                                            <div class="lineOneWay">
-                                                <p style="margin-top: 30px;" class="text-center"  >nonstop</p>
+                                    <div class="col-6 text-center" >
+                                        <div class="d-flex">
+                                            <div class="col-3">
+                                                <p id="flightStartTime"></p>
                                             </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <p class="flightEndTime"></p>
+                                            <div class="col-6 non" >
+                                                <div class="lineOneWay">
+                                                    <p style="margin-top: 30px;" class="text-center"  >nonstop</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <p class="flightEndTime"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -188,48 +187,49 @@
                 </div>
   
             </div> 
-             -->
-            <div class="col-3">
+        -->
+        <div class="col-3">
                 <div style="padding: 50px;">
                     <img src="../img/constructions-1.jpg" class="img-fluid" alt="">
                 </div>
             </div>
-
-
+            
+            
         </div>
-    
-    
+        
+        
     </section>
+    
 
 
-
-
-
+    
+    
     <div id="footer"></div>
-
-
-    <script src="../../static/js/jquery-3.7.1.min.js"></script>
+    
+    
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script>
-            $(function () {
-      $("#header").load("../fragments/header.html");
-      $("#footer").load("../fragments/footer.html");
-    });
-    </script>
+        $(function () {
+            $("#header").load("../fragments/header.html");
+            $("#footer").load("../fragments/footer.html");
+        });
+        </script>
+        <script src="../js/showAllFlights.js"></script>
 </body>
 </html>
 
 <style>
-
-.origin , .destination{
-    font-size: 18px;
-    font-weight: bold;
-    color: red;
-}   
-.destination{
-    margin-left: 30px;
-}
-.flightStartTime , .flightEndTime {
-    font-size: 15px;
+    
+    .origin , .destination{
+        font-size: 18px;
+        font-weight: bold;
+        color: red;
+    }   
+    .destination{
+        margin-left: 30px;
+    }
+    .flightStartTime , .flightEndTime {
+        font-size: 15px;
     font-weight: bold;
     color: rgb(19, 59, 96);
 }

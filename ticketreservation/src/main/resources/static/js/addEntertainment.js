@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        
+
         const entertainment = {
             description: form.querySelector('#validationCustom02').value,
             datetime: form.querySelector('#dateInput').value + 'T' + form.querySelector('#time').value,
